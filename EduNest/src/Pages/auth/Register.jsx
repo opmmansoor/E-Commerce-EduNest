@@ -35,13 +35,13 @@ function Register() {
 
   return (
 
-    <div className='min-h-screen bg-[#7678ED] flex item-center justify-center px-4 py-8'>
+    <div className='min-h-screen bg-[#7678ED] flex items-center justify-center px-4 py-8'>
 
      {/* Card */}
      <div className='w-full max-w-md bg-white rounded-2xl shadow-2xl p-8'>
       
       <div className='text-center mb-6'>  
-        <h1 className='text-3x1 font-bold text-[#7678ED]'>
+        <h1 className="text-3xl font-bold text-[#7678ED]">
             Register Now!
         </h1>
         <p className='text-gray-500 mt-2'>
