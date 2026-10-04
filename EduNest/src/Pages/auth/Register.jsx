@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Register() {
+
+    const navigate = useNavigate();
 
 // Form state
     const [formData,setFormData] = useState({
@@ -22,7 +26,7 @@ function Register() {
     };
 
 // Handle form submit
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
 
         if(formData.password !== formData.Cpassword){
@@ -30,7 +34,39 @@ function Register() {
             return;
         }
 
-        console.log("Register Data:", formData)
+        try{
+            //email already exists
+            const response =await axios.get("http://localhost:5001/users")
+
+            const existingUser = response.data.find(
+                (user) => user.email === formData.email
+            )
+
+            if(existingUser) {
+                alert("Email already exists")
+                return
+            }
+// Create new user
+            const newUser = {
+                firstName: formData.firstName,
+                secondName: formData.secondName,
+                email: formData.email,
+                password: formData.password
+            }
+
+// POST user to JSON Server
+            await axios.post("http://localhost:5001/users", newUser)
+
+            alert("Registration successful!")
+
+            // Go to login page
+        navigate("/login");
+
+        }catch (error){
+            console.error("Registration Error:", error)
+
+            alert("Registration failed. Check JSON Server.")
+        }
     }
 
   return (
@@ -126,9 +162,10 @@ function Register() {
                 <p className='text-gray-500 text-sm'>
                     Already have an account?{" "}
 
-                    <span className='text-[#7678ED] font-semibold cursor-pointer hover:text-[#F35B04]'>
+                    <Link to="/login" 
+                          className='text-[#7678ED] font-semibold cursor-pointer hover:text-[#F35B04]'>
                         Login
-                    </span>
+                    </Link>
                 </p>
             </div>
      </div> 

@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 function Login() {
+
+    const navigate = useNavigate();
 
 // Form state
     const [formData,setFormData] = useState({
@@ -11,7 +16,7 @@ function Login() {
 // Error message 
     const [error, setError] = useState("");    
 
-    // Handle input changes
+// Handle input changes
     const handleChange = (e) => {
         const { name,value } = e.target;
 
@@ -24,23 +29,42 @@ function Login() {
     };
 
 // Handle login
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(
-            formData.email === "test@gmail.com" &&
-            formData.password === "123456"
-        ){
-            alert("Login successful!")
+        try {
+// Get all users from JSON Server 
+            const response = await axios.get( "http://localhost:5001/users" )
 
-            console.log("Login Data:",formData);
-        }else{
-            setError("Invalid email or password")
+            const users = response.data
+
+            const user = users.find(
+                (user) => 
+                    user.email === formData.email &&
+                user.password === formData.password
+            )
+
+            if (user) {
+                alert ("Login successful!")
+
+                console.log("Logged in user:", user);
+// Navigate to home 
+                navigate("/home")
+            }else{
+
+                setError("Invalid email or password")
+            }
+        } catch (error) {
+
+            console.error("Login Error:", error);
+
+            setError("Unable to connect to server. Please start JSON Server.")
+            
         }    
     };
 
   return (
-    <div className='min-h-screen bg-[#7678ED] flex item-center justify-center px-4 py-8'>
+    <div className='min-h-screen bg-[#7678ED] flex items-center justify-center px-4 py-8'>
       
 {/* Login Card */} 
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8"> 
@@ -78,7 +102,7 @@ function Login() {
                 Password
             </label>
 
-            <input type="text"
+            <input type="password"
                    name='password'
                    value={formData.password}
                    onChange={handleChange}
@@ -109,9 +133,10 @@ function Login() {
             <p className='text-gray-500 text-sm'>
                 Don't have an account?{" "}
 
-                <span className='text-[#7678ED] font-semibold cursor-pointer hover:text-[#F35B04]'>
+                <Link to="/register" 
+                      className='text-[#7678ED] font-semibold cursor-pointer hover:text-[#F35B04]'>
                     Register
-                </span>
+                </Link>
             </p>
         </div>
 
