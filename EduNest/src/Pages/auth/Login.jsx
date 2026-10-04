@@ -54,23 +54,26 @@ function Login() {
         </p> 
       </div>
 
-      <div>
+      
         <form onSubmit={handleSubmit} 
               className='space-y-5'>
+          <div>
             <label className='block text-sm font-medium text-gray-700 mb-1'>
                 E-Mail
             </label>
-
+          
             <input type="text"
                    name='email'
                    value={formData.email}
                    onChange={handleChange}
                    placeholder='Enter E-Mail Address'
                    required 
-                   className='w-full px-4 py-3 border border-gray-300 rounded lg outline-none
+                   className='w-full px-4 py-3 border border-gray-300 rounded-lg outline-none
                              focus:border-[#7678ED] focus:ring-2 focus:ring-[#7678ED]/20
                              transition'/>
+          </div>
 
+          <div>
             <label className='block text-sm font-medium text-gray-700 mb-1'>
                 Password
             </label>
@@ -81,9 +84,10 @@ function Login() {
                    onChange={handleChange}
                    placeholder='Enter Password'
                    required 
-                   className='w-full px-4 py-3 border border-gray-300 rounded lg outline-none
+                   className='w-full px-4 py-3 border border-gray-300 rounded-lg outline-none
                              focus:border-[#7678ED] focus:ring-2 focus:ring-[#7678ED]/20
                              transition'/>
+          </div>
 
 {/* Error */}
             {error && (
@@ -111,8 +115,6 @@ function Login() {
             </p>
         </div>
 
-
-       </div>
       </div>
     </div>
   )
