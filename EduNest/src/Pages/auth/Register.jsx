@@ -34,6 +34,18 @@ function Register() {
             return;
         }
 
+        //Save user information
+        localStorage.setItem(
+            "user",
+            JSON.stringify({
+                firstName: formData.firstName,
+                secondName: formData.secondName,
+                email: formData.email,
+            })
+        )
+        // Go to Login
+        navigate("/login")
+
         try{
             //email already exists
             const response =await axios.get("http://localhost:5001/users")
