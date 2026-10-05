@@ -13,6 +13,13 @@
       "email": "user@gmail.com",
       "password": "1234",
       "id": "2QAKtT2YD-8"
+    },
+    {
+      "firstName": "Abu",
+      "secondName": "Man",
+      "email": "man@gmail.com",
+      "password": "1234",
+      "id": "1OLaV-8xNI8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

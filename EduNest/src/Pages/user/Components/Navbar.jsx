@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 
 function Navbar() {
     const navigate = useNavigate();
@@ -14,27 +14,65 @@ function Navbar() {
 
 // Go to Login page
         navigate("/login")        
-    }
+    };
 
   return (
-    <div>
-      <nav className='bg-[#7678ED] text-white px-6 py-4 shadow-md'>
-        <div className='max-w-7xl mx-auto flex items-center justify-between'>
-            <h1 className='text-2xl font-bold'>
+    
+      <nav className='bg-[#3D348B] text-white shadow-lg'>
+        <div className='max-w-7xl mx-auto px-6 py-4'>
+          <div className='flex items-center justify-between'>
+
+            <h1 className='text-2xl font-bold tracking-wide'>
                 EduNest
             </h1>
+
+          <div className='hidde md:flex items-center gap-8 font-semibold'>
+            <Link to="/home"
+                  className='relative py-2 transition duration-200 hover:text-[#F7B801]
+                             after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
+                             after:bg-[#F7B801] after:transition-all hover:after:w-full'
+                             >
+                Home
+            </Link>
+            <Link to='/products'
+                  className='relative py-2 transition duration-200 hover:text-[#F7B801]
+                            after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+                            after:bg-[#F7B801] after:transition-all hover:after:w-full'>
+                Product
+            </Link>
+            <Link to='/about'
+                  className='relative py-2 transition duration-200 hover:text-[#F7B801]
+                            after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+                            after:bg-[#F7B801] after:transition-all hover:after:w-full'>
+                About
+            </Link>
+            <Link to='/cart'
+                  className='relative flex items-center gap-2 py-2 transition duration-200 
+                             hover:text-[#F7B801]'>
+                Cart
+
+                <span className='absolute -top-2 -right-4 bg-[#F7B801] text-[#3D348B]
+                                 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
+                    0
+                </span>
+            </Link>
+
+          </div>
             <div className='relative'>
                 <button onClick={() => setIsProfileOpen(!isProfileOpen)}
-                        className='w-11 h-11 rounded-full bg-white text-[#7678ED]
-                        flex items-center justify-center hover:bg-gray-100 transition'>
+                        className='w-11 h-11 rounded-full bg-[#F7B801] text-[#3D348B]
+                        flex items-center justify-center hover:bg-[#F18701] hover:text-white
+                         transition duration-200 shadow-md'>
+                    
                     <svg xmlns='http://www.w3.org/2000/svg'
                          fill='none'
                          viewBox= '0 0 24 24'
                          strokeWidth='2'
                          stroke='currentColor'
                          className='w-6 h-6'>
-                        <path strokeLinecap='rounded'
-                              strokeLinejoin='rounded'
+                        
+                        <path strokeLinecap='round'
+                              strokeLinejoin='round'
                               d='M15.75 6a3.75 3.75 0 1 1-7.5 0
                               3.75 3.75 0 0 1 7.5 0ZM4.5
                               20.118a7.5 7.5 0 0 1 15 0A17.933
@@ -47,12 +85,12 @@ function Navbar() {
                     <div className='absolute right-0 mt-3 w-72 bg-white text-gray-800 rounded-xl shadow-2xl
                                     border border-gray-100 overflow-hidden z-50'>
 
-                      <div className='bg-[#3d348b] text-white px-5 py-5'>
+                      <div className='bg-[#7678ED] text-white px-5 py-5'>
                         <div className='flex items-center gap-3'>
 
-                            <div className='w-12 h-12 rounded-full bg-white text-[#7678ED]
+                            <div className='w-12 h-12 rounded-full bg-[#F7B801] text-[#3D348B]
                                             flex items-center justify-center font-bold text-lg'>
-                                {user?.firstName.charAt(0)?.toUpperCase() || "U"}
+                                {user?.firstName?.charAt(0)?.toUpperCase() || "U"}
                             </div>
 
                             <div>
@@ -67,24 +105,24 @@ function Navbar() {
                         </div>
                       </div>
 
-                      <div className='px5 py-4 space-y-4'>
+                      <div className='px-5 py-4 space-y-4'>
                         <div>
-                            <p className='text-xs text-gray-400 uppercase'>
+                            <p className='text-xs text-gray-400 uppercase tracking-wide'>
                                 Name
                             </p>
 
-                            <p className='font-semibold text-gray-800'>
+                            <p className='font-semibold text-[#3D348B]'>
                                 {user?.firstName || "First"}{" "}
                                 {user?.secondName || "Name"}
                             </p>
                         </div>
 
                         <div>
-                            <p className='text-xs text-gray-400 uppercase'>
+                            <p className='text-xs text-gray-400 uppercase tracking-wide'>
                                 Email
                             </p>
 
-                            <p className='text-sm text-gray-600 break-all'>
+                            <p className='font-semibold text-[#3D348B] break-all'>
                                 {user?.email || "example@gmail.com"}
                             </p>
                         </div>
@@ -95,13 +133,15 @@ function Navbar() {
                         <button onClick={handleLogout}
                                 className='w-full flex items-center justify-center gap-2
                                            bg-[#F35B04] text-white font-semibold py-3 rounded-lg
-                                           hover: bg-[#d94f03] transition duration-200'>
+                                           hover:bg-[#F18701] transition duration-200'>
+
                             <svg xmlns='http://www.w3.org/2000/svg'
                                  fill='none'
                                  viewBox='0 0 24 24'
                                  strokeWidth="2"
                                  stroke='currentcolor'
                                  className='w-5 h-5'>
+
                                 <path strokeLinecap='round'
                                       strokeLinejoin='round'
                                       d="M15.75 9V5.25A2.25 2.25
@@ -118,9 +158,9 @@ function Navbar() {
                     </div>
                 )}
             </div>
+           </div> 
         </div>
       </nav>
-    </div>
   )
 }
 

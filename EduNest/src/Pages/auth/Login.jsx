@@ -45,8 +45,17 @@ function Login() {
             )
 
             if (user) {
+// Save logged-in user
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify({
+                        id:user.id,
+                        firstName: user.firstName,
+                        secondName: user.secondName,
+                        email: user.email,
+                    })
+                )                
                 alert ("Login successful!")
-
                 console.log("Logged in user:", user);
 // Navigate to home 
                 navigate("/home")
