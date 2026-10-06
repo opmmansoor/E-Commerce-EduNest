@@ -19,14 +19,25 @@ function Navbar() {
   return (
     
       <nav className='bg-[#3D348B] text-white shadow-lg'>
-        <div className='max-w-7xl mx-auto px-6 py-4'>
-          <div className='flex items-center justify-between'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='h-20 flex items-center justify-between'>
+            
+            <Link to='/home'
+                  className='flex items-center gap-2 group'>
+              
+                <img src='/image/log.png' alt="log" 
+                     className='w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white object-contain p-1 shadow-md 
+                                group-hover:scale-105 transition duration-200'/>
+                <img src="/image/EduNest.png" alt="EduNest Name"
+                     className='w-32 sm:w-40 h-auto object-contain rounded bg-white object-contain p-1 shadow-md
+                                group-hover:scale-105 transition duration-200' />
+                {/* <span className='text-white'>Edu</span>
+                <span className='text-[#F7B801]'>Nest</span> */}
+              
+            </Link>
+            
 
-            <h1 className='text-2xl font-bold tracking-wide'>
-                EduNest
-            </h1>
-
-          <div className='hidde md:flex items-center gap-8 font-semibold'>
+          <div className='hidden md:flex items-center gap-8 font-semibold'>
             <Link to="/home"
                   className='relative py-2 transition duration-200 hover:text-[#F7B801]
                              after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
