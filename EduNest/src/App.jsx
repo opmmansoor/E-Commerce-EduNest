@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 
 import Register from './Pages/auth/Register'
 import Login from './Pages/auth/Login'
-import Home from './Pages/user/Home'
+import Home from './Pages/user/Components/Home'
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import React from 'react'
-import Navbar from './Components/Navbar'
+import Navbar from './Navbar'
+import Hero from './Hero'
 
 
 function Home() {
@@ -7,11 +8,12 @@ function Home() {
     
 
   return (
-    <div>
+    <div className='min-h-screen bg-gray-50'>
         <Navbar/>
+        <Hero/>
 
-        <main>
-            <div className='flex py-2 px-5 justify-between'>
+        <section className='relative overflow-hidden bg-[#3D348B]'>
+            <div className='max-w-7xl mx-auto px-6 py-16 lg:py-20'>
                 <span>
                     <img  className='w-100'
                           src='/image/LOGO.png' alt="LOGO" />
@@ -23,6 +25,7 @@ function Home() {
                     Everything you need for your school studies.
                 </p>
             </div>
+        </section>
             <img src="/image/BG-1.jpg" alt="bg" 
                          className='w-full'/>
 
@@ -55,7 +58,7 @@ function Home() {
                 </div>
                 
             </div>
-        </main>
+        
     </div>
   )
 }

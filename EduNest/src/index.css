@@ -2,6 +2,6 @@
 
 @import "tailwindcss";
 
-@theme{
-  --font-poppins: "poppins";
+body {
+  font-family:'poppins',sans-serif;
 }
