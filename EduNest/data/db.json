@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "firstName": "MANSOOR",
+      "secondName": "PALLIKKAL",
+      "email": "opm@gmail.com",
+      "password": "123456",
+      "id": "qM0F5p-W11Q"
+    },
+    {
+      "firstName": "user",
+      "secondName": "one",
+      "email": "user@gmail.com",
+      "password": "1234",
+      "id": "2QAKtT2YD-8"
+    },
+    {
+      "firstName": "Abu",
+      "secondName": "Man",
+      "email": "man@gmail.com",
+      "password": "1234",
+      "id": "1OLaV-8xNI8"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Premium School Notebook",
+      "category": "Stationery",
+      "description": "High-quality ruled notebook for school students.",
+      "price": 80,
+      "oldPrice": 100,
+      "discount": 20,
+      "stock": 50,
+      "rating": 4.5,
+      "image": "/Products/NoteBook1"
+    },
+    {
+      "id": "2",
+      "name": "Mathematics Guide",
+      "category": "Books",
+      "description": "Easy-to-understand mathematics guide for school students.",
+      "price": 299,
+      "oldPrice": 350,
+      "discount": 15,
+      "stock": 30,
+      "rating": 4.7,
+      "image": "/image/products/math-guide.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Geometry Box",
+      "category": "Stationery",
+      "description": "Complete geometry box with essential mathematical instruments.",
+      "price": 149,
+      "oldPrice": 180,
+      "discount": 17,
+      "stock": 45,
+      "rating": 4.6,
+      "image": "/image/products/geometry-box.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Premium Ball Pen Set",
+      "category": "Stationery",
+      "description": "Smooth-writing ball pens suitable for everyday school use.",
+      "price": 120,
+      "oldPrice": 150,
+      "discount": 20,
+      "stock": 100,
+      "rating": 4.5,
+      "image": "/image/products/pen-set.jpg"
+    },
+    {
+      "id": "5",
+      "name": "HB Pencil Set",
+      "category": "Stationery",
+      "description": "Premium HB pencils for writing, drawing and school work.",
+      "price": 60,
+      "oldPrice": 75,
+      "discount": 20,
+      "stock": 120,
+      "rating": 4.4,
+      "image": "/image/products/pencil-set.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Student Study Diary",
+      "category": "Study Materials",
+      "description": "Daily planner and study diary to organize school activities.",
+      "price": 199,
+      "oldPrice": 249,
+      "discount": 20,
+      "stock": 40,
+      "rating": 4.8,
+      "image": "/image/products/study-diary.jpg"
+    },
+    {
+      "id": "7",
+      "name": "School Backpack",
+      "category": "School Essentials",
+      "description": "Comfortable and durable backpack designed for students.",
+      "price": 799,
+      "oldPrice": 999,
+      "discount": 20,
+      "stock": 25,
+      "rating": 4.7,
+      "image": "/image/products/backpack.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Color Pencil Set",
+      "category": "Stationery",
+      "description": "Bright and smooth color pencils for creative school projects.",
+      "price": 180,
+      "oldPrice": 220,
+      "discount": 18,
+      "stock": 60,
+      "rating": 4.6,
+      "image": "/image/products/color-pencil.jpg"
+    },
+    {
+      "id": "9",
+      "name": "English Grammar Book",
+      "category": "Books",
+      "description": "Simple English grammar book for school-level learners.",
+      "price": 249,
+      "oldPrice": 299,
+      "discount": 17,
+      "stock": 35,
+      "rating": 4.5,
+      "image": "/image/products/grammar-book.jpg"
+    },
+    {
+      "id": "10",
+      "name": "A4 Drawing Book",
+      "category": "Study Materials",
+      "description": "Premium quality drawing book for school art activities.",
+      "price": 99,
+      "oldPrice": 120,
+      "discount": 18,
+      "stock": 70,
+      "rating": 4.4,
+      "image": "/image/products/drawing-book.jpg"
+    }
+  ]
+  "$schema": "./node_modules/json-server/schema.json"
+}
