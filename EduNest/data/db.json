@@ -15,11 +15,18 @@
       "id": "2QAKtT2YD-8"
     },
     {
-      "firstName": "Abu",
-      "secondName": "Man",
-      "email": "man@gmail.com",
+      "firstName": "one",
+      "secondName": "man",
+      "email": "one@gmail.com",
       "password": "1234",
-      "id": "1OLaV-8xNI8"
+      "id": "kJvlOcEC_48"
+    },
+    {
+      "firstName": "aja",
+      "secondName": "ntha",
+      "email": "aja@gmail.com",
+      "password": "aja1234",
+      "id": "Z60aHPQgokc"
     }
   ],
   "products": [
@@ -142,7 +149,40 @@
       "stock": 70,
       "rating": 4.4,
       "image": "/image/products/drawing-book.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Premium Notebook",
+      "category": "Notebooks",
+      "price": 299,
+      "stock": 25,
+      "image": "/images/notebook.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Premium Gel Pen Set",
+      "category": "Pens & Pencils",
+      "price": 149,
+      "stock": 50,
+      "image": "/images/pen.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Geometry Instrument Box",
+      "category": "Instrument Box",
+      "price": 249,
+      "stock": 15,
+      "image": "/images/instrument-box.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Student Daily Diary",
+      "category": "Diaries",
+      "price": 199,
+      "stock": 30,
+      "image": "/images/diary.jpg"
     }
-  ]
+  ],
+  "orders": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

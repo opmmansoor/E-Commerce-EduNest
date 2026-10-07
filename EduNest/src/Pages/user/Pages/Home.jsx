@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Hero from "./Hero";
-import ProductCard from "./ProductCard";
+import Hero from "../Components/Hero";
+import ProductCard from "../Components/ProductCard";
+
 
 function Home() {
 
@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+
       <Hero />
 
       <section className="relative overflow-hidden bg-[#3D348B]">

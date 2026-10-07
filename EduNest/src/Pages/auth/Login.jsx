@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import { loginUser } from '../../Api/loginApi';
 
 
 function Login() {
@@ -12,64 +13,48 @@ function Login() {
         email: "",
         password: "",
     })
+//Login Mutation
+    const loginMutation = useMutation({
+        mutationFn: loginUser,
 
-// Error message 
-    const [error, setError] = useState("");    
+        onSuccess: (user) => {
+// Store user information
+            localStorage.setItem("user",JSON.stringify({
+                id:user.id,
+                firstName:user.firstName,
+                secondName: user.secondName,
+                email: user.email,
+            }));
+// Store login status
+            localStorage.setItem("isLoggedIn", "true");
+
+            alert("Login Successful!")
+            
+
+            navigate("/home");
+        },
+        onError: (error) => {
+            console.log("Login error:", error.message);    
+        },
+    })  
 
 // Handle input changes
     const handleChange = (e) => {
-        const { name,value } = e.target;
-
         setFormData({
             ...formData,
-            [name]: value,
+            [e.target.name]: e.target.value,
         })
 // Remove error when user starts typing 
-            setError("");
+            loginMutation.reset();
     };
 
 // Handle login
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        try {
-// Get all users from JSON Server 
-            const response = await axios.get( "http://localhost:5001/users" )
-
-            const users = response.data
-
-            const user = users.find(
-                (user) => 
-                    user.email === formData.email &&
-                user.password === formData.password
-            )
-
-            if (user) {
-// Save logged-in user
-                localStorage.setItem(
-                    "user",
-                    JSON.stringify({
-                        id:user.id,
-                        firstName: user.firstName,
-                        secondName: user.secondName,
-                        email: user.email,
-                    })
-                )                
-                alert ("Login successful!")
-                console.log("Logged in user:", user);
-// Navigate to home 
-                navigate("/home")
-            }else{
-
-                setError("Invalid email or password")
-            }
-        } catch (error) {
-
-            console.error("Login Error:", error);
-
-            setError("Unable to connect to server. Please start JSON Server.")
-            
-        }    
+        
+        console.log("LOGIN DATA:", formData);
+        
+        loginMutation.mutate(formData) 
     };
 
   return (
@@ -123,9 +108,9 @@ function Login() {
           </div>
 
 {/* Error */}
-            {error && (
+            {loginMutation.isError && (
                 <p className='text-red-500 text-sm text-center'>
-                    {error}
+                    {loginMutation.error.message}
                 </p>
             )}
 
@@ -133,7 +118,7 @@ function Login() {
             <button type='submit'
                     className="w-full bg-[#F35B04] text-white font-semibold py-3 rounded-lg 
                     hover:bg-[#d94f03] active:scale-[0.98] transition duration-200">
-                Login
+                {loginMutation.isPending ? "Logging in...": "Login"}
             </button>
         </form>
 

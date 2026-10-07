@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import { registerUser } from '../../Api/regApi';
 
 function Register() {
 
@@ -15,6 +16,29 @@ function Register() {
         Cpassword: "",
     })
 
+//Register mutation
+    const registerMutation = useMutation({
+        mutationFn: registerUser,
+
+        onSuccess: (user) => {
+            localStorage.setItem("registeredUser",JSON.stringify({
+                id: user.id,
+                firstName: user.firstName,
+                secondName: user.secondName,
+                email: user.email,
+            }))
+
+            alert("Registration Successful!")
+
+            navigate("/login")
+        },
+//Registetion failed
+        onError: (error) => {
+            console.log("Registration Error:", error.message);
+            
+        },
+    });
+
 // Handle input changes    
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,62 +47,29 @@ function Register() {
             ...formData,
             [name]: value,
         })
+// Remove old error when typing
+        registerMutation.reset()
     };
 
 // Handle form submit
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
+        //Check Password
         if(formData.password !== formData.Cpassword){
             alert("Passwords do not match");
             return;
         }
 
-        //Save user information
-        localStorage.setItem(
-            "user",
-            JSON.stringify({
-                firstName: formData.firstName,
-                secondName: formData.secondName,
-                email: formData.email,
-            })
-        )
-        // Go to Login
-        navigate("/login")
 
-        try{
-            //email already exists
-            const response =await axios.get("http://localhost:5001/users")
+// Send registration data
 
-            const existingUser = response.data.find(
-                (user) => user.email === formData.email
-            )
-
-            if(existingUser) {
-                alert("Email already exists")
-                return
-            }
-// Create new user
-            const newUser = {
-                firstName: formData.firstName,
-                secondName: formData.secondName,
-                email: formData.email,
-                password: formData.password
-            }
-
-// POST user to JSON Server
-            await axios.post("http://localhost:5001/users", newUser)
-
-            alert("Registration successful!")
-
-            // Go to login page
-        navigate("/login");
-
-        }catch (error){
-            console.error("Registration Error:", error)
-
-            alert("Registration failed. Check JSON Server.")
-        }
+        registerMutation.mutate({
+            firstName: formData.firstName,
+            secondName:formData.secondName,
+            email: formData.email,
+            password:formData.password,
+        })
     }
 
   return (
@@ -161,11 +152,18 @@ function Register() {
                                   focus:border-[#7678ED] focus:ring-2 focus:ring-[#7678ED]/20 transition'/>                            
             </div>
 
+            {/* Error */}
+             { registerMutation.isError && (
+                <p className='text-red-500 text-sm text-center'>
+                    {registerMutation.error.message}
+                </p>
+             )}
 
                 <button type='submit'
+                        disabled={registerMutation.isPending}
                         className='w-full bg-[#F35B04] text-white font-semibold py-3 rounded-lg mt-2
                                    hover:bg-[#d94f03] active:scale-[0.98] transition duration-200'>
-                    Register
+                    {registerMutation.isPending? "Registering...":"Register"}
                 </button>
         </form>
 
