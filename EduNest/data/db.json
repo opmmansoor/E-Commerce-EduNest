@@ -15,13 +15,6 @@
       "id": "2QAKtT2YD-8"
     },
     {
-      "firstName": "one",
-      "secondName": "man",
-      "email": "one@gmail.com",
-      "password": "1234",
-      "id": "kJvlOcEC_48"
-    },
-    {
       "firstName": "aja",
       "secondName": "ntha",
       "email": "aja@gmail.com",
@@ -159,7 +152,7 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/image/products/math-guide.jpg"
+      "image": "/Products/Box/box1.jpg"
     },
     {
       "id": "14",
@@ -169,7 +162,7 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/image/products/math-guide.jpg"
+      "image": "/Products/Box/box1.jpg"
     },
     {
       "id": "15",
@@ -179,7 +172,7 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/image/products/math-guide.jpg"
+      "image": "/Products/Box/box1.jpg"
     },
     {
       "id": "16",
@@ -189,7 +182,7 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/image/products/math-guide.jpg"
+      "image": "/Products/Box/box1.jpg"
     },
     {
       "id": "17",
@@ -199,7 +192,7 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/image/products/math-guide.jpg"
+      "image": "/Products/Box/box1.jpg"
     },
     {
       "id": "18",
@@ -209,7 +202,7 @@
       "price": 499,
       "stock": 18,
       "rating": 4.7,
-      "image": "/image/products/math-guide.jpg"
+      "image": "/Products/Box/box1.jpg"
     },
     {
       "id": "19",
@@ -219,7 +212,7 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/images/diary.jpg"
+      "image": "/Products/Daires/dairy1.jpg"
     },
     {
       "id": "20",
@@ -229,7 +222,7 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/images/diary.jpg"
+      "image": "/Products/Daires/dairy1.jpg"
     },
     {
       "id": "21",
@@ -239,7 +232,7 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/images/diary.jpg"
+      "image": "/Products/Daires/dairy1.jpg"
     },
     {
       "id": "22",
@@ -249,7 +242,7 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/images/diary.jpg"
+      "image": "/Products/Daires/dairy1.jpg"
     },
     {
       "id": "23",
@@ -259,7 +252,7 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/images/diary.jpg"
+      "image": "/Products/Daires/dairy1.jpg"
     },
     {
       "id": "24",
@@ -269,7 +262,7 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/images/diary.jpg"
+      "image": "/Products/Daires/dairy1.jpg"
     },
     {
       "id": "25",
@@ -279,7 +272,7 @@
       "price": 799,
       "stock": 25,
       "rating": 4.7,
-      "image": "/image/products/backpack.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     },
     {
       "id": "26",
@@ -289,7 +282,7 @@
       "price": 799,
       "stock": 25,
       "rating": 4.7,
-      "image": "/image/products/backpack.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     },
     {
       "id": "27",
@@ -299,7 +292,7 @@
       "price": 799,
       "stock": 25,
       "rating": 4.7,
-      "image": "/image/products/backpack.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     },
     {
       "id": "28",
@@ -309,7 +302,7 @@
       "price": 799,
       "stock": 25,
       "rating": 4.7,
-      "image": "/image/products/backpack.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     },
     {
       "id": "29",
@@ -319,7 +312,7 @@
       "price": 799,
       "stock": 25,
       "rating": 4.7,
-      "image": "/image/products/backpack.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     },
     {
       "id": "30",
@@ -329,10 +322,10 @@
       "price": 799,
       "stock": 25,
       "rating": 4.7,
-      "image": "/image/products/backpack.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     },
     {
-      "id": "8",
+      "id": "123",
       "name": "Color Pencil Set",
       "category": "Stationery",
       "description": "Bright and smooth color pencils for creative school projects.",
@@ -341,7 +334,7 @@
       "discount": 18,
       "stock": 60,
       "rating": 4.6,
-      "image": "/image/products/color-pencil.jpg"
+      "image": "/Products/Bags/bag1.jpg"
     }
   ],
   "orders": [],

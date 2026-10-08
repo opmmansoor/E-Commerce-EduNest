@@ -11,7 +11,7 @@ function Home() {
     category: "Notebooks",
     price: 299,
     stock: 25,
-    image: "/images/notebook.jpg",
+    image: "/Products/Books/premium2.jpg",
   };
 
   return (

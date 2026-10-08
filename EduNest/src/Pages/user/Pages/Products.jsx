@@ -6,7 +6,7 @@ function Products() {
     <div className='min-h-Screen bg-gray-100'>
       <div className='max-w-7xl mx-auto px-5 py-10'>
         <h1 className='text-3xl font-bold text-[#3D348B] mb-2'>
-          Our Products
+          Explore EduNest Products
         </h1>
         <p className='text-gray-600 mb-8'>
           Explore our premium stationery and study essentials.

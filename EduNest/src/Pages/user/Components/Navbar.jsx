@@ -1,8 +1,12 @@
 import { LogOut, User } from 'lucide-react';
 import  { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 
 function Navbar() {
+
+    const cart = useSelector((state) => state.cart.cart);
+
     const navigate = useNavigate();
 
     const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -64,9 +68,10 @@ function Navbar() {
                              hover:text-[#F7B801]'>
                 Cart
 
-                <span className='absolute -top-2 -right-4 bg-[#F7B801] text-[#3D348B]
+                <span 
+                     className='absolute -top-2 -right-4 bg-[#F7B801] text-[#3D348B]
                                  text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
-                    0
+                    {cart.length}
                 </span>
             </Link>
 

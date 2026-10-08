@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Heart } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../Slice/cartSlice";
 
 function ProductCard({ product }) {
+
+    const dispatch = useDispatch()
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(product))
+    }
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
 
@@ -67,6 +75,7 @@ function ProductCard({ product }) {
 
           {/* Add To Cart */}
           <button
+            onClick={() => handleAddToCart(product)}
             disabled={product.stock === 0}
             className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg 
                         hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"

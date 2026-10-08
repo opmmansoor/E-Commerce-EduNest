@@ -33,7 +33,7 @@ function Hero() {
           <img
             src="/image/banner 1.png"
             alt="EduNest Banner 1"
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[400px] object-cover"
           />
         </SwiperSlide>
 
@@ -41,7 +41,7 @@ function Hero() {
           <img
             src="/image/banner 2.png"
             alt="EduNest Banner 2"
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[400px] object-cover"
           />
         </SwiperSlide>
 
@@ -49,7 +49,7 @@ function Hero() {
           <img
             src="/image/banner 3.png"
             alt="EduNest Banner 3"
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[400px] object-cover"
           />
         </SwiperSlide>
 
