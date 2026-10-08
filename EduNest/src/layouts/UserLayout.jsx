@@ -4,9 +4,16 @@ import { Outlet } from 'react-router-dom'
 
 function UserLayout() {
   return (
-    <div>
+    <div className='min-h-screen bg-gray-50 pb-20'>
+
       <Navbar/>
-      <Outlet/>
+
+{/* Page Content */}
+      <main className='pt-20'> 
+        <Outlet/>
+      </main>
+      
+      
     </div>
   )
 }
