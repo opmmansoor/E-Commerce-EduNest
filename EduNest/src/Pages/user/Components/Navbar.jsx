@@ -1,3 +1,4 @@
+import { LogOut, User } from 'lucide-react';
 import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -45,18 +46,19 @@ function Navbar() {
                              >
                 Home
             </Link>
-            <Link to='/products'
-                  className='relative py-2 transition duration-200 hover:text-[#F7B801]
-                            after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
-                            after:bg-[#F7B801] after:transition-all hover:after:w-full'>
-                Product
-            </Link>
             <Link to='/about'
                   className='relative py-2 transition duration-200 hover:text-[#F7B801]
                             after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
                             after:bg-[#F7B801] after:transition-all hover:after:w-full'>
                 About
             </Link>
+            <Link to='/products'
+                  className='relative py-2 transition duration-200 hover:text-[#F7B801]
+                            after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+                            after:bg-[#F7B801] after:transition-all hover:after:w-full'>
+                Product
+            </Link>
+            
             <Link to='/cart'
                   className='relative flex items-center gap-2 py-2 transition duration-200 
                              hover:text-[#F7B801]'>
@@ -75,21 +77,7 @@ function Navbar() {
                         flex items-center justify-center hover:bg-[#F18701] hover:text-white
                          transition duration-200 shadow-md'>
                     
-                    <svg xmlns='http://www.w3.org/2000/svg'
-                         fill='none'
-                         viewBox= '0 0 24 24'
-                         strokeWidth='2'
-                         stroke='currentColor'
-                         className='w-6 h-6'>
-                        
-                        <path strokeLinecap='round'
-                              strokeLinejoin='round'
-                              d='M15.75 6a3.75 3.75 0 1 1-7.5 0
-                              3.75 3.75 0 0 1 7.5 0ZM4.5
-                              20.118a7.5 7.5 0 0 1 15 0A17.933
-                              17.933 0 0 0 12 21.75c-2.676
-                              0-5.216-.584-7.5-1.632Z'/>
-                    </svg>
+                    <User/>
                 </button>
                 
                 {isProfileOpen && (
@@ -146,23 +134,7 @@ function Navbar() {
                                            bg-[#F35B04] text-white font-semibold py-3 rounded-lg
                                            hover:bg-[#F18701] transition duration-200'>
 
-                            <svg xmlns='http://www.w3.org/2000/svg'
-                                 fill='none'
-                                 viewBox='0 0 24 24'
-                                 strokeWidth="2"
-                                 stroke='currentcolor'
-                                 className='w-5 h-5'>
-
-                                <path strokeLinecap='round'
-                                      strokeLinejoin='round'
-                                      d="M15.75 9V5.25A2.25 2.25
-                                      0 0 0 13.5 3h-6a2.25
-                                      2.25 0 0 0-2.25 2.25v13.5
-                                      A2.25 2.25 0 0 0 7.5
-                                      21h6a2.25 2.25 0 0 0
-                                      2.25-2.25V15m3-3H9m0
-                                      0 3-3m-3 3 3 3"/>
-                            </svg>
+                            <LogOut/> 
                             Logout
                         </button>    
                       </div>

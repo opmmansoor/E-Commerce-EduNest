@@ -1,93 +1,3 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
-// import { ShoppingCart, Heart } from "lucide-react";
-
-
-
-// function ProductCard({product}) {
-//   return (
-//     <div>
-
-// {/* Product Image */}
-//       <div className="">
-//         <img
-//           src={product.image}
-//           alt={product.name}
-//           className=""
-//         />
-
-// {/* Wishlist Button */}
-//         <button className="">
-//           <Heart
-//             size={20}
-//             className=""
-//           />
-//         </button>
-//       </div>
-
-// {/* Product Information */}
-//       <div className="">
-
-// {/* Category */}
-//         <p className="">
-//           {product.category}
-//         </p>
-
-// {/* Product Name */}
-//         <h2 className="">
-//           {product.name}
-//         </h2>
-
-// {/* Price */}
-//         <p className="">
-//           ₹{product.price.toLocaleString("en-IN")}
-//         </p>
-
-// {/* Stock */}
-//         <p className="">
-//           {product.stock > 0 ? (
-//             <span className="">
-//               In Stock ({product.stock})
-//             </span>
-//           ) : (
-//             <span className="">
-//               Out of Stock
-//             </span>
-//           )}
-//         </p>
-
-// {/* Buttons */}
-//         <div className="">
-
-// {/* View Details */}
-//           <Link
-//             to={`/products/${product.id}`}
-//             className=""
-//           >
-//             View Details
-//           </Link>
-
-// {/* Add To Cart */}
-//           <button
-//             disabled={product.stock === 0}
-//             className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
-//           >
-//             <ShoppingCart size={18} />
-//             Add
-//           </button>
-
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default ProductCard
-
-
-
-
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Heart } from "lucide-react";
@@ -158,7 +68,8 @@ function ProductCard({ product }) {
           {/* Add To Cart */}
           <button
             disabled={product.stock === 0}
-            className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+            className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg 
+                        hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
           >
             <ShoppingCart size={18} />
             Add
