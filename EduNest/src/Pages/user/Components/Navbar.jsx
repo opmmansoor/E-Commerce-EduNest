@@ -7,7 +7,8 @@ function Navbar() {
 
     const cart = useSelector((state) => state.cart.cart);
     const wishlist = useSelector((state) => state.wishlist.wishlist);
-
+    console.log(wishlist);
+    
     const navigate = useNavigate();
 
     const [isProfileOpen, setIsProfileOpen] = useState(false);

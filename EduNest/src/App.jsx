@@ -8,6 +8,7 @@ import Products from "./Pages/user/Pages/Products";
 import About from "./Pages/user/Pages/About";
 import Cart from "./Pages/user/Pages/Cart";
 import UserLayout from "./layouts/UserLayout";
+import Wishlist from "./Pages/user/Pages/Wishlist";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist/>} />
 
           {/* Unknown URL */}
           <Route path="*" element={<Navigate to="/register" />} />
