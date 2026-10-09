@@ -1,12 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Heart } from "lucide-react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Slice/cartSlice";
+import { addToWishlist, removeFromWishlist } from "../../../Slice/wishlistSlice";
 
 function ProductCard({ product }) {
 
     const dispatch = useDispatch()
+
+    const wishlist = useSelector((state) => state.wishlist.wishlist);
+    const isWishlisted =wishlist.some((item) => item.id === product.id);
+
+    const handleWishlist  = () => {
+        if (isWishlisted) {
+            dispatch(removeFromWishlist(product.id));
+        }else{
+            dispatch(addToWishlist(product))
+        }
+    }
+
+
 
     const handleAddToCart = () => {
         dispatch(addToCart(product))
@@ -23,12 +37,15 @@ function ProductCard({ product }) {
         />
 
         {/* Wishlist Button */}
-        <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50">
+        <button onClick={handleWishlist}
+                className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50">
           <Heart
             size={20}
-            className="text-red-500"
-          />
+             className= {
+                isWishlisted? "fill-red-500 text-red-500" : "text-red-500"
+             }/>
         </button>
+        <h3>{[product.title]}</h3>
       </div>
 
       {/* Product Information */}

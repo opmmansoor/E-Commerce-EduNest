@@ -1,4 +1,4 @@
-import { LogOut, User } from 'lucide-react';
+import { Heart, LogOut, User } from 'lucide-react';
 import  { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 function Navbar() {
 
     const cart = useSelector((state) => state.cart.cart);
+    const wishlist = useSelector((state) => state.wishlist.wishlist);
 
     const navigate = useNavigate();
 
@@ -28,14 +29,12 @@ function Navbar() {
           <div className='h-20 flex items-center justify-between'>
             
             <Link to='/home'
-                  className='flex items-center gap-2 group'>
+                  className='flex items-center gap-2 '>
               
                 <img src='/image/log.png' alt="log" 
-                     className='w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white object-contain p-1 shadow-md 
-                                group-hover:scale-105 transition duration-200'/>
+                     className='w-12 h-12 rounded-full bg-white object-contain p-1'/>
                 <img src="/image/EduNest.png" alt="EduNest Name"
-                     className='w-32 sm:w-40 h-auto object-contain rounded bg-white object-contain p-1 shadow-md
-                                group-hover:scale-105 transition duration-200' />
+                     className='w-32 sm:w-40 h-auto bg-white p-1' />
                 {/* <span className='text-white'>Edu</span>
                 <span className='text-[#F7B801]'>Nest</span> */}
               
@@ -44,9 +43,7 @@ function Navbar() {
 
           <div className='hidden md:flex items-center gap-8 font-semibold'>
             <Link to="/home"
-                  className='relative py-2 transition duration-200 hover:text-[#F7B801]
-                             after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
-                             after:bg-[#F7B801] after:transition-all hover:after:w-full'
+                  className='hover:text-[#F7B801]'
                              >
                 Home
             </Link>
@@ -62,20 +59,31 @@ function Navbar() {
                             after:bg-[#F7B801] after:transition-all hover:after:w-full'>
                 Product
             </Link>
+
+            <Link to="/wishlist"
+                  className='relative flex items-center gap-2 hover:text-[#F7B801]' >
+                <Heart size={21}/>
+                Wishlist
+
+                <span className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B] text-xs 
+                      font-bold w-5 h-5 rounded-full flex items-center justify-center'>
+                    {wishlist.length}
+                </span>
+            </Link>
             
             <Link to='/cart'
-                  className='relative flex items-center gap-2 py-2 transition duration-200 
+                  className='relative flex items-center gap-2 py-2 
                              hover:text-[#F7B801]'>
                 Cart
 
                 <span 
-                     className='absolute -top-2 -right-4 bg-[#F7B801] text-[#3D348B]
+                     className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B]
                                  text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
                     {cart.length}
                 </span>
             </Link>
-
           </div>
+          
             <div className='relative'>
                 <button onClick={() => setIsProfileOpen(!isProfileOpen)}
                         className='w-11 h-11 rounded-full bg-[#F7B801] text-[#3D348B]
@@ -129,9 +137,10 @@ function Navbar() {
                             <p className='font-semibold text-[#3D348B] break-all'>
                                 {user?.email || "example@gmail.com"}
                             </p>
+
+                            
                         </div>
-                    {/*Divider*/}
-                        <div className='border-t'></div>
+                            <hr className='my-4'/>
 
                     {/* Logout */}
                         <button onClick={handleLogout}
@@ -139,7 +148,7 @@ function Navbar() {
                                            bg-[#F35B04] text-white font-semibold py-3 rounded-lg
                                            hover:bg-[#F18701] transition duration-200'>
 
-                            <LogOut/> 
+                            <LogOut size={18}/> 
                             Logout
                         </button>    
                       </div>
