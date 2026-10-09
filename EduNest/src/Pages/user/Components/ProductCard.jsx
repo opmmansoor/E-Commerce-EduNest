@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { ShoppingCart, Heart } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Slice/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../../../Slice/wishlistSlice";
+import ProductDetails from "./ProductDetails";
 
 function ProductCard({ product }) {
 
     const dispatch = useDispatch()
+
+//View Details
+    const [showDetail, setShowDetail] = useState(false);
 
     const wishlist = useSelector((state) => state.wishlist.wishlist);
     const isWishlisted =wishlist.some((item) => item.id === product.id);
@@ -21,12 +24,14 @@ function ProductCard({ product }) {
     }
 
 
-
     const handleAddToCart = () => {
         dispatch(addToCart(product))
     }
-  return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+  
+    return (
+        <>
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden 
+                    hover:shadow-xl transition duration-300">
 
       {/* Product Image */}
       <div className="relative bg-gray-100 h-56 flex items-center justify-center">
@@ -83,12 +88,11 @@ function ProductCard({ product }) {
         <div className="flex gap-2 mt-4">
 
           {/* View Details */}
-          <Link
-            to={`/products/${product.id}`}
+          <button onClick={() => setShowDetail(true)}
             className="flex-1 text-center border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition"
           >
             View Details
-          </Link>
+          </button>
 
           {/* Add To Cart */}
           <button
@@ -104,6 +108,14 @@ function ProductCard({ product }) {
         </div>
       </div>
     </div>
+
+{/* Product Details Modal */}
+          {showDetail && (
+            <ProductDetails
+            product={product}
+            onClose={() => setShowDetail(false)}/>
+          )}
+    </>
   );
 }
 

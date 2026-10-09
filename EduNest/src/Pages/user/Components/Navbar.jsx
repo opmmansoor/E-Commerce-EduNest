@@ -1,4 +1,4 @@
-import { Heart, LogOut, User } from 'lucide-react';
+import { Heart, LogOut, ShoppingCart, User } from 'lucide-react';
 import  { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
@@ -64,7 +64,7 @@ function Navbar() {
             <Link to="/wishlist"
                   className='relative flex items-center gap-2 hover:text-[#F7B801]' >
                 <Heart size={21}/>
-                Wishlist
+            
 
                 <span className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B] text-xs 
                       font-bold w-5 h-5 rounded-full flex items-center justify-center'>
@@ -73,9 +73,9 @@ function Navbar() {
             </Link>
             
             <Link to='/cart'
-                  className='relative flex items-center gap-2 py-2 
-                             hover:text-[#F7B801]'>
-                Cart
+                  className='relative flex items-center gap-2 hover:text-[#F7B801]'>
+                <ShoppingCart size={21}/>
+                
 
                 <span 
                      className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B]
