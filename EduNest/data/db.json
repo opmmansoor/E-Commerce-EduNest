@@ -347,6 +347,32 @@
       "image": "/Products/Daires/dairy1.jpg"
     }
   ],
+  "carts" : [
+    {
+      "id": "23",
+      "name": "To Do Notes",
+      "category": "Diaries",
+      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
+      "price": 199,
+      "stock": 15,
+      "rating": 4.7,
+      "image": "/Products/Daires/dairy1.jpg"
+    }
+  ],
+  "wishlists" : [
+    {
+      "id": "23",
+      "name": "To Do Notes",
+      "category": "Diaries",
+      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
+      "price": 199,
+      "stock": 15,
+      "rating": 4.7,
+      "image": "/Products/Daires/dairy1.jpg"
+    }
+  ],
   "orders": [],
+  
+
   "$schema": "./node_modules/json-server/schema.json"
 }
