@@ -22,7 +22,6 @@
       "id": "Z60aHPQgokc"
     }
   ],
-
   "products": [
     {
       "id": "1",
@@ -258,7 +257,7 @@
       "id": "24",
       "name": "Academic Planner",
       "category": "Diaries",
-      "description":"Good pages, Helps students plan their school year, classes, assignments, projects, and exams",
+      "description": "Good pages, Helps students plan their school year, classes, assignments, projects, and exams",
       "price": 199,
       "stock": 30,
       "rating": 4.7,
@@ -299,9 +298,9 @@
       "name": "Pencil Cases",
       "category": "School Accessories",
       "description": "Compact cases for keeping pens, pencils, erasers, sharpeners, and other stationery organized.",
-      "price": 799,
+      "price": 79,
       "stock": 25,
-      "rating": 4.7,
+      "rating": 4.1,
       "image": "/Products/Bags/bag1.jpg"
     },
     {
@@ -309,9 +308,9 @@
       "name": "Water Bottles",
       "category": "School Accessories",
       "description": "Reusable bottles designed to help students carry water conveniently throughout the school day",
-      "price": 799,
-      "stock": 25,
-      "rating": 4.7,
+      "price": 99,
+      "stock": 28,
+      "rating": 4.8,
       "image": "/Products/Bags/bag1.jpg"
     },
     {
@@ -319,9 +318,9 @@
       "name": "Lunch Boxes",
       "category": "School Accessories",
       "description": "Practical containers for safely carrying meals and snacks to school.",
-      "price": 799,
-      "stock": 25,
-      "rating": 4.7,
+      "price": 199,
+      "stock": 18,
+      "rating": 4.2,
       "image": "/Products/Bags/bag1.jpg"
     },
     {
@@ -347,19 +346,17 @@
       "image": "/Products/Daires/dairy1.jpg"
     }
   ],
-  "carts" : [
+  "carts": [
     {
-      "id": "23",
-      "name": "To Do Notes",
-      "category": "Diaries",
-      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
-      "price": 199,
-      "stock": 15,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
+      "productId": "1",
+      "name": "Premium Notebook",
+      "price": 299,
+      "image": "/Products/Books/premium2.jpg",
+      "quantity": 1,
+      "id": "Hf3vz2fV9ts"
     }
   ],
-  "wishlists" : [
+  "wishlists": [
     {
       "id": "23",
       "name": "To Do Notes",
@@ -372,7 +369,5 @@
     }
   ],
   "orders": [],
-  
-
   "$schema": "./node_modules/json-server/schema.json"
 }

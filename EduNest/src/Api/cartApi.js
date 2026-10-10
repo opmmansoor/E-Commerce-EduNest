@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API ="http://localhost:3000/carts"
-export const retCart = async () => {
+export const getCart = async () => {
     const response = await axios.get(API)
     return response.data
 };

@@ -1,21 +1,64 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToWishlist, removeFromWishlist } from '../../../Slice/wishlistSlice';
-import { addToCart } from '../../../Slice/cartSlice';
 import { ArrowRight, Heart, ShoppingCart, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { deleteWishlist, getWishlist } from '../../../Api/wishlistApi';
+import { toast } from 'sonner';
 
 function Wishlist() {
-    const dispatch = useDispatch();
-    const wishlist = useSelector((state) => state.wishlist.wishlist);
 
-    const handleRemove = (id) => {
-        dispatch(removeFromWishlist(id))
-    };
+    const queryClient = useQueryClient()
 
+    const { data : wishlist=[], isLoading, isError } = useQuery({
+        queryKey: ["wishlists"],
+        queryFn: getWishlist,
+    })
+
+//Remove from wishlist
+    const removeMutation = useMutation({
+        mutationFn: deleteWishlist,
+
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["wishlists"]})
+        },
+        onError: () => toast.error("Failed to Remove item")
+    })
+    
+//Add product to cart
+     const cartMutation = useMutation({ 
+        mutationFn: addCartItem, 
+    
+        onSuccess: () => { 
+            queryClient.invalidateQueries({ queryKey: ["carts"] });
+             toast.success("Added to cart!"); 
+        }, 
+        onError: () => 
+            toast.error("Failed to add to cart"),
+     });
+       
     const handleAddToCart = (product) => {
-        dispatch(addToCart(product))
-    };
+         cartMutation.mutate({ 
+            productId: product.productId, 
+            name: product.name, 
+            price: product.price, 
+            image: product.image, 
+            quantity: 1, 
+        }); 
+    }; 
+    
+    if (isLoading) {
+         return <div className="p-10 text-center">Loading wishlist...</div>; 
+    } 
+    
+    if (isError) {
+         return (
+             <div className="p-10 text-center text-red-500"> 
+                 Failed to load wishlist. Check JSON Server. 
+             </div> 
+
+        ); 
+    }
 
   return (
     <div className='min-h-screen bg-gray-50 px-4 sm:px-6 py-10'>

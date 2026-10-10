@@ -9,12 +9,12 @@ const cartSlice = createSlice({
         addToCart : (state,action) => {
             const product = action.payload;
 
-            const existingProduct = state.cart.find(
+            const existingItem = state.cart.find(
                 (item) => item.id === product.id
             );
 
-            if(existingProduct){
-                existingProduct.quantity += 1;
+            if(existingItem){
+                existingItem.quantity += 1;
             }else{
                 state.cart.push({
                     ...product,

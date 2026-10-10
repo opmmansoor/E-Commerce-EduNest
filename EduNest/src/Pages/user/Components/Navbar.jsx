@@ -1,11 +1,17 @@
+import { useQuery } from '@tanstack/react-query';
 import { Heart, LogOut, ShoppingCart, User } from 'lucide-react';
 import  { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
+import { getCart } from '../../../Api/cartApi';
 
 function Navbar() {
 
-    const cart = useSelector((state) => state.cart.cart);
+    const {data: cart=[], isLoading, isError} = useQuery({
+        queryKey: ["carts"],
+        queryFn: getCart() 
+    })
+    
     const wishlist = useSelector((state) => state.wishlist.wishlist);
     console.log(wishlist);
     

@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Slice/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../../../Slice/wishlistSlice";
 import ProductDetails from "./ProductDetails";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addCartItem } from "../../../Api/cartApi";
+import { toast } from "sonner";
 
 function ProductCard({ product }) {
 
@@ -15,18 +18,55 @@ function ProductCard({ product }) {
     const wishlist = useSelector((state) => state.wishlist.wishlist);
     const isWishlisted =wishlist.some((item) => item.id === product.id);
 
-    const handleWishlist  = () => {
+    
+
+//Save a cart item to JSON Server
+  const queryClient = useQueryClient();
+
+  const cartMutation = useMutation({
+    mutationFn: addCartItem,
+
+    onSuccess: () => {
+//update redux after success
+      dispatch(addToCart(product))
+
+// Refresh cart data      
+      queryClient.invalidateQueries({
+        queryKey: ["carts"],
+      })
+
+//for notification on ADD
+      toast.success("Item Added to  Cart!")
+    },
+    onError: (error) => {
+      console.error("Cart save failed:", error);
+      console.error("Server response:", error.response?.data)
+      
+      toast.error( error.response?.data?.message ||
+            "Failed to ad item. Check JSON Server."
+      )
+    }
+  })
+
+//Add To Cart 
+  const handleAddToCart = () => {
+    cartMutation.mutate({
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1,
+    });
+  }
+
+//Add/remove wishlist
+  const handleWishlist  = () => {
         if (isWishlisted) {
             dispatch(removeFromWishlist(product.id));
         }else{
             dispatch(addToWishlist(product))
         }
-    }
-
-
-    const handleAddToCart = () => {
-        dispatch(addToCart(product))
-    }
+    }  
   
     return (
         <>
@@ -43,6 +83,7 @@ function ProductCard({ product }) {
 
         {/* Wishlist Button */}
         <button onClick={handleWishlist}
+                aria-label="Toggle wishlist"
                 className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50">
           <Heart
             size={20}
@@ -96,16 +137,21 @@ function ProductCard({ product }) {
 
           {/* Add To Cart */}
           <button
-            onClick={() => handleAddToCart(product)}
-            disabled={product.stock === 0}
+            onClick={handleAddToCart}
+            disabled={product.stock === 0 || cartMutation.isPending}
             className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg 
                         hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
           >
             <ShoppingCart size={18} />
-            Add
+           {cartMutation.isPending ? "Saving..." : "Add"}
           </button>
-
         </div>
+
+        {cartMutation.isError &&(
+          <p className="mt-2 text-sm text-red-500">
+            Failed to save item. Please try again.
+          </p>
+        )}
       </div>
     </div>
 
