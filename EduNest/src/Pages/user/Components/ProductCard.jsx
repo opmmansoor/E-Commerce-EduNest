@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { ShoppingCart, Heart } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../../Slice/cartSlice";
-import { addToWishlist, removeFromWishlist } from "../../../Slice/wishlistSlice";
 import ProductDetails from "./ProductDetails";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { addCartItem } from "../../../Api/cartApi";
 import { toast } from "sonner";
+import { addToWishlist, deleteWishlist, getWishlists } from "../../../Api/wishlistApi";
 
 function ProductCard({ product }) {
 
@@ -15,10 +15,49 @@ function ProductCard({ product }) {
 //View Details
     const [showDetail, setShowDetail] = useState(false);
 
-    const wishlist = useSelector((state) => state.wishlist.wishlist);
-    const isWishlisted =wishlist.some((item) => item.id === product.id);
+    const { data: wishlist=[] }=useQuery({
+      queryKey: ["wishlists"],
+      queryFn: getWishlists,
+    });
 
-    
+    const wishlistItem = wishlist.find(
+      (item) => String(item.productId) === String(product.id)
+    );
+    const isWishlisted = Boolean(wishlistItem);
+
+    const addWishlistMutation = useMutation({
+      mutationFn: addToWishlist,
+
+      onSuccess: () => {
+        queryClient.invalidateQueries({queryKey: ["wishlists"]})
+        toast.success("Added to Wishlist!")
+      },
+
+      onError: () => {
+        toast.error("Failed to add to Wishlist")
+      },
+    });
+
+    const removeWishlistMutation = useMutation({
+      mutationFn: deleteWishlist,
+
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["wishlists"]});
+        toast.success("Remove From Wishlist")
+      },
+
+      onError: () => {
+        toast.error("Failed to remove from wishlist")
+      },
+    });
+
+    const handleWishlist = () => {
+      if(wishlistItem){
+        removeWishlistMutation.mutate(wishlistItem.id);
+      }else{
+        addWishlistMutation.mutate(product)
+      }
+    };
 
 //Save a cart item to JSON Server
   const queryClient = useQueryClient();

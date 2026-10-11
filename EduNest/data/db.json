@@ -346,7 +346,16 @@
       "image": "/Products/Bags/kit.jpg"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "productId": "3",
+      "name": "Spiral Notebooks",
+      "price": 50,
+      "image": "/Products/Books/spiral3.jpg",
+      "quantity": 1,
+      "id": "V79LIKWekRg"
+    }
+  ],
   "wishlists": [
     {
       "id": "23",

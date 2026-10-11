@@ -1,19 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
 import { Heart, LogOut, ShoppingCart, User } from 'lucide-react';
 import  { useState } from 'react'
-import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { getCart } from '../../../Api/cartApi';
+import { getWishlist } from '../../../Api/wishlistApi';
 
 function Navbar() {
 
-    const {data: cart=[], isLoading, isError} = useQuery({
+    const {data: cart=[] } = useQuery({
         queryKey: ["carts"],
-        queryFn: getCart() 
+        queryFn: getCart,
     })
     
-    const wishlist = useSelector((state) => state.wishlist.wishlist);
-    console.log(wishlist);
+    const { data:wishlist = [], isLoading:wishlistLoading,} = useQuery({
+        queryKey: ["wishlists"],
+        queryFn: getWishlist,
+    })
     
     const navigate = useNavigate();
 
@@ -74,7 +76,7 @@ function Navbar() {
 
                 <span className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B] text-xs 
                       font-bold w-5 h-5 rounded-full flex items-center justify-center'>
-                    {wishlist.length}
+                    {wishlistLoading ? "..." : wishlist.length}
                 </span>
             </Link>
             

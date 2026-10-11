@@ -1,5 +1,4 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { ArrowRight, Heart, ShoppingCart, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -21,6 +20,7 @@ function Wishlist() {
 
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["wishlists"]})
+        toast.success("Removed from wishlist")
         },
         onError: () => toast.error("Failed to Remove item")
     })
@@ -84,8 +84,8 @@ function Wishlist() {
             </div>
 
             <Link to="/products"
-                  className='inline-flex items-center justify-center gap-2
-                             bg-[#3D348B] text-white px-5 py-3 rounded-xl font-semibold hover:bg-[#2d276b] transition'>
+                  className='inline-flex items-center justify-center gap-2 rounded-xl
+                             bg-[#3D348B] text-white px-5 py-3  font-semibold hover:bg-[#2d276b] transition'>
             Continue Shopping 
             <ArrowRight size={18}/>
             </Link>
@@ -103,18 +103,17 @@ function Wishlist() {
 
 {/* Empty */}
         {wishlist.length === 0 ? (
-            <div className='bg-white rounded-3xl border border-gray-100 shadow-sm py-16 px-6 text-center'>
-                <div className='w-24 h-24 bg-purple-50 rounded-full flex items-center
-                                justify-center mx-auto mb-5'>
-                    <Heart size={44} className='text-[#3D348B]'/>
-                </div>
-
+            <div className='bg-white rounded-3xl border border-gray-100 
+                            shadow-sm py-16 px-6 text-center'>
+                
+                    <Heart size={44} className='mx-auto mb-5 text-[#3D348B]'/>
+                
                 <h2 className='text-2xl font-bold text-gray-800 mb-3'>
                     Your Wishlist is Empty
                 </h2>
                 <p className='text-gray-500 max-w-md mx-auto mb-7'>
-                    Discover notebooks, pens, stationery and other study
-                    essentials. Tap the heart on a product to save it here.
+                    Discover notebooks, pens, stationery and other study essentials. 
+                    Tap the heart on a product to save it here.
                 </p>
 
                 <Link to="/products"
@@ -140,11 +139,12 @@ function Wishlist() {
 
                                   className='max-h-full max-w-full object-contain'/>
 
-                            <button onClick={() => handleRemove(product.id)}
+                            <button onClick={() => removeMutation.mutate(product.id)}
+                                    disabled={removeMutation.isPending}
                                      aria-label= {`Remove ${product.name} from wishlist`}
                                      
-                                     className='absolute top-3 right-3 p-2.5 bg-white rounded-full shadow hover:bg-red-50
-                                                text-red-500 transition'>
+                                     className='absolute top-3 right-3 p-2.5 bg-white rounded-full shadow 
+                                                hover:bg-red-50 text-red-500 transition'>
                                 <Heart size={18} className='fill-red-500'/>
                             </button>
                         </div>
@@ -164,25 +164,26 @@ function Wishlist() {
                             </p>
 
                             <div className='flex gap-2 mt-5'>
-                                <button onClick={() => handleRemove(product.id)}
+                                <button onClick={() => removeMutation.mutate(product.id)}
+                                        disabled={removeMutation.isPending}
                                         className='flex items-center justify-center gap-1 border border-gray-200 
-                                                    text-gray-600 px-3 py-2.5 rounded-lg hover:bg-red-300 transition'
+                                                    text-gray-600 px-3 py-2.5 rounded-lg hover:bg-red-100 transition'
                                                      
-                                                     aria-label='Remove from Wishlist'>
+                                        aria-label='Remove from Wishlist'>
                                     <Trash2 size={17}/>
                                 </button>
 
                                 <button onClick={() => handleAddToCart(product)}
-                                        disabled={product.stock === 0} 
+                                        disabled={cartMutation.isPending} 
                                         className='flex-1 flex items-center justify-center gap-2 bg-[#F35B04] text-white py-2.5
                                                    rounded-lg font-semibold hover:bg-orange-600
                                                    disabled:bg-gray-400 transition'>
-                                    <ShoppingCart />
-                                    {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+                                    <ShoppingCart size={18}/>
+                                    Add to Cart
                                 </button>
                             </div>
 
-                            <Link to={`/products/${product.id}`}
+                            <Link to={`/products/${product.productid}`}
                                     className='block text-center text-[#3D348B] font-semibold text-sm mt-4 hover:underline'>
                                 View Details
                             </Link>
