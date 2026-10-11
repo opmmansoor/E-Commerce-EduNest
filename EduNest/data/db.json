@@ -28,8 +28,8 @@
       "name": "Premium Notebooks",
       "category": "Notebooks",
       "description": "High-quality notebooks featuring durable covers, smooth paper, and elegant designs. Perfect for school notes, daily writing notebooks.",
-      "price": 240,
-      "stock": 50,
+      "price": 80,
+      "stock": 30,
       "rating": 4.7,
       "image": "/Products/Books/premium2.jpg"
     },
@@ -38,8 +38,8 @@
       "name": "Lined Notebooks",
       "category": "Notebooks",
       "description": "Designed with neatly spaced horizontal lines to help students maintain clean handwriting. Ideal for classroom notes, homework, and exam preparation.",
-      "price": 80,
-      "stock": 50,
+      "price": 89,
+      "stock": 40,
       "rating": 4.5,
       "image": "/Products/Books/Lined2.jpg"
     },
@@ -48,9 +48,9 @@
       "name": "Spiral Notebooks",
       "category": "Notebooks",
       "description": "Convenient notebooks with spiral binding that allows pages to turn easily and lie flat. Great for lectures, quick notes, and everyday schoolwork.",
-      "price": 80,
-      "stock": 50,
-      "rating": 4.5,
+      "price": 50,
+      "stock": 18,
+      "rating": 4.8,
       "image": "/Products/Books/spiral3.jpg"
     },
     {
@@ -58,9 +58,9 @@
       "name": "Graph Notebooks",
       "category": "Notebooks",
       "description": "Ideal for mathematics, geometry, charts, and drawing graphs.That help students draw accurate diagrams and organize numerical work.",
-      "price": 80,
-      "stock": 50,
-      "rating": 4.5,
+      "price": 60,
+      "stock": 12,
+      "rating": 4.8,
       "image": "/Products/Books/graph4.jpg"
     },
     {
@@ -68,9 +68,9 @@
       "name": "Drawing Notebooks",
       "category": "Notebooks",
       "description": "Explore creativity through drawing, sketching, coloring, and painting. Quality paper suitable for pencils, crayons, and color pencils.",
-      "price": 80,
-      "stock": 50,
-      "rating": 4.5,
+      "price": 110,
+      "stock": 24,
+      "rating": 4.9,
       "image": "/Products/Books/drawing5.jpg"
     },
     {
@@ -78,8 +78,8 @@
       "name": "Sticky Notes",
       "category": "Notebooks",
       "description": "Colorful adhesive notes for writing reminders. Easy to stick on notebooks, textbooks, and desks.",
-      "price": 120,
-      "stock": 30,
+      "price": 40,
+      "stock": 12,
       "rating": 4.5,
       "image": "/Products/Books/sticky6.jpg"
     },
@@ -91,237 +91,7 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Essentials/pocket4.jpg"
-    },
-    {
-      "id": "8",
-      "name": "BallPoint Pens",
-      "category": "Writing Essentials",
-      "description": "Smooth-writing ball pens suitable for everyday school use.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Essentials/pocket4.jpg"
-    },
-    {
-      "id": "9",
-      "name": "Premium Pencils",
-      "category": "Writing Essentials",
-      "description": "Premium HB pencils for writing, drawing and school work.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Essentials/pocket4.jpg"
-    },
-    {
-      "id": "10",
-      "name": "Pocket Pens",
-      "category": "Writing Essentials",
-      "description": "Easy-to-understand mathematics guide for school students.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Essentials/pocket4.jpg"
-    },
-    {
-      "id": "11",
-      "name": "Markers",
-      "category": "Writing Essentials",
-      "description": "Easy-to-understand mathematics guide for school students.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Essentials/pocket4.jpg"
-    },
-    {
-      "id": "12",
-      "name": "Highlighters",
-      "category": "Writing Essentials",
-      "description": "Easy-to-understand mathematics guide for school students.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Essentials/pocket4.jpg"
-    },
-    {
-      "id": "13",
-      "name": "Geometry Box",
-      "category": "Instruments",
-      "description": "Complete set containing essential tools like compass, ruler, protractor, and set squares for school mathematics.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
-    },
-    {
-      "id": "14",
-      "name": "Geometry Box",
-      "category": "Instruments",
-      "description": "Complete set containing essential tools like compass, ruler, protractor, and set squares for school mathematics.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
-    },
-    {
-      "id": "15",
-      "name": "Premium Scale",
-      "category": "Instruments",
-      "description": "Double Strong, straight, and accurately marked Straight measuring tool used for measuring lengths and drawing precise lines",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
-    },
-    {
-      "id": "16",
-      "name": "Set Square",
-      "category": "Instruments",
-      "description": "The Good Strong, clear, and precisely marked Triangular measuring tools used for drawing accurate angles",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
-    },
-    {
-      "id": "17",
-      "name": "Premium Compass",
-      "category": "Instruments",
-      "description": "Sturdy, smooth, and accurate. Easy to draw accurate circles and arcs of different sizes.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
-    },
-    {
-      "id": "18",
-      "name": "Calculator",
-      "category": "Instruments",
-      "description": "Practical calculators designed for students to perform quick and accurate mathematical calculations for schoolwork, homework, and exams.",
-      "price": 499,
-      "stock": 18,
-      "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
-    },
-    {
-      "id": "19",
-      "name": "Daily Diary",
-      "category": "Diaries",
-      "description": "A simple diary for recording daily activities, notes, ideas, and important events.",
-      "price": 199,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    },
-    {
-      "id": "20",
-      "name": "Premium Daily Diary",
-      "category": "Diaries",
-      "description": "A Premium Quality Pages diary for recording daily activities, notes, ideas, and important events",
-      "price": 199,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    },
-    {
-      "id": "21",
-      "name": "Premium Daily Diary",
-      "category": "Diaries",
-      "description": "A Premium Quality Pages diary for recording daily activities, notes, ideas, and important events",
-      "price": 199,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    },
-    {
-      "id": "22",
-      "name": "Study Planner",
-      "category": "Diaries",
-      "description": "Helps students organize study time, subjects, homework, and exam preparation.",
-      "price": 199,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    },
-    {
-      "id": "23",
-      "name": "To Do Notes",
-      "category": "Diaries",
-      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
-      "price": 199,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    },
-    {
-      "id": "24",
-      "name": "Academic Planner",
-      "category": "Diaries",
-      "description": "Good pages, Helps students plan their school year, classes, assignments, projects, and exams",
-      "price": 199,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    },
-    {
-      "id": "25",
-      "name": "School Bags",
-      "category": "School Accessories",
-      "description": "Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
-      "price": 799,
-      "stock": 25,
-      "rating": 4.7,
-      "image": "/Products/Bags/bag1.jpg"
-    },
-    {
-      "id": "26",
-      "name": "School Bags",
-      "category": "School Accessories",
-      "description": "Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
-      "price": 799,
-      "stock": 25,
-      "rating": 4.7,
-      "image": "/Products/Bags/bag1.jpg"
-    },
-    {
-      "id": "27",
-      "name": "Premium School Bags",
-      "category": "School Accessories",
-      "description": "High quality, Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
-      "price": 799,
-      "stock": 25,
-      "rating": 4.7,
-      "image": "/Products/Bags/bag1.jpg"
-    },
-    {
-      "id": "28",
-      "name": "Pencil Cases",
-      "category": "School Accessories",
-      "description": "Compact cases for keeping pens, pencils, erasers, sharpeners, and other stationery organized.",
-      "price": 79,
-      "stock": 25,
-      "rating": 4.1,
-      "image": "/Products/Bags/bag1.jpg"
-    },
-    {
-      "id": "29",
-      "name": "Water Bottles",
-      "category": "School Accessories",
-      "description": "Reusable bottles designed to help students carry water conveniently throughout the school day",
-      "price": 99,
-      "stock": 28,
-      "rating": 4.8,
-      "image": "/Products/Bags/bag1.jpg"
-    },
-    {
-      "id": "30",
-      "name": "Lunch Boxes",
-      "category": "School Accessories",
-      "description": "Practical containers for safely carrying meals and snacks to school.",
-      "price": 199,
-      "stock": 18,
-      "rating": 4.2,
-      "image": "/Products/Bags/bag1.jpg"
+      "image": "/Products/Essentials/pen7.jpg"
     },
     {
       "id": "123",
@@ -333,29 +103,250 @@
       "discount": 18,
       "stock": 60,
       "rating": 4.6,
-      "image": "/Products/Bags/bag1.jpg"
+      "image": "/Products/Essentials/premium2.jpg"
+    },
+    {
+      "id": "8",
+      "name": "BallPoint Pens",
+      "category": "Writing Essentials",
+      "description": "Smooth-writing ball pens suitable for everyday school use.",
+      "price": 299,
+      "stock": 30,
+      "rating": 4.7,
+      "image": "/Products/Essentials/pen8.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Premium Pencils",
+      "category": "Writing Essentials",
+      "description": "Premium HB pencils for writing, drawing and school work.",
+      "price": 299,
+      "stock": 30,
+      "rating": 4.7,
+      "image": "/Products/Essentials/pencil.9.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Pocket Pens",
+      "category": "Writing Essentials",
+      "description": "Easy-to-understand mathematics guide for school students.",
+      "price": 299,
+      "stock": 30,
+      "rating": 4.7,
+      "image": "/Products/Essentials/pocket10.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Markers",
+      "category": "Writing Essentials",
+      "description": "Easy-to-understand mathematics guide for school students.",
+      "price": 99,
+      "stock": 10,
+      "rating": 4.7,
+      "image": "/Products/Essentials/marker11.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Highlighters",
+      "category": "Writing Essentials",
+      "description": "Easy-to-understand mathematics guide for school students.",
+      "price": 129,
+      "stock": 5,
+      "rating": 4.9,
+      "image": "/Products/Essentials/highligth12.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Geometry Box",
+      "category": "Instruments",
+      "description": "Complete set containing essential tools like compass, ruler, protractor, and set squares for school mathematics.",
+      "price": 100,
+      "stock": 12,
+      "rating": 4.7,
+      "image": "/Products/Box/box1.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Geometry Box",
+      "category": "Instruments",
+      "description": "Complete set containing essential tools like compass, ruler, protractor, and set squares for school mathematics.",
+      "price": 199,
+      "stock": 6,
+      "rating": 4.9,
+      "image": "/Products/Box/box2.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Premium Scale",
+      "category": "Instruments",
+      "description": "Double Strong, straight, and accurately marked Straight measuring tool used for measuring lengths and drawing precise lines",
+      "price": 69,
+      "stock": 8,
+      "rating": 4.6,
+      "image": "/Products/Box/scale1.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Set Square",
+      "category": "Instruments",
+      "description": "The Good Strong, clear, and precisely marked Triangular measuring tools used for drawing accurate angles",
+      "price": 60,
+      "stock": 3,
+      "rating": 4.3,
+      "image": "/Products/Box/square.jpg"
+    },
+    {
+      "id": "17",
+      "name": "Premium Compass",
+      "category": "Instruments",
+      "description": "Sturdy, smooth, and accurate. Easy to draw accurate circles and arcs of different sizes.",
+      "price": 110,
+      "stock": 6,
+      "rating": 4.8,
+      "image": "/Products/Box/compass.jpg"
+    },
+    {
+      "id": "18",
+      "name": "Calculator",
+      "category": "Instruments",
+      "description": "Practical calculators designed for students to perform quick and accurate mathematical calculations for schoolwork, homework, and exams.",
+      "price": 499,
+      "stock": 12,
+      "rating": 4.9,
+      "image": "/Products/Box/calculater.jpg"
+    },
+    {
+      "id": "19",
+      "name": "Daily Diary",
+      "category": "Diaries",
+      "description": "A simple diary for recording daily activities, notes, ideas, and important events.",
+      "price": 199,
+      "stock": 20,
+      "rating": 4.8,
+      "image": "/Products/Daires/dairy1.jpg"
+    },
+    {
+      "id": "20",
+      "name": "Premium Daily Diary",
+      "category": "Diaries",
+      "description": "A Premium Quality Pages diary for recording daily activities, notes, ideas, and important events",
+      "price": 280,
+      "stock": 5,
+      "rating": 4.9,
+      "image": "/Products/Daires/dairy2.jpg"
+    },
+    {
+      "id": "21",
+      "name": "Premium Daily Diary",
+      "category": "Diaries",
+      "description": "A Premium Quality Pages diary for recording daily activities, notes, ideas, and important events",
+      "price": 199,
+      "stock": 30,
+      "rating": 4.7,
+      "image": "/Products/Daires/daily3.jpg"
+    },
+    {
+      "id": "22",
+      "name": "Study Planner",
+      "category": "Diaries",
+      "description": "Helps students organize study time, subjects, homework, and exam preparation.",
+      "price": 190,
+      "stock": 10,
+      "rating": 4.7,
+      "image": "/Products/Daires/study.jpg"
     },
     {
       "id": "23",
       "name": "To Do Notes",
       "category": "Diaries",
       "description": "A simple notebook for creating daily task lists and tracking completed activities.",
-      "price": 199,
-      "stock": 15,
-      "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
-    }
-  ],
-  "carts": [
+      "price": 90,
+      "stock": 20,
+      "rating": 4.9,
+      "image": "/Products/Daires/todo23.jpg"
+    },
     {
-      "productId": "1",
-      "name": "Premium Notebook",
-      "price": 299,
-      "image": "/Products/Books/premium2.jpg",
-      "quantity": 1,
-      "id": "Hf3vz2fV9ts"
+      "id": "24",
+      "name": "Academic Planner",
+      "category": "Diaries",
+      "description": "Good pages, Helps students plan their school year, classes, assignments, projects, and exams",
+      "price": 199,
+      "stock": 4,
+      "rating": 4.8,
+      "image": "/Products/Daires/planner.jpg"
+    },
+    {
+      "id": "25",
+      "name": "School Bags",
+      "category": "School Accessories",
+      "description": "Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
+      "price": 799,
+      "stock": 5,
+      "rating": 4.9,
+      "image": "/Products/Bags/bag-1.jpg"
+    },
+    {
+      "id": "26",
+      "name": "School Bags",
+      "category": "School Accessories",
+      "description": "Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
+      "price": 899,
+      "stock": 12,
+      "rating": 4.8,
+      "image": "/Products/Bags/bag-2.jpg"
+    },
+    {
+      "id": "27",
+      "name": "Premium School Bags",
+      "category": "School Accessories",
+      "description": "High quality, Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
+      "price": 999,
+      "stock": 2,
+      "rating": 5,
+      "image": "/Products/Bags/bag-3.jpg"
+    },
+    {
+      "id": "28",
+      "name": "Pencil Cases",
+      "category": "School Accessories",
+      "description": "Compact cases for keeping pens, pencils, erasers, sharpeners, and other stationery organized.",
+      "price": 189,
+      "stock": 10,
+      "rating": 4.6,
+      "image": "/Products/Bags/pouch.jpg"
+    },
+    {
+      "id": "29",
+      "name": "Water Bottles",
+      "category": "School Accessories",
+      "description": "Reusable bottles designed to help students carry water conveniently throughout the school day",
+      "price": 120,
+      "stock": 8,
+      "rating": 4.8,
+      "image": "/Products/Bags/bottle.jpg"
+    },
+    {
+      "id": "30",
+      "name": "Lunch Boxes",
+      "category": "School Accessories",
+      "description": "Practical containers for safely carrying meals and snacks to school.",
+      "price": 270,
+      "stock": 3,
+      "rating": 4.4,
+      "image": "/Products/Bags/lunch.jpg"
+    },
+    {
+      "id": "31",
+      "name": "Kit",
+      "category": "School Accessories",
+      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
+      "price": 199,
+      "stock": 0,
+      "rating": 4.7,
+      "image": "/Products/Bags/kit.jpg"
     }
   ],
+  "carts": [],
   "wishlists": [
     {
       "id": "23",
