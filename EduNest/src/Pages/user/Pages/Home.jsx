@@ -3,6 +3,7 @@ import Hero from "../Components/Hero";
 import ProductCard from "../Components/ProductCard";
 import { ArrowRight,NotebookIcon,BookOpen,Pencil,GraduationCap, Notebook } from "lucide-react";
 import ProductCarousel from "../Components/ProductCarousel";
+import Footer from "../Components/Footer";
 
 
 function Home() {
@@ -33,6 +34,7 @@ function Home() {
 
   return (
     <main className="min-h-screen bg-[#FAF8FF]">
+
       <div>
        <div className="w-full">
         <img 
@@ -253,7 +255,10 @@ function Home() {
             Start Shopping <ArrowRight size={18} />
           </a>
         </div>
-      </section>           
+      </section>     
+
+{/* Footer */}
+      {/* <Footer />     */}
 
     </main>
   );
