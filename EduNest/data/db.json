@@ -360,16 +360,8 @@
       "name": "Premium Notebooks",
       "price": 80,
       "image": "/Products/Books/premium2.jpg",
-      "quantity": 2,
+      "quantity": 3,
       "id": "EsmupTdf9T4"
-    },
-    {
-      "productId": "30",
-      "name": "Lunch Boxes",
-      "price": 270,
-      "image": "/Products/Bags/lunch.jpg",
-      "quantity": 4,
-      "id": "JONA1cwKJDw"
     }
   ],
   "wishlists": [
