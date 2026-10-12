@@ -5,8 +5,10 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { deleteWishlist, getWishlists } from '../../../Api/wishlistApi';
 import { toast } from 'sonner';
 import { addCartItem } from '../../../Api/cartApi';
+import ProductDetails from '../Components/ProductDetails';
 
 function Wishlist() {
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const queryClient = useQueryClient()
 
@@ -184,10 +186,10 @@ function Wishlist() {
                                 </button>
                             </div>
 
-                            <Link to={`/products/${product.productId}`}
+                            <button onClick={() => setSelectedProduct(product)}
                                     className='block text-center text-[#3D348B] font-semibold text-sm mt-4 hover:underline'>
                                 View Details
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 ))}

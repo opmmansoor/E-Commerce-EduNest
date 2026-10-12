@@ -7,9 +7,24 @@ export const getWishlists = async () => {
     return res.data
 };
 
-export const addToWishlist = async (item) => {
-    const res = await axios.post(API,item);
-    return res.data
+export const addToWishlist = async (product) => {
+    const productId = product.productId ?? product.id;
+    const res = await axios.get(API,{
+        params: {productId},
+    });
+
+    if(res.data.length > 0){
+        return res.data[0]
+    }
+    
+    const newItem = await axios.post(API, {
+        productId,
+        name: product.name,
+        image: product.image,
+        category: product.category,
+        price: product.price,
+    });
+    return newItem.data;
 };
 
 

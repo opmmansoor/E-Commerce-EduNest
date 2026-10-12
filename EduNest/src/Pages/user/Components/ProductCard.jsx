@@ -24,8 +24,8 @@ function ProductCard({ product }) {
     const addWishlistMutation = useMutation({
       mutationFn: addToWishlist,
 
-      onSuccess: () => {
-        queryClient.invalidateQueries({queryKey: ["wishlists"]})
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ["wishlists"]})
         toast.success("Added to Wishlist!")
       },
 
@@ -37,13 +37,9 @@ function ProductCard({ product }) {
     const removeWishlistMutation = useMutation({
       mutationFn: deleteWishlist,
 
-      onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: ["wishlists"]});
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({ queryKey: ["wishlists"]});
         toast.success("Remove From Wishlist")
-      },
-
-      onError: () => {
-        toast.error("Failed to remove from wishlist")
       },
     });
 
@@ -93,11 +89,14 @@ function ProductCard({ product }) {
                     hover:shadow-xl transition duration-300">
 
       {/* Product Image */}
-      <div className="relative bg-gray-100 h-56 flex items-center justify-center">
+      <div className="relative bg-purple-100 h-56 flex items-center justify-center
+                      overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-50 to-gray-100">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain p-5"
+          className="w-full h-full object-contain p-5
+                      transition-transform duration-500 ease-out
+                      group-hover:scale-110"
         />
 
         {/* Wishlist Button */}
@@ -105,7 +104,9 @@ function ProductCard({ product }) {
                 disabled={addWishlistMutation.isPending || 
                           removeWishlistMutation.isPending
                 }
-                aria-label="Toggle wishlist"
+                aria-label={
+                  isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"
+                }
                 className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50">
           <Heart
             size={20}

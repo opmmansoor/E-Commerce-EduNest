@@ -348,51 +348,54 @@
   ],
   "carts": [
     {
+      "productId": "3",
+      "name": "Spiral Notebooks",
+      "price": 50,
+      "image": "/Products/Books/spiral3.jpg",
+      "quantity": 1,
+      "id": "A-cycClqZ8A"
+    },
+    {
       "productId": "1",
       "name": "Premium Notebooks",
       "price": 80,
       "image": "/Products/Books/premium2.jpg",
       "quantity": 2,
-      "id": "Up50kzFViFM"
+      "id": "EsmupTdf9T4"
     },
     {
-      "name": "Premium Notebooks",
-      "price": 80,
-      "image": "/Products/Books/premium2.jpg",
-      "quantity": 1,
-      "id": "21jicnHv_go"
+      "productId": "30",
+      "name": "Lunch Boxes",
+      "price": 270,
+      "image": "/Products/Bags/lunch.jpg",
+      "quantity": 4,
+      "id": "JONA1cwKJDw"
     }
   ],
   "wishlists": [
     {
-      "id": "ot1_EM0Jeq8",
-      "name": "Spiral Notebooks",
+      "productId": "5",
+      "name": "Drawing Notebooks",
+      "image": "/Products/Books/drawing5.jpg",
       "category": "Notebooks",
-      "description": "Convenient notebooks with spiral binding that allows pages to turn easily and lie flat. Great for lectures, quick notes, and everyday schoolwork.",
-      "price": 50,
-      "stock": 18,
-      "rating": 4.8,
-      "image": "/Products/Books/spiral3.jpg"
+      "price": 110,
+      "id": "mVHNgqknAtE"
     },
     {
-      "id": "r8dy5BvCpN4",
-      "name": "Gel Pens",
-      "category": "Writing Essentials",
-      "description": "Easy-to-understand mathematics guide for school students.",
-      "price": 299,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Essentials/pen7.jpg"
+      "productId": "14",
+      "name": "Geometry Box",
+      "image": "/Products/Box/box2.jpg",
+      "category": "Instruments",
+      "price": 199,
+      "id": "PicfNq3Bu6U"
     },
     {
-      "id": "mj5SZUsgLgc",
-      "name": "Premium Notebooks",
+      "productId": "6",
+      "name": "Sticky Notes",
+      "image": "/Products/Books/sticky6.jpg",
       "category": "Notebooks",
-      "description": "High-quality notebooks featuring durable covers, smooth paper, and elegant designs. Perfect for school notes, daily writing notebooks.",
-      "price": 80,
-      "stock": 30,
-      "rating": 4.7,
-      "image": "/Products/Books/premium2.jpg"
+      "price": 40,
+      "id": "rvrRZSqd62g"
     }
   ],
   "orders": [],

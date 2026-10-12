@@ -25,11 +25,13 @@ function ProductDetails({ product, onClose }) {
             </button>
 
           <div className='grid md:grid-cols-2'>
-            <div className='flex min-h-[350px] items-center justify-center bg-gray-100 p-8'>
+            <div className=' group flex min-h-[350px] items-center justify-center overflow-hidden bg-gray-100 p-8
+                           transition-colors duration-300 hover:bg-gray-50'>
                 <img 
                     src={product.image} 
                     alt={product.name} 
-                    className='max-h-[350px] w-full object-contain'/>
+                    className='max-h-[350px] w-full object-contain 
+                                transition-transform duration-500 ease-out group-hover:scale-110'/>
             </div>
 
             <div className='p-8'>

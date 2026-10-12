@@ -33,9 +33,9 @@ function Navbar() {
 
   return (
     
-      <nav className='fixed top-0 left-0 right-0 z-50 bg-[#3D348B] text-white shadow-lg'>
+      <nav className='fixed top-5 left-3 right-3 rounded-xl z-50 bg-[#3D348B] text-white shadow-lg '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='h-20 flex items-center justify-between'>
+          <div className='h-16 flex items-center justify-between'>
             
             <Link to='/home'
                   className='flex items-center gap-2 '>
@@ -88,10 +88,7 @@ function Navbar() {
                 <span 
                      className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B]
                                  text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
-                    {cartLoading ? "..." : cart.reduce(
-                        (total, item) => total + Number(item.quantity || 1),
-                        0
-                    )}
+                    {cart.length}
                 </span>
             </Link>
           </div>

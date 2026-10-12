@@ -15,11 +15,12 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-purple-100/50">
+      <img src="/image/BG.png" alt="bg" className="w-full"/>
 
       <Hero />
 
-      <section className="relative overflow-hidden bg-[#3D348B]">
+      <section className="relative overflow-hidden bg-purple-100/50">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-20">
           <span>
             <img className="w-100" src="/image/LOGO.png" alt="LOGO" />
@@ -34,12 +35,12 @@ function Home() {
 
       <div>
         <div>
-          <h3>Books</h3>
+          <h3>Note Books</h3>
           <p>Find useful books for your studies.</p>
         </div>
 
         <div>
-          <h3>Stationery</h3>
+          <h3>Stationery Items</h3>
           <p>Get all your essential stationery items.</p>
         </div>
 
