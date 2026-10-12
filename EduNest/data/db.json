@@ -388,6 +388,14 @@
       "category": "Notebooks",
       "price": 40,
       "id": "rvrRZSqd62g"
+    },
+    {
+      "productId": "13",
+      "name": "Geometry Box",
+      "image": "/Products/Box/box1.jpg",
+      "category": "Instruments",
+      "price": 100,
+      "id": "CIMdRC4I8So"
     }
   ],
   "orders": [],

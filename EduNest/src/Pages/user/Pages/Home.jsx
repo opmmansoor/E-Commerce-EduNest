@@ -2,19 +2,10 @@ import React from "react";
 import Hero from "../Components/Hero";
 import ProductCard from "../Components/ProductCard";
 import { ArrowRight,NotebookIcon,BookOpen,Pencil,GraduationCap, Notebook } from "lucide-react";
+import ProductCarousel from "../Components/ProductCarousel";
 
 
 function Home() {
-
-  const product = {
-    id: "1",
-    name: "Premium Notebook",
-    category: "Notebooks",
-    icon: NotebookIcon,
-    price: 299,
-    stock: 25,
-    image: "/Products/Books/premium2.jpg",
-  }
 
   const categories = [
     {
@@ -221,9 +212,12 @@ function Home() {
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-sm grid-cols-1 gap-6 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4">
+
+          <ProductCarousel />
+
+          {/* <div className="mx-auto grid max-w-sm grid-cols-1 gap-6 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4">
             <ProductCard product={product} />
-          </div>
+          </div> */}
 
           <div className="mt-10 text-center" >
 
