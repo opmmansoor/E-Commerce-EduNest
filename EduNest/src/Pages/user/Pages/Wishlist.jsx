@@ -2,8 +2,9 @@ import React from 'react'
 import { ArrowRight, Heart, ShoppingCart, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { deleteWishlist, getWishlist } from '../../../Api/wishlistApi';
+import { deleteWishlist, getWishlists } from '../../../Api/wishlistApi';
 import { toast } from 'sonner';
+import { addCartItem } from '../../../Api/cartApi';
 
 function Wishlist() {
 
@@ -11,7 +12,7 @@ function Wishlist() {
 
     const { data : wishlist=[], isLoading, isError } = useQuery({
         queryKey: ["wishlists"],
-        queryFn: getWishlist,
+        queryFn: getWishlists,
     })
 
 //Remove from wishlist
@@ -183,7 +184,7 @@ function Wishlist() {
                                 </button>
                             </div>
 
-                            <Link to={`/products/${product.productid}`}
+                            <Link to={`/products/${product.productId}`}
                                     className='block text-center text-[#3D348B] font-semibold text-sm mt-4 hover:underline'>
                                 View Details
                             </Link>

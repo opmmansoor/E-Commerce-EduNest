@@ -3,18 +3,18 @@ import { Heart, LogOut, ShoppingCart, User } from 'lucide-react';
 import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getCart } from '../../../Api/cartApi';
-import { getWishlist } from '../../../Api/wishlistApi';
+import { getWishlists } from '../../../Api/wishlistApi';
 
 function Navbar() {
 
-    const {data: cart=[] } = useQuery({
+    const {data: cart=[], isLoading: cartLoading } = useQuery({
         queryKey: ["carts"],
         queryFn: getCart,
     })
     
     const { data:wishlist = [], isLoading:wishlistLoading,} = useQuery({
         queryKey: ["wishlists"],
-        queryFn: getWishlist,
+        queryFn: getWishlists,
     })
     
     const navigate = useNavigate();
@@ -88,7 +88,10 @@ function Navbar() {
                 <span 
                      className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B]
                                  text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
-                    {cart.length}
+                    {cartLoading ? "..." : cart.reduce(
+                        (total, item) => total + Number(item.quantity || 1),
+                        0
+                    )}
                 </span>
             </Link>
           </div>

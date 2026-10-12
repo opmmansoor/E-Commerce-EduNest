@@ -9,6 +9,8 @@ export const getCart = async () => {
 export const addCartItem = async (item) => {
     const response = await axios.post(API,item);
     return response.data
+
+    
 };
 
 export const deleteCartItem = async (id) => {

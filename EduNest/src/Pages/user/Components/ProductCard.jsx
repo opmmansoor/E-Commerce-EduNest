@@ -75,7 +75,7 @@ function ProductCard({ product }) {
       })
 
 //for notification on ADD
-      toast.success("Item Added to  Cart!")
+      toast.success("Item Added to Cart!")
     },
     onError: (error) => {
       console.error("Cart save failed:", error);
@@ -96,16 +96,7 @@ function ProductCard({ product }) {
       image: product.image,
       quantity: 1,
     });
-  }
-
-//Add/remove wishlist
-  const handleWishlist  = () => {
-        if (isWishlisted) {
-            dispatch(removeFromWishlist(product.id));
-        }else{
-            dispatch(addToWishlist(product))
-        }
-    }  
+  } 
   
     return (
         <>
@@ -122,6 +113,9 @@ function ProductCard({ product }) {
 
         {/* Wishlist Button */}
         <button onClick={handleWishlist}
+                disabled={addWishlistMutation.isPending || 
+                          removeWishlistMutation.isPending
+                }
                 aria-label="Toggle wishlist"
                 className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50">
           <Heart
@@ -130,6 +124,7 @@ function ProductCard({ product }) {
                 isWishlisted? "fill-red-500 text-red-500" : "text-red-500"
              }/>
         </button>
+
         <h3>{[product.title]}</h3>
       </div>
 

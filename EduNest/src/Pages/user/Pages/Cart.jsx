@@ -5,6 +5,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { deleteCartItem, getCart } from '../../../Api/cartApi';
 import { toast } from 'sonner';
 import { Minus, Plus, ShoppingCart, Trash, Trash2 } from 'lucide-react';
+import axios from 'axios';
 
 const API = "http://localhost:3000/carts"
 
@@ -51,26 +52,38 @@ function Cart() {
 // Clear the entire cart
     const clearCartMutation = useMutation({
         mutationFn: async () => {
+    //Fetch latest records from JSON       
+            const latestCart = await getCart();
+    //Delete every cart records        
             await Promise.all(
-                cart.map((item) => 
-                deleteCartItem(item.id))
-            )
+                latestCart.map((item) => deleteCartItem(item.id))
+            );
         },
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["carts"] });
+
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({ queryKey: ["carts"] });
             toast.success("Cart cleared Successfully")
         },
-        onError: () => {
-            queryClient.invalidateQueries({queryKey: ["carts"] });
-            toast.error("Failed to clear cart")
+        onError: async () => {
+            await queryClient.invalidateQueries({queryKey: ["carts"] });
+            
+            toast.error("Could not clear the cart. Check JSON Server.")
         },
     });
 
+//Plus Button
     const increaseQuantity = (item) => {
-        if(item.quantity > 1){
+        updateQuantityMutation.mutate({
+            id: item.id,
+            quantity: Number(item.quantity || 1) + 1
+        });
+    }
+
+    const decreaseQuantity = (item) => {
+        if(Number(item.quantity) > 1){
             updateQuantityMutation.mutate({
                 id: item.id,
-                quantity: item.quantity - 1
+                quantity: Number(item.quantity) - 1,
             });
         }
     }
@@ -145,8 +158,8 @@ function Cart() {
                 </p>
             </div>
 
-            <button onClick={() => clearCartMutation.mutate}
-                    disabled={clearCartMutation.isPending}
+            <button onClick={() => clearCartMutation.mutate()}
+                    disabled={clearCartMutation.isPending || cart.length === 0}
                     className='flex items-center gap-2 bg-red-500  text-white 
                                 px-4 py-2 rounded-lg hover:bg-red-700 disabled:opacity-50'>
                 <Trash size={18} />
@@ -179,7 +192,7 @@ function Cart() {
                     </p>
 
                     <p className='mt-1 text-sm text-gray-500'>
-                        Subtotal: ₹
+                        Sub Total: ₹
                         {(Number(item.price) * Number(item.quantity))
                          .toLocaleString("en-IN")}
                     </p>
@@ -232,7 +245,7 @@ function Cart() {
                 </h2>
 
                 <p className='mt-1 text-sm text-gray-500'>
-                    {cart.length} different item(s)
+                    {cart.length} {cart.length === 1 ? "item":"different items"}
                 </p>
                 </div>
 

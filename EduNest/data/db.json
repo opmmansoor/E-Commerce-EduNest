@@ -348,24 +348,50 @@
   ],
   "carts": [
     {
-      "productId": "3",
-      "name": "Spiral Notebooks",
-      "price": 50,
-      "image": "/Products/Books/spiral3.jpg",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 2,
+      "id": "xI8I3Qs1UYI"
+    },
+    {
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "price": 80,
+      "image": "/Products/Books/premium2.jpg",
       "quantity": 1,
-      "id": "V79LIKWekRg"
+      "id": "bVUq8aB0smA"
+    },
+    {
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "price": 80,
+      "image": "/Products/Books/premium2.jpg",
+      "quantity": 1,
+      "id": "Se6VsWxc074"
     }
   ],
   "wishlists": [
     {
-      "id": "23",
-      "name": "To Do Notes",
-      "category": "Diaries",
-      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
-      "price": 199,
-      "stock": 15,
+      "id": "ot1_EM0Jeq8",
+      "name": "Spiral Notebooks",
+      "category": "Notebooks",
+      "description": "Convenient notebooks with spiral binding that allows pages to turn easily and lie flat. Great for lectures, quick notes, and everyday schoolwork.",
+      "price": 50,
+      "stock": 18,
+      "rating": 4.8,
+      "image": "/Products/Books/spiral3.jpg"
+    },
+    {
+      "id": "r8dy5BvCpN4",
+      "name": "Gel Pens",
+      "category": "Writing Essentials",
+      "description": "Easy-to-understand mathematics guide for school students.",
+      "price": 299,
+      "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Daires/dairy1.jpg"
+      "image": "/Products/Essentials/pen7.jpg"
     }
   ],
   "orders": [],
