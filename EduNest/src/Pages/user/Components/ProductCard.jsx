@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { ShoppingCart, Heart } from "lucide-react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../Slice/cartSlice";
 import ProductDetails from "./ProductDetails";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { addCartItem } from "../../../Api/cartApi";
@@ -9,8 +7,6 @@ import { toast } from "sonner";
 import { addToWishlist, deleteWishlist, getWishlists } from "../../../Api/wishlistApi";
 
 function ProductCard({ product }) {
-
-    const dispatch = useDispatch()
 
 //View Details
     const [showDetail, setShowDetail] = useState(false);
@@ -65,27 +61,20 @@ function ProductCard({ product }) {
   const cartMutation = useMutation({
     mutationFn: addCartItem,
 
-    onSuccess: () => {
-//update redux after success
-      dispatch(addToCart(product))
-
-// Refresh cart data      
-      queryClient.invalidateQueries({
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
         queryKey: ["carts"],
-      })
+      });
 
-//for notification on ADD
-      toast.success("Item Added to Cart!")
+      toast.success("Cart quantity updated!")
+
     },
     onError: (error) => {
       console.error("Cart save failed:", error);
-      console.error("Server response:", error.response?.data)
+      toast.error("Failed to add item to cart");
       
-      toast.error( error.response?.data?.message ||
-            "Failed to ad item. Check JSON Server."
-      )
-    }
-  })
+    },
+  });
 
 //Add To Cart 
   const handleAddToCart = () => {

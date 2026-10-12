@@ -245,7 +245,14 @@ function Cart() {
                 </h2>
 
                 <p className='mt-1 text-sm text-gray-500'>
-                    {cart.length} {cart.length === 1 ? "item":"different items"}
+                    {cart.reduce(
+                        (total, item) => total + Number(item.quantity || 1),
+                        0
+                    )} {" "}
+                    { cart.reduce(
+                        (total, item) => total + Number(item.quantity || 1),
+                        0
+                    ) === 1 ? "item" : "items"}
                 </p>
                 </div>
 

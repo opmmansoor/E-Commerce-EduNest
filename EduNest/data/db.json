@@ -348,28 +348,19 @@
   ],
   "carts": [
     {
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "price": 89,
-      "image": "/Products/Books/Lined2.jpg",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "price": 80,
+      "image": "/Products/Books/premium2.jpg",
       "quantity": 2,
-      "id": "xI8I3Qs1UYI"
+      "id": "Up50kzFViFM"
     },
     {
-      "productId": "1",
       "name": "Premium Notebooks",
       "price": 80,
       "image": "/Products/Books/premium2.jpg",
       "quantity": 1,
-      "id": "bVUq8aB0smA"
-    },
-    {
-      "productId": "1",
-      "name": "Premium Notebooks",
-      "price": 80,
-      "image": "/Products/Books/premium2.jpg",
-      "quantity": 1,
-      "id": "Se6VsWxc074"
+      "id": "21jicnHv_go"
     }
   ],
   "wishlists": [
@@ -392,6 +383,16 @@
       "stock": 30,
       "rating": 4.7,
       "image": "/Products/Essentials/pen7.jpg"
+    },
+    {
+      "id": "mj5SZUsgLgc",
+      "name": "Premium Notebooks",
+      "category": "Notebooks",
+      "description": "High-quality notebooks featuring durable covers, smooth paper, and elegant designs. Perfect for school notes, daily writing notebooks.",
+      "price": 80,
+      "stock": 30,
+      "rating": 4.7,
+      "image": "/Products/Books/premium2.jpg"
     }
   ],
   "orders": [],
