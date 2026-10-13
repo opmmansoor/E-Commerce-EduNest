@@ -5,11 +5,28 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { addCartItem } from "../../../Api/cartApi";
 import { toast } from "sonner";
 import { addToWishlist, deleteWishlist, getWishlists } from "../../../Api/wishlistApi";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function ProductCard({ product }) {
 
 //View Details
     const [showDetail, setShowDetail] = useState(false);
+
+    const navigate = useNavigate();
+
+    const isLoggedIn = useSelector(
+      (state) => state.auth.isLoggedIn
+    );
+
+    const requireLogin = () => {
+      if(!isLoggedIn){
+        toast.error("Please login to continue");
+        navigate("/login");
+        return false;
+      }
+      return true;
+    }
 
     const { data: wishlist=[] }=useQuery({
       queryKey: ["wishlists"],
@@ -44,6 +61,8 @@ function ProductCard({ product }) {
     });
 
     const handleWishlist = () => {
+      if(!requireLogin()) return;
+
       if(wishlistItem){
         removeWishlistMutation.mutate(wishlistItem.id);
       }else{
@@ -74,6 +93,8 @@ function ProductCard({ product }) {
 
 //Add To Cart 
   const handleAddToCart = () => {
+    if(!requireLogin()) return;
+
     cartMutation.mutate({
       productId: product.id,
       name: product.name,

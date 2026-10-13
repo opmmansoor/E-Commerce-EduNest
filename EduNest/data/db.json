@@ -8,18 +8,25 @@
       "id": "qM0F5p-W11Q"
     },
     {
-      "firstName": "user",
-      "secondName": "one",
-      "email": "user@gmail.com",
-      "password": "1234",
-      "id": "2QAKtT2YD-8"
-    },
-    {
       "firstName": "aja",
       "secondName": "ntha",
       "email": "aja@gmail.com",
       "password": "aja1234",
       "id": "Z60aHPQgokc"
+    },
+    {
+      "firstName": "new",
+      "secondName": "user",
+      "email": "user@gmail.com",
+      "password": "user121@",
+      "id": "DBqL9w6McKQ"
+    },
+    {
+      "firstName": "new",
+      "secondName": "user",
+      "email": "user1@gmail.com",
+      "password": "1user@",
+      "id": "YsH_vKuBBj4"
     }
   ],
   "products": [
@@ -345,32 +352,7 @@
     }
   ],
   "carts": [],
-  "wishlists": [
-    {
-      "productId": "5",
-      "name": "Drawing Notebooks",
-      "image": "/Products/Books/drawing5.jpg",
-      "category": "Notebooks",
-      "price": 110,
-      "id": "mVHNgqknAtE"
-    },
-    {
-      "productId": "14",
-      "name": "Geometry Box",
-      "image": "/Products/Box/box2.jpg",
-      "category": "Instruments",
-      "price": 199,
-      "id": "PicfNq3Bu6U"
-    },
-    {
-      "productId": "6",
-      "name": "Sticky Notes",
-      "image": "/Products/Books/sticky6.jpg",
-      "category": "Notebooks",
-      "price": 40,
-      "id": "PlDesK_kbEQ"
-    }
-  ],
+  "wishlists": [],
   "orders": [
     {
       "userId": "Z60aHPQgokc",

@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { loginUser } from '../../Api/loginApi';
+import { useDispatch } from 'react-redux';
+import { setCredentials, logout } from '../../Slice/authSlice';
 
 
 function Login() {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
 // Form state
     const [formData,setFormData] = useState({
@@ -19,18 +22,20 @@ function Login() {
 
         onSuccess: (user) => {
 // Store user information
-            localStorage.setItem("user",JSON.stringify({
+            const loggedInUser = {
                 id:user.id,
                 firstName:user.firstName,
                 secondName: user.secondName,
                 email: user.email,
-            }));
+            };
 // Store login status
-            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("user", JSON.stringify(loggedInUser));
+            // localStorage.setItem("isLoggedIn", "true");
+
+            dispatch(setCredentials(loggedInUser));
 
             alert("Login Successful!")
             
-
             navigate("/home");
         },
         onError: (error) => {
