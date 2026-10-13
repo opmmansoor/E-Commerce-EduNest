@@ -57,9 +57,9 @@ function ProductCarousel() {
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-10">
-      <h2 className="mb-8 text-3xl font-bold text-[#3D348B]">
+      {/* <h2 className="mb-8 text-3xl font-bold text-[#3D348B]">
         Featured Products
-      </h2>
+      </h2> */}
 
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="-ml-4 flex">

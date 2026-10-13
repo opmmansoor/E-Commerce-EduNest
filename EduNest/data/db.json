@@ -348,20 +348,20 @@
   ],
   "carts": [
     {
-      "productId": "3",
-      "name": "Spiral Notebooks",
-      "price": 50,
-      "image": "/Products/Books/spiral3.jpg",
-      "quantity": 1,
-      "id": "A-cycClqZ8A"
-    },
-    {
       "productId": "1",
       "name": "Premium Notebooks",
       "price": 80,
       "image": "/Products/Books/premium2.jpg",
       "quantity": 3,
       "id": "EsmupTdf9T4"
+    },
+    {
+      "productId": "5",
+      "name": "Drawing Notebooks",
+      "price": 110,
+      "image": "/Products/Books/drawing5.jpg",
+      "quantity": 1,
+      "id": "yMQCc30iBoE"
     }
   ],
   "wishlists": [
@@ -388,6 +388,14 @@
       "category": "Instruments",
       "price": 100,
       "id": "CIMdRC4I8So"
+    },
+    {
+      "productId": "7",
+      "name": "Gel Pens",
+      "image": "/Products/Essentials/pen7.jpg",
+      "category": "Writing Essentials",
+      "price": 299,
+      "id": "y9SiAjAI_PY"
     }
   ],
   "orders": [],

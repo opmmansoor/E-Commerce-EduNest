@@ -214,7 +214,7 @@ function Home() {
             </p>
           </div>
 
-
+{/* product swiper */}
           <ProductCarousel />
 
           {/* <div className="mx-auto grid max-w-sm grid-cols-1 gap-6 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4">
@@ -257,8 +257,6 @@ function Home() {
         </div>
       </section>     
 
-{/* Footer */}
-      {/* <Footer />     */}
 
     </main>
   );
