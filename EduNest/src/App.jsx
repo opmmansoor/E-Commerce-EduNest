@@ -9,6 +9,9 @@ import About from "./Pages/user/Pages/About";
 import Cart from "./Pages/user/Pages/Cart";
 import UserLayout from "./layouts/UserLayout";
 import Wishlist from "./Pages/user/Pages/Wishlist";
+import OrderSuccess from "./Pages/user/Components/OrderSuccess";
+import Orders from "./Pages/user/Pages/Orders";
+import Checkout from "./Pages/user/Pages/Checkout";
 
 function App() {
   return (
@@ -24,6 +27,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist/>} />
+          
+ {/* Checkout and Orders */}
+          <Route path="/order-success/:orderId" element={<OrderSuccess />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/checkout" element={<Checkout />} />
 
           {/* Unknown URL */}
           <Route path="*" element={<Navigate to="/register" />} />

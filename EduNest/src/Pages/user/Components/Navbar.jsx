@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { Heart, LogOut, ShoppingCart, User } from 'lucide-react';
+import { Heart, LogOut, Package, ShoppingCart, User } from 'lucide-react';
 import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getCart } from '../../../Api/cartApi';
@@ -90,6 +90,13 @@ function Navbar() {
                                  text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
                     {cart.length}
                 </span>
+            </Link>
+
+            <Link
+                to="/orders"
+                className="hover:text-[#F7B801] transition"
+                            >
+                    <Package />
             </Link>
           </div>
           

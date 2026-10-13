@@ -95,14 +95,12 @@
     },
     {
       "id": "123",
-      "name": "Color Pencil Set",
-      "category": "Stationery",
+      "name": "Fountain Pen",
+      "category": "Writing Essentials",
       "description": "Bright and smooth color pencils for creative school projects.",
       "price": 180,
-      "oldPrice": 220,
-      "discount": 18,
-      "stock": 60,
-      "rating": 4.6,
+      "stock": 6,
+      "rating": 4.9,
       "image": "/Products/Essentials/premium2.jpg"
     },
     {
@@ -346,24 +344,7 @@
       "image": "/Products/Bags/kit.jpg"
     }
   ],
-  "carts": [
-    {
-      "productId": "1",
-      "name": "Premium Notebooks",
-      "price": 80,
-      "image": "/Products/Books/premium2.jpg",
-      "quantity": 3,
-      "id": "EsmupTdf9T4"
-    },
-    {
-      "productId": "5",
-      "name": "Drawing Notebooks",
-      "price": 110,
-      "image": "/Products/Books/drawing5.jpg",
-      "quantity": 1,
-      "id": "yMQCc30iBoE"
-    }
-  ],
+  "carts": [],
   "wishlists": [
     {
       "productId": "5",
@@ -382,22 +363,39 @@
       "id": "PicfNq3Bu6U"
     },
     {
-      "productId": "13",
-      "name": "Geometry Box",
-      "image": "/Products/Box/box1.jpg",
-      "category": "Instruments",
-      "price": 100,
-      "id": "CIMdRC4I8So"
-    },
-    {
-      "productId": "7",
-      "name": "Gel Pens",
-      "image": "/Products/Essentials/pen7.jpg",
-      "category": "Writing Essentials",
-      "price": 299,
-      "id": "y9SiAjAI_PY"
+      "productId": "6",
+      "name": "Sticky Notes",
+      "image": "/Products/Books/sticky6.jpg",
+      "category": "Notebooks",
+      "price": 40,
+      "id": "PlDesK_kbEQ"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "yMQCc30iBoE",
+          "productId": "5",
+          "name": "Drawing Notebooks",
+          "price": 110,
+          "quantity": 1,
+          "image": "/Products/Books/drawing5.jpg"
+        }
+      ],
+      "totalAmount": 110,
+      "shippingAddress": {
+        "fullName": "mans",
+        "phone": "999999999",
+        "address": "dkjdifokdf'ascf",
+        "city": "kolkatha",
+        "pincode": "673634"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-13T15:12:14.589Z",
+      "id": "bht6juc3eCs"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

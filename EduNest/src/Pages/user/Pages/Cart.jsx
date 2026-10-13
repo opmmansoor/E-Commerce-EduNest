@@ -6,11 +6,13 @@ import { deleteCartItem, getCart } from '../../../Api/cartApi';
 import { toast } from 'sonner';
 import { Minus, Plus, ShoppingCart, Trash, Trash2 } from 'lucide-react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const API = "http://localhost:3000/carts"
 
 function Cart() {
 
+    const navigate = useNavigate();
     const queryClient = useQueryClient();
 
     const {
@@ -237,30 +239,44 @@ function Cart() {
 
         </div>
 
-       {/* Total */}
-            <div className='mt-8 bg-white rounded-xl shadow-md p-6 flex justify-between items-center'>
-                <div>
-                <h2 className='text-xl font-bold text-gray-800'>
-                    Total
-                </h2>
+       {/* Total and Checkout */}
+<div className="mt-8 rounded-xl bg-white p-6 shadow-md">
+  <div className="flex items-center justify-between">
+    <div>
+      <h2 className="text-xl font-bold text-gray-800">
+        Total
+      </h2>
 
-                <p className='mt-1 text-sm text-gray-500'>
-                    {cart.reduce(
-                        (total, item) => total + Number(item.quantity || 1),
-                        0
-                    )} {" "}
-                    { cart.reduce(
-                        (total, item) => total + Number(item.quantity || 1),
-                        0
-                    ) === 1 ? "item" : "items"}
-                </p>
-                </div>
+      <p className="mt-1 text-sm text-gray-500">
+        {cart.reduce(
+          (total, item) => total + Number(item.quantity || 1),
+          0
+        )}{" "}
+        {cart.reduce(
+          (total, item) => total + Number(item.quantity || 1),
+          0
+        ) === 1
+          ? "item"
+          : "items"}
+      </p>
+    </div>
 
-                <p className='text-2xl font-bold text-[#3D348B]'>
-                   ₹{totalPrice.toLocaleString("en-IN")} 
-                </p>
-            </div>
+    <p className="text-2xl font-bold text-[#3D348B]">
+      ₹{totalPrice.toLocaleString("en-IN")}
+    </p>
+  </div>
 
+  <button
+    type="button"
+    onClick={() => navigate("/checkout")}
+    disabled={cart.length === 0}
+    className="mt-6 w-full rounded-xl bg-[#3D348B] px-6 py-3
+               font-semibold text-white transition hover:bg-[#2d266b]
+               disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    Proceed to Checkout
+  </button>
+</div>
       </div>
     </div>
   )

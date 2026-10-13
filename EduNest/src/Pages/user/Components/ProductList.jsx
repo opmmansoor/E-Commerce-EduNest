@@ -25,15 +25,15 @@ function ProductList() {
                 .filter(Boolean)
             ),
 
-        ].sort((a,b) => a.localCompare -(b))
-    },[products]);
+        ].sort((a, b) => a.localeCompare(b));
+    }, [products]);
 
 // Search, filter and sort products    
-    const fiteredProducts = useMemo(() => {
+    const filteredProducts = useMemo(() => {
         let result = [...products];
 
 // Search by product name or category
-        const searchText = search.trim().toLocaleLowerCase();
+        const searchText = search.trim().toLowerCase();
 
         if(searchText){
             result = result.filter((product) => 
@@ -55,26 +55,22 @@ function ProductList() {
 // Sort products
       switch(sortBy){
         case "price-low":
-            result.sort(
-                (a,b) => Number(a.price) - Number(b.price)
-            );
+            result.sort((a, b) => Number(a.price) - Number(b.price));
             break;
 
         case "price-high":
-            result.sort(
-                (a,b) => Number(b.price) - Number(a.price)
-            );
+            result.sort((a, b) => Number(b.price) - Number(a.price));
             break;
 
         case "name-asc":
             result.sort((a,b) =>
-                (a.name || "").localCompare(b.name || "")
+                (a.name || "").localeCompare(b.name || "")
             );
             break;
             
         case "name-desc":
             result.sort((a,b) => 
-            (b.name || "").localCompare(a.name || "")    
+            (b.name || "").localeCompare(a.name || "")    
             );
             break;
 
@@ -207,7 +203,7 @@ function ProductList() {
                         <option value="price-low">Price: Low to High</option>
                         <option value="price-high">Price: High to Low</option>
                         <option value="name-asc">Name: A to Z</option>
-                        <option value="name-sesc">Name: Z to A</option>
+                        <option value="name-desc">Name: Z to A</option>
 
                     </select>    
                 </div>           
@@ -218,7 +214,7 @@ function ProductList() {
                 <p className='text-sm text-gray-500'>
                     Showing{" "}
                     <span className="font-bold text-[#3D348B]">
-                        {fiteredProducts.length}
+                        {filteredProducts.length}
                     </span>{" "}
                     of {products.length} products
                 </p>
@@ -237,9 +233,9 @@ function ProductList() {
         </div>
 
 {/* Display product cards */}
-    {fiteredProducts.length > 0 ? (
+    {filteredProducts.length > 0 ? (
        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {fiteredProducts.map((product) => (
+        {filteredProducts.map((product) => (
         <ProductCard
           key={product.id}
           product={product}
