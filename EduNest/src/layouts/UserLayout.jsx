@@ -5,12 +5,12 @@ import Footer from '../Pages/user/Components/Footer'
 
 function UserLayout() {
   return (
-    <div className='min-h-screen bg-gray-50 pb-20'>
+    <div className='min-h-screen bg-gray-50'>
 
       <Navbar/>
 
 {/* Page Content */}
-      <main className='pt-20'> 
+      <main> 
         <Outlet/>
       </main>
       

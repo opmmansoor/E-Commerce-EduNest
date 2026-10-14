@@ -4,6 +4,8 @@ import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getCart } from '../../../Api/cartApi';
 import { getWishlists } from '../../../Api/wishlistApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../../Slice/authSlice';
 
 function Navbar() {
 
@@ -22,10 +24,16 @@ function Navbar() {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
 
 // Get user data from localStorage
-    const user = JSON.parse(localStorage.getItem("user"));
+    // const user = JSON.parse(localStorage.getItem("user"));
+
+    const dispatch = useDispatch();
+
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const user = useSelector((state) => state.auth.user);
 
     const handleLogout = () => {
-        localStorage.removeItem("user");
+        dispatch(logout());
+        setIsProfileOpen(false);
 
 // Go to Login page
         navigate("/login")        
@@ -100,77 +108,87 @@ function Navbar() {
             </Link>
           </div>
           
-            <div className='relative'>
-                <button onClick={() => setIsProfileOpen(!isProfileOpen)}
-                        className='w-11 h-11 rounded-full bg-[#F7B801] text-[#3D348B]
-                        flex items-center justify-center hover:bg-[#F18701] hover:text-white
-                         transition duration-200 shadow-md'>
-                    
-                    <User/>
-                </button>
-                
+            <div className="relative">
+              {isLoggedIn ? (
+                <>
+      {/* Profile Button */}
+                  <button
+                    onClick={() => setIsProfileOpen(!isProfileOpen)}
+                    className="w-11 h-11 rounded-full bg-[#F7B801] text-[#3D348B]
+                            flex items-center justify-center hover:bg-[#F18701]
+                            hover:text-white transition duration-200 shadow-md"
+                    >
+                    <User />
+                   </button>
+
+      {/* Profile Dropdown */}
                 {isProfileOpen && (
-                    <div className='absolute right-0 mt-3 w-72 bg-white text-gray-800 rounded-xl shadow-2xl
-                                    border border-gray-100 overflow-hidden z-50'>
+                    <div className="absolute right-0 mt-3 w-72 bg-white text-gray-800
+                                rounded-xl shadow-2xl border border-gray-100
+                                overflow-hidden z-50">
 
-                      <div className='bg-[#7678ED] text-white px-5 py-5'>
-                        <div className='flex items-center gap-3'>
+                        <div className="bg-[#7678ED] text-white px-5 py-5">
+                            <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-full bg-[#F7B801]
+                                    text-[#3D348B] flex items-center
+                                    justify-center font-bold text-lg">
+                                 {user?.firstName?.charAt(0)?.toUpperCase() || "U"}
+                                </div>
 
-                            <div className='w-12 h-12 rounded-full bg-[#F7B801] text-[#3D348B]
-                                            flex items-center justify-center font-bold text-lg'>
-                                {user?.firstName?.charAt(0)?.toUpperCase() || "U"}
+                                <div>
+                                    <h2 className="font-bold text-lg">Profile</h2>
+                                    <p className="text-sm text-white/80">My Account</p>
+                                </div>
                             </div>
+                        </div>
 
+                        <div className="px-5 py-4 space-y-4">
                             <div>
-                                <h2 className='font-bold text-lg'>
-                                    Profile
-                                </h2>
-                                <p className='text-sm text-white/80'>
-                                    My Account
+                                <p className="text-xs text-gray-400 uppercase">
+                                    Name
+                                </p>
+                                <p className="font-semibold text-[#3D348B]">
+                                    {user?.firstName} {user?.secondName}
                                 </p>
                             </div>
 
+                            <div>
+                                <p className="text-xs text-gray-400 uppercase">
+                                    Email
+                                </p>
+                                <p className="font-semibold text-[#3D348B] break-all">
+                                    {user?.email}
+                                </p>
+                            </div>
+
+                            <hr />
+
+                            <button
+                                onClick={handleLogout}
+                                className="w-full flex items-center justify-center gap-2
+                                    bg-[#F35B04] text-white font-semibold py-3
+                                    rounded-lg hover:bg-[#F18701] transition"
+                                >
+                                <LogOut size={18} />
+                                Logout
+                            </button>
                         </div>
-                      </div>
-
-                      <div className='px-5 py-4 space-y-4'>
-                        <div>
-                            <p className='text-xs text-gray-400 uppercase tracking-wide'>
-                                Name
-                            </p>
-
-                            <p className='font-semibold text-[#3D348B]'>
-                                {user?.firstName || "First"}{" "}
-                                {user?.secondName || "Name"}
-                            </p>
-                        </div>
-
-                        <div>
-                            <p className='text-xs text-gray-400 uppercase tracking-wide'>
-                                Email
-                            </p>
-
-                            <p className='font-semibold text-[#3D348B] break-all'>
-                                {user?.email || "example@gmail.com"}
-                            </p>
-
-                            
-                        </div>
-                            <hr className='my-4'/>
-
-                    {/* Logout */}
-                        <button onClick={handleLogout}
-                                className='w-full flex items-center justify-center gap-2
-                                           bg-[#F35B04] text-white font-semibold py-3 rounded-lg
-                                           hover:bg-[#F18701] transition duration-200'>
-
-                            <LogOut size={18}/> 
-                            Logout
-                        </button>    
-                      </div>
                     </div>
+                  )}
+                </>
+            ) : (
+    /* Login Button after logout */
+                <Link
+                     to="/login"
+                     className="bg-[#F7B801] text-[#3D348B] font-bold
+                        px-5 py-2.5 rounded-lg hover:bg-[#F18701]
+                        hover:text-white transition duration-200"
+                    >
+                    Login
+                    </Link>
                 )}
             </div>
+
            </div> 
         </div>
       </nav>

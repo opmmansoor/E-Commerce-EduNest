@@ -3,7 +3,7 @@ import Hero from "../Components/Hero";
 import ProductCard from "../Components/ProductCard";
 import { ArrowRight,NotebookIcon,BookOpen,Pencil,GraduationCap, Notebook } from "lucide-react";
 import ProductCarousel from "../Components/ProductCarousel";
-import Footer from "../Components/Footer";
+
 
 
 function Home() {
