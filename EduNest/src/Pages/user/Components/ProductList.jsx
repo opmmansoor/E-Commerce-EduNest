@@ -37,9 +37,7 @@ function ProductList() {
 
         if(searchText){
             result = result.filter((product) => 
-            `${product.name || ""} ${product.category || ""} ${
-                product.description || ""
-            }`
+            `${product.name || ""} ${product.category || ""}`
               .toLowerCase()
               .includes(searchText)
         );

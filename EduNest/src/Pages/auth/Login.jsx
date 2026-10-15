@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { loginUser } from '../../Api/loginApi';
 import { useDispatch } from 'react-redux';
 import { setCredentials, logout } from '../../Slice/authSlice';
+import { toast } from 'sonner';
 
 
 function Login() {
@@ -30,16 +31,15 @@ function Login() {
             };
 // Store login status
             localStorage.setItem("user", JSON.stringify(loggedInUser));
-            // localStorage.setItem("isLoggedIn", "true");
 
             dispatch(setCredentials(loggedInUser));
 
-            alert("Login Successful!")
+            toast.success("Login Successful!")
             
             navigate("/home");
         },
         onError: (error) => {
-            console.log("Login error:", error.message);    
+            toast.error("Login error:", error.message);    
         },
     })  
 
@@ -56,8 +56,6 @@ function Login() {
 // Handle login
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        console.log("LOGIN DATA:", formData);
         
         loginMutation.mutate(formData) 
     };

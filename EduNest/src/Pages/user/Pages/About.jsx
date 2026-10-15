@@ -3,8 +3,8 @@ import React from 'react'
 function About() {
   return (
     <div className='min-h-screen bg-purple-100/50 px-5 py-10'>
-      <div className='max-w-5xl mx-auto'>
-        <h1 className='text-3xl font-bold text-gray-800 mb-4'>
+      <div className='py-25 max-w-5xl mx-auto'>
+        <h1 className='text-4xl font-bold text-gray-800 mb-4'>
             About  
             <span className='text-[#3D348B]'> Edu</span>
                 <span className='text-[#F7B801]'>Nest</span>

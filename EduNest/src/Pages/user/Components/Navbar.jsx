@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../Slice/authSlice';
 
 function Navbar() {
+    
 
     const {data: cart=[], isLoading: cartLoading } = useQuery({
         queryKey: ["carts"],
@@ -28,8 +29,9 @@ function Navbar() {
 
     const dispatch = useDispatch();
 
-    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const user = useSelector((state) => state.auth.user);
+    
 
     const handleLogout = () => {
         dispatch(logout());
@@ -41,7 +43,7 @@ function Navbar() {
 
   return (
     
-      <nav className='fixed top-5 left-3 right-3 rounded-xl z-50 bg-[#3D348B] text-white shadow-lg '>
+      <nav className='fixed top-0 left-0 right-0  z-50 bg-[#3D348B] text-white shadow-lg '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='h-16 flex items-center justify-between'>
             
@@ -109,7 +111,7 @@ function Navbar() {
           </div>
           
             <div className="relative">
-              {isLoggedIn ? (
+              {user ? (
                 <>
       {/* Profile Button */}
                   <button

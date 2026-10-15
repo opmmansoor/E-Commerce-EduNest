@@ -12,10 +12,14 @@ import Wishlist from "./Pages/user/Pages/Wishlist";
 import OrderSuccess from "./Pages/user/Components/OrderSuccess";
 import Orders from "./Pages/user/Pages/Orders";
 import Checkout from "./Pages/user/Pages/Checkout";
+import ScrollToTop from "./layouts/ScrollToTop";
 
 function App() {
   return (
-    <div>
+    <>
+
+      <ScrollToTop/>
+
       <Routes>
         {/* user Layout */}
         <Route element={<UserLayout/>}>
@@ -37,7 +41,7 @@ function App() {
           <Route path="*" element={<Navigate to="/register" />} />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 

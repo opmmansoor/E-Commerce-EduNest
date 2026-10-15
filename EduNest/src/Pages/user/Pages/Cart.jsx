@@ -126,7 +126,7 @@ function Cart() {
 
     if(cart.length === 0){
         return(
-            <div className='min-h-screen bg-gray-100 px-5 py-10'>
+            <div className='min-h-screen bg-gray-100 px-5 py-30'>
                 <div className='max-w-6xl mx-auto'>
                     <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
                         
@@ -147,7 +147,7 @@ function Cart() {
 
 
   return (
-    <div className='min-h-screen bg-gray-100 px-5 py-10'>
+    <div className='min-h-screen bg-gray-100 px-5 py-30'>
       <div className='max-w-6xl mx-auto'>
         
         <div className='flex justify-between items-center mb-8'>

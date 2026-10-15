@@ -27,6 +27,27 @@
       "email": "user1@gmail.com",
       "password": "1user@",
       "id": "YsH_vKuBBj4"
+    },
+    {
+      "firstName": "user2",
+      "secondName": "second",
+      "email": "user2@gmail.com",
+      "password": "user212@",
+      "id": "zFa8VFTUYWo"
+    },
+    {
+      "firstName": "new",
+      "secondName": "man",
+      "email": "newman@gmail.com",
+      "password": "newman@",
+      "id": "8uEnxq2q1e8"
+    },
+    {
+      "firstName": "vaish",
+      "secondName": "aag",
+      "email": "vaishaq@gmail.com",
+      "password": "vaishag@",
+      "id": "R11_lDtNFAA"
     }
   ],
   "products": [
@@ -377,6 +398,158 @@
       "status": "Placed",
       "createdAt": "2026-10-13T15:12:14.589Z",
       "id": "bht6juc3eCs"
+    },
+    {
+      "userId": "YsH_vKuBBj4",
+      "items": [
+        {
+          "cartItemId": "v5ksg_qvfhU",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 89,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        }
+      ],
+      "totalAmount": 89,
+      "shippingAddress": {
+        "fullName": "user",
+        "phone": "0000000000",
+        "address": "abcd",
+        "city": "city",
+        "pincode": "123456"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-14T04:57:50.144Z",
+      "id": "oLANBY4kBOw"
+    },
+    {
+      "userId": "YsH_vKuBBj4",
+      "items": [
+        {
+          "cartItemId": "wL_7yIr-h-8",
+          "productId": "3",
+          "name": "Spiral Notebooks",
+          "price": 50,
+          "quantity": 9,
+          "image": "/Products/Books/spiral3.jpg"
+        },
+        {
+          "cartItemId": "dESfsg3MHTY",
+          "productId": "7",
+          "name": "Gel Pens",
+          "price": 299,
+          "quantity": 7,
+          "image": "/Products/Essentials/pen7.jpg"
+        }
+      ],
+      "totalAmount": 2543,
+      "shippingAddress": {
+        "fullName": "MUHAMMED MANSOOR",
+        "phone": "08136808842",
+        "address": "Bralam, vallivattom (po),",
+        "city": "Trissur",
+        "pincode": "673634"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-14T05:09:27.287Z",
+      "id": "ihfK5brA_zU"
+    },
+    {
+      "userId": "zFa8VFTUYWo",
+      "items": [
+        {
+          "cartItemId": "vGnvFybExgA",
+          "productId": "3",
+          "name": "Spiral Notebooks",
+          "price": 50,
+          "quantity": 1,
+          "image": "/Products/Books/spiral3.jpg"
+        },
+        {
+          "cartItemId": "7RaNUXRmBVI",
+          "productId": "6",
+          "name": "Sticky Notes",
+          "price": 40,
+          "quantity": 1,
+          "image": "/Products/Books/sticky6.jpg"
+        },
+        {
+          "cartItemId": "843pPB3e-bY",
+          "productId": "123",
+          "name": "Fountain Pen",
+          "price": 180,
+          "quantity": 1,
+          "image": "/Products/Essentials/premium2.jpg"
+        },
+        {
+          "cartItemId": "cGQCukiMkAE",
+          "productId": "10",
+          "name": "Pocket Pens",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pocket10.jpg"
+        },
+        {
+          "cartItemId": "xqapazeLSvg",
+          "productId": "9",
+          "name": "Premium Pencils",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pencil.9.jpg"
+        }
+      ],
+      "totalAmount": 868,
+      "shippingAddress": {
+        "fullName": "user2",
+        "phone": "123456789",
+        "address": "universe",
+        "city": "Pallikal",
+        "pincode": "673634"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-14T05:40:23.284Z",
+      "id": "nFDkO0LnV7w"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "Mj2JMdorg7s",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 89,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        },
+        {
+          "cartItemId": "SuLi-7S4oXU",
+          "productId": "7",
+          "name": "Gel Pens",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pen7.jpg"
+        },
+        {
+          "cartItemId": "9OltwN9ntY8",
+          "productId": "5",
+          "name": "Drawing Notebooks",
+          "price": 110,
+          "quantity": 1,
+          "image": "/Products/Books/drawing5.jpg"
+        }
+      ],
+      "totalAmount": 498,
+      "shippingAddress": {
+        "fullName": "MANSOOR PALLIKKAL",
+        "phone": "08136808842",
+        "address": "4WX6+MMH",
+        "city": "Pallikal",
+        "pincode": "673634"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-15T04:33:05.783Z",
+      "id": "yIDWfWtwEpc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

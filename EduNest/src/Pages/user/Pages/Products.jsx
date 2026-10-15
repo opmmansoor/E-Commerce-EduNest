@@ -5,7 +5,7 @@ import { BookOpen } from 'lucide-react'
 function Products() {
   return (
     <div className='min-h-Screen bg-purple-100/50'>
-      <div className='max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8'>
+      <div className='max-w-7xl mx-auto px-4 py-30 sm:px-6 lg:px-8'>
         
         <div className="mb-8">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full 

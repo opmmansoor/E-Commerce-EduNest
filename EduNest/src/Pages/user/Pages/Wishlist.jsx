@@ -64,7 +64,7 @@ function Wishlist() {
     }
 
   return (
-    <div className='min-h-screen bg-gray-50 px-4 sm:px-6 py-10'>
+    <div className='min-h-screen bg-gray-50 px-4 sm:px-6 py-30'>
       <div className='max-w-7xl mx-auto'>
 
 
@@ -107,7 +107,7 @@ function Wishlist() {
 {/* Empty */}
         {wishlist.length === 0 ? (
             <div className='bg-white rounded-3xl border border-gray-100 
-                            shadow-sm py-16 px-6 text-center'>
+                            shadow-sm py-14 px-6 text-center'>
                 
                     <Heart size={44} className='mx-auto mb-5 text-[#3D348B]'/>
                 

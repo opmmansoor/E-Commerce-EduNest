@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { registerUser } from '../../Api/regApi';
+import { toast } from 'sonner';
 
 function Register() {
 
@@ -21,14 +22,14 @@ function Register() {
         mutationFn: registerUser,
 
         onSuccess: (user) => {
-            localStorage.setItem("registeredUser",JSON.stringify({
+            localStorage.setItem("user",JSON.stringify({
                 id: user.id,
                 firstName: user.firstName,
                 secondName: user.secondName,
                 email: user.email,
             }))
 
-            alert("Registration Successful!")
+            toast.success("Registration Successful!")
 
             navigate("/login")
         },
@@ -57,7 +58,7 @@ function Register() {
 
         //Check Password
         if(formData.password !== formData.Cpassword){
-            alert("Passwords do not match");
+            toast.error("Passwords do not match");
             return;
         }
 
