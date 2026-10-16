@@ -3,16 +3,19 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Register from "./Pages/auth/Register";
 import Login from "./Pages/auth/Login";
+
 import Home from "./Pages/user/Pages/Home";
 import Products from "./Pages/user/Pages/Products";
 import About from "./Pages/user/Pages/About";
 import Cart from "./Pages/user/Pages/Cart";
-import UserLayout from "./layouts/UserLayout";
 import Wishlist from "./Pages/user/Pages/Wishlist";
 import OrderSuccess from "./Pages/user/Components/OrderSuccess";
 import Orders from "./Pages/user/Pages/Orders";
 import Checkout from "./Pages/user/Pages/Checkout";
+
+import UserLayout from "./layouts/UserLayout";
 import ScrollToTop from "./layouts/ScrollToTop";
+import GuestRoute from "./Route/GuestRoute";
 
 function App() {
   return (
@@ -23,9 +26,11 @@ function App() {
       <Routes>
         {/* user Layout */}
         <Route element={<UserLayout/>}>
+        <Route element={<GuestRoute />}>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-
+        </Route>
+        
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
