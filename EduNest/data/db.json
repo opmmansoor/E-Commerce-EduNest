@@ -390,28 +390,36 @@
       "image": "/Products/Essentials/pocket10.jpg",
       "quantity": 1,
       "id": "pi7c7qfP9o8"
+    },
+    {
+      "userId": "YsH_vKuBBj4",
+      "productId": "30",
+      "name": "Lunch Boxes",
+      "price": 270,
+      "image": "/Products/Bags/lunch.jpg",
+      "quantity": 5,
+      "id": "-_LMaLJ3b8M"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "3",
+      "name": "Spiral Notebooks",
+      "price": 50,
+      "image": "/Products/Books/spiral3.jpg",
+      "quantity": 1,
+      "id": "YPxs23BXMNw"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "30",
+      "name": "Lunch Boxes",
+      "price": 270,
+      "image": "/Products/Bags/lunch.jpg",
+      "quantity": 1,
+      "id": "lGrBiOD6Vkc"
     }
   ],
   "wishlists": [
-    {
-      "userId": {
-        "client": {}
-      },
-      "productId": "undefined",
-      "id": "KQw_zERjuT8"
-    },
-    {
-      "userId": {
-        "client": {}
-      },
-      "productId": "undefined",
-      "id": "KeMiTriKYuY"
-    },
-    {
-      "userId": "[object Object]",
-      "productId": "undefined",
-      "id": "V2oXL_cJ53k"
-    },
     {
       "userId": "Z60aHPQgokc",
       "productId": "3",

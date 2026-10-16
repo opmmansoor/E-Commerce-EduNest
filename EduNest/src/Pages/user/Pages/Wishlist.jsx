@@ -18,7 +18,7 @@ function Wishlist() {
 
     const { data : wishlist=[], isLoading, isError } = useQuery({
         queryKey: ["wishlists",userId],
-        queryFn: getWishlists(userId),
+        queryFn: () => getWishlists(userId),
         enabled: Boolean(userId),
     })
 
@@ -245,10 +245,15 @@ function Wishlist() {
                                 </button>
                             </div>
 
-                            <button onClick={() => setSelectedProduct(product)}
-                                    className='block text-center text-[#3D348B] font-semibold text-sm mt-4 hover:underline'>
+                            <div className="flex gap-2 mt-4"> 
+                            <button onClick={() => setSelectedProduct({
+                                ...product,
+                                id: product.productId,
+                            })}
+                                    className='flex-1 text-center border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition'>
                                 View Details
                             </button>
+                            </div>
                         </div>
                     </div>
                 ))}

@@ -24,7 +24,7 @@ function ProductCard({ product }) {
   );
 
     const user = reduxUser ?? storedUser;
-    const userId = user?.id ? String(user.id) : null;
+    const userId = user?.id ? String(storedUser.id) : null;
 
 //check login
     const requireLogin = () => {
@@ -100,37 +100,39 @@ function ProductCard({ product }) {
 
 //Save a product to cart item to JSON Server
 
-  const cartMutation = useMutation({
+  const addToCartMutation = useMutation({
     mutationFn: addCartItem,
 
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({
-        queryKey: ["carts"],
-      });
-      await queryClient.invalidateQueries({
+    onSuccess: () => {
+      queryClient.invalidateQueries({
         queryKey: ["carts", userId],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["carts"],
+      });
 
-      toast.success("Cart product updated!")
+      toast.success("Product added to cart!")
 
     },
     onError: (error) => {
-      console.error("Cart save failed:", error);
-      toast.error("Failed to add item to cart");
-      
+      toast.error(error.message || "Unable to add product.");
     },
   });
 
 //Add To Cart 
   const handleAddToCart = () => {
-    if(!requireLogin()) return;
+    if(!userId) {
+      toast.error("Please login to add products to your cart.");
+      navigate("/login");
+      return;
+    }
 
-    cartMutation.mutate({
+    addToCartMutation.mutate({
       productId: product.id,
       userId,
       name: product.name,
-      price: product.price,
-      image: product.image,
+      price: Number(product.price),
+      image: product.image || "",
       quantity: 1,
     });
   } 
@@ -145,14 +147,14 @@ function ProductCard({ product }) {
                     hover:shadow-xl transition duration-300">
 
       {/* Product Image */}
-      <div className="relative bg-purple-100 h-56 flex items-center justify-center
+      <div className="relative bg-purple-100 h-56 flex items-center justify-center 
                       overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-50 to-gray-100">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-contain p-5
                       transition-transform duration-500 ease-out
-                      group-hover:scale-110"
+                      hover:scale-110"
         />
 
         {/* Wishlist Button */}
@@ -172,7 +174,7 @@ function ProductCard({ product }) {
              }/>
         </button>
 
-        <h3>{[product.title]}</h3>
+        <h3>{product.title}</h3>
       </div>
 
       {/* Product Information */}
@@ -207,12 +209,12 @@ function ProductCard({ product }) {
         </p>
 
         {/* Buttons */}
-        <div className="flex gap-2 mt-4">
+        <div className="flex gap-1.5 mt-4 py-3">
 
           {/* View Details */}
           <button type="button" 
                   onClick={() => setShowDetail(true)}
-                  className="flex-1 text-center border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition"
+                  className="flex-1 text-sm text-center border border-gray-300  rounded-lg hover:bg-gray-100 transition"
           >
             View Details
           </button>
@@ -221,22 +223,23 @@ function ProductCard({ product }) {
           <button
             type="button"
             onClick={handleAddToCart}
-            disabled={Number(product.stock) <= 0 || cartMutation.isPending}
-            className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg 
+            disabled={addToCartMutation.isPending || Number(product.stock) <= 0}
+            className="flex items-center justify-center gap-2 bg-orange-500 text-white px-3 py-2 rounded-lg 
                         hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
           >
             <ShoppingCart size={18} />
-           {cartMutation.isPending ? "Saving..." : "Add"}
+           {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
           </button>
         </div>
-          {wishlistError && Error && (
+
+          {wishlistError && userId && (
             <p className="mt-2 text-sm text-red-500">
               Failed to load wishlist. Please refresh the page.
             </p>
           )}
 
 
-        {cartMutation.isError &&(
+        {addToCartMutation.isError &&(
           <p className="mt-2 text-sm text-red-500">
             Failed to save item. Please try again.
           </p>
