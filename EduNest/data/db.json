@@ -374,24 +374,6 @@
   ],
   "carts": [
     {
-      "productId": "123",
-      "userId": "Z60aHPQgokc",
-      "name": "Fountain Pen",
-      "price": 180,
-      "image": "/Products/Essentials/premium2.jpg",
-      "quantity": 1,
-      "id": "n870XZhiU8w"
-    },
-    {
-      "productId": "10",
-      "userId": "Z60aHPQgokc",
-      "name": "Pocket Pens",
-      "price": 299,
-      "image": "/Products/Essentials/pocket10.jpg",
-      "quantity": 1,
-      "id": "pi7c7qfP9o8"
-    },
-    {
       "userId": "YsH_vKuBBj4",
       "productId": "30",
       "name": "Lunch Boxes",
@@ -399,24 +381,6 @@
       "image": "/Products/Bags/lunch.jpg",
       "quantity": 5,
       "id": "-_LMaLJ3b8M"
-    },
-    {
-      "userId": "Z60aHPQgokc",
-      "productId": "3",
-      "name": "Spiral Notebooks",
-      "price": 50,
-      "image": "/Products/Books/spiral3.jpg",
-      "quantity": 1,
-      "id": "YPxs23BXMNw"
-    },
-    {
-      "userId": "Z60aHPQgokc",
-      "productId": "30",
-      "name": "Lunch Boxes",
-      "price": 270,
-      "image": "/Products/Bags/lunch.jpg",
-      "quantity": 1,
-      "id": "lGrBiOD6Vkc"
     }
   ],
   "wishlists": [
@@ -473,15 +437,6 @@
       "category": "Instruments",
       "price": 100,
       "id": "iWRqq10DYYk"
-    },
-    {
-      "userId": "Z60aHPQgokc",
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "image": "/Products/Books/Lined2.jpg",
-      "category": "Notebooks",
-      "price": 89,
-      "id": "Q1AgEjQnr8c"
     },
     {
       "userId": "Z60aHPQgokc",
@@ -741,6 +696,65 @@
       "status": "Placed",
       "createdAt": "2026-10-15T09:04:19.094Z",
       "id": "lsNIfKrg7w4"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "n870XZhiU8w",
+          "productId": "123",
+          "name": "Fountain Pen",
+          "price": 180,
+          "quantity": 1,
+          "image": "/Products/Essentials/premium2.jpg"
+        },
+        {
+          "cartItemId": "lGrBiOD6Vkc",
+          "productId": "30",
+          "name": "Lunch Boxes",
+          "price": 270,
+          "quantity": 1,
+          "image": "/Products/Bags/lunch.jpg"
+        }
+      ],
+      "totalAmount": 450,
+      "shippingAddress": {
+        "fullName": "MUHAMMED MANSOOR",
+        "phone": "8136808842",
+        "address": "Bralam, vallivattom (po),",
+        "city": "Trissur",
+        "pincode": "673634"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-16T13:52:43.491Z",
+      "id": "CttHVITNrH4"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "TB2XRxB1VJY",
+          "productId": "23",
+          "name": "To Do Notes",
+          "price": 90,
+          "quantity": 1,
+          "image": "/Products/Daires/todo23.jpg"
+        }
+      ],
+      "totalAmount": 90,
+      "shippingAddress": {
+        "fullName": "MUHAMMED MANSOOR",
+        "phone": "8136808842",
+        "address": "Bralam, vallivattom (po),",
+        "city": "Trissur",
+        "pincode": "673634"
+      },
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "upiId": "opmmansoor@gmail.com",
+      "status": "Placed",
+      "createdAt": "2026-10-16T14:20:33.440Z",
+      "id": "ly9INH15br0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
