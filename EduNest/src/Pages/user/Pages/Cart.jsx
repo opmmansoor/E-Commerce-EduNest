@@ -15,9 +15,12 @@ function Cart() {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+    const userId = user?.id
+
     const {
         data: cart = [], isLoading, isError, } = useQuery({
-            queryKey: ["carts"],
+            queryKey: ["carts", userId],
             queryFn: getCart,
         });
 
@@ -30,7 +33,7 @@ function Cart() {
             return response.data
         },
         onSuccess: () => {
-            queryClient.invalidateQueries({queryKey: ["carts"] });
+            queryClient.invalidateQueries({queryKey: ["carts", userId] });
         },
         onError: () => {
             toast.error("Failed to update quantity")
@@ -42,7 +45,7 @@ function Cart() {
         mutationFn: deleteCartItem,
 
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["carts"] });
+            queryClient.invalidateQueries({ queryKey: ["carts", userId] });
 
             toast.success("Item removed from Cart");
         },
@@ -63,11 +66,11 @@ function Cart() {
         },
 
         onSuccess: async () => {
-            await queryClient.invalidateQueries({ queryKey: ["carts"] });
+            await queryClient.invalidateQueries({ queryKey: ["carts", userId] });
             toast.success("Cart cleared Successfully")
         },
         onError: async () => {
-            await queryClient.invalidateQueries({queryKey: ["carts"] });
+            await queryClient.invalidateQueries({queryKey: ["carts", userId ] });
             
             toast.error("Could not clear the cart. Check JSON Server.")
         },

@@ -8,70 +8,97 @@ import { addToWishlist, deleteWishlist, getWishlists } from "../../../Api/wishli
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
 function ProductCard({ product }) {
 
 //View Details
     const [showDetail, setShowDetail] = useState(false);
 
     const navigate = useNavigate();
+    const queryClient = useQueryClient();
 
-    const isLoggedIn = useSelector(
-      (state) => state.auth.isLoggedIn
-    );
+ // Get user from Redux or localStorage
+    const reduxUser = useSelector((state) => state.auth.user);
+    const storedUser = JSON.parse(
+    localStorage.getItem("user") || "null"
+  );
 
+    const user = reduxUser ?? storedUser;
+    const userId = user?.id ? String(user.id) : null;
+
+//check login
     const requireLogin = () => {
-      if(!isLoggedIn){
-        toast.error("Please login to continue");
+      if (!userId) {
+       toast.error("Please login to continue");
         navigate("/login");
         return false;
       }
       return true;
     }
 
-    const { data: wishlist=[] }=useQuery({
-      queryKey: ["wishlists"],
-      queryFn: getWishlists,
+    const { data: wishlist = [],
+       isLoading: wishlistLoading,
+       isError: wishlistError, 
+      } = useQuery({
+      queryKey: ["wishlists", userId],
+      queryFn: () => getWishlists(userId),
+      enabled: Boolean(userId)
     });
 
     const wishlistItem = wishlist.find(
       (item) => String(item.productId) === String(product.id)
     );
+
     const isWishlisted = Boolean(wishlistItem);
 
+// Add product to wishlist
     const addWishlistMutation = useMutation({
       mutationFn: addToWishlist,
 
       onSuccess: async () => {
-        await queryClient.invalidateQueries({queryKey: ["wishlists"]})
+        await queryClient.invalidateQueries({
+          queryKey: ["wishlists", userId],
+        });
         toast.success("Added to Wishlist!")
       },
 
-      onError: () => {
-        toast.error("Failed to add to Wishlist")
+      onError: (error) => {
+        toast.error(error.message || "Failed to add to Wishlist")
       },
     });
 
+// Remove product from wishlist    
     const removeWishlistMutation = useMutation({
       mutationFn: deleteWishlist,
 
       onSuccess: async () => {
-        await queryClient.invalidateQueries({ queryKey: ["wishlists"]});
+        await queryClient.invalidateQueries({
+           queryKey: ["wishlists", userId]
+          });
         toast.success("Remove From Wishlist")
+      },
+      onError: (error) => {
+      toast.error(error.message || "Failed to remove from wishlist");
       },
     });
 
     const handleWishlist = () => {
-      if(!requireLogin()) return;
+      if (!requireLogin()) return;
 
       if(wishlistItem){
-        removeWishlistMutation.mutate(wishlistItem.id);
+        removeWishlistMutation.mutate({
+          id: wishlistItem.id,
+          userId,
+        });
       }else{
-        addWishlistMutation.mutate(product)
+        addWishlistMutation.mutate({
+          product,
+          userId,
+        })
       }
     };
 
-//Save a cart item to JSON Server
-  const queryClient = useQueryClient();
+//Save a product to cart item to JSON Server
 
   const cartMutation = useMutation({
     mutationFn: addCartItem,
@@ -80,8 +107,11 @@ function ProductCard({ product }) {
       await queryClient.invalidateQueries({
         queryKey: ["carts"],
       });
+      await queryClient.invalidateQueries({
+        queryKey: ["carts", userId],
+      });
 
-      toast.success("Cart quantity updated!")
+      toast.success("Cart product updated!")
 
     },
     onError: (error) => {
@@ -97,12 +127,17 @@ function ProductCard({ product }) {
 
     cartMutation.mutate({
       productId: product.id,
+      userId,
       name: product.name,
       price: product.price,
       image: product.image,
       quantity: 1,
     });
   } 
+
+  const wishlistPending = 
+  addWishlistMutation.isPending || 
+  removeWishlistMutation.isPending;
   
     return (
         <>
@@ -122,13 +157,14 @@ function ProductCard({ product }) {
 
         {/* Wishlist Button */}
         <button onClick={handleWishlist}
-                disabled={addWishlistMutation.isPending || 
-                          removeWishlistMutation.isPending
+                disabled={wishlistPending || wishlistLoading
+                 || !product.id
                 }
                 aria-label={
                   isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"
                 }
-                className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50">
+                aria-pressed={isWishlisted}
+                className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-50" >
           <Heart
             size={20}
              className= {
@@ -174,16 +210,18 @@ function ProductCard({ product }) {
         <div className="flex gap-2 mt-4">
 
           {/* View Details */}
-          <button onClick={() => setShowDetail(true)}
-            className="flex-1 text-center border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition"
+          <button type="button" 
+                  onClick={() => setShowDetail(true)}
+                  className="flex-1 text-center border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition"
           >
             View Details
           </button>
 
           {/* Add To Cart */}
           <button
+            type="button"
             onClick={handleAddToCart}
-            disabled={product.stock === 0 || cartMutation.isPending}
+            disabled={Number(product.stock) <= 0 || cartMutation.isPending}
             className="flex items-center justify-center gap-1 bg-orange-500 text-white px-3 py-2 rounded-lg 
                         hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
           >
@@ -191,6 +229,12 @@ function ProductCard({ product }) {
            {cartMutation.isPending ? "Saving..." : "Add"}
           </button>
         </div>
+          {wishlistError && Error && (
+            <p className="mt-2 text-sm text-red-500">
+              Failed to load wishlist. Please refresh the page.
+            </p>
+          )}
+
 
         {cartMutation.isError &&(
           <p className="mt-2 text-sm text-red-500">

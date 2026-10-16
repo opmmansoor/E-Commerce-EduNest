@@ -372,8 +372,119 @@
       "image": "/Products/Bags/kit.jpg"
     }
   ],
-  "carts": [],
-  "wishlists": [],
+  "carts": [
+    {
+      "productId": "123",
+      "userId": "Z60aHPQgokc",
+      "name": "Fountain Pen",
+      "price": 180,
+      "image": "/Products/Essentials/premium2.jpg",
+      "quantity": 1,
+      "id": "n870XZhiU8w"
+    },
+    {
+      "productId": "10",
+      "userId": "Z60aHPQgokc",
+      "name": "Pocket Pens",
+      "price": 299,
+      "image": "/Products/Essentials/pocket10.jpg",
+      "quantity": 1,
+      "id": "pi7c7qfP9o8"
+    }
+  ],
+  "wishlists": [
+    {
+      "userId": {
+        "client": {}
+      },
+      "productId": "undefined",
+      "id": "KQw_zERjuT8"
+    },
+    {
+      "userId": {
+        "client": {}
+      },
+      "productId": "undefined",
+      "id": "KeMiTriKYuY"
+    },
+    {
+      "userId": "[object Object]",
+      "productId": "undefined",
+      "id": "V2oXL_cJ53k"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "3",
+      "name": "Spiral Notebooks",
+      "image": "/Products/Books/spiral3.jpg",
+      "category": "Notebooks",
+      "price": 50,
+      "id": "Rfp1UYQybc8"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "image": "/Products/Books/premium2.jpg",
+      "category": "Notebooks",
+      "price": 80,
+      "id": "tTmuEf36Qag"
+    },
+    {
+      "userId": "YsH_vKuBBj4",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "image": "/Products/Books/Lined2.jpg",
+      "category": "Notebooks",
+      "price": 89,
+      "id": "fi8dgPgYmMM"
+    },
+    {
+      "userId": "YsH_vKuBBj4",
+      "productId": "5",
+      "name": "Drawing Notebooks",
+      "image": "/Products/Books/drawing5.jpg",
+      "category": "Notebooks",
+      "price": 110,
+      "id": "yjftpHM0hqE"
+    },
+    {
+      "userId": "YsH_vKuBBj4",
+      "productId": "9",
+      "name": "Premium Pencils",
+      "image": "/Products/Essentials/pencil.9.jpg",
+      "category": "Writing Essentials",
+      "price": 299,
+      "id": "nf6jHmMF9nY"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "13",
+      "name": "Geometry Box",
+      "image": "/Products/Box/box1.jpg",
+      "category": "Instruments",
+      "price": 100,
+      "id": "iWRqq10DYYk"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "image": "/Products/Books/Lined2.jpg",
+      "category": "Notebooks",
+      "price": 89,
+      "id": "Q1AgEjQnr8c"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "5",
+      "name": "Drawing Notebooks",
+      "image": "/Products/Books/drawing5.jpg",
+      "category": "Notebooks",
+      "price": 110,
+      "id": "BcO8HAqbCr4"
+    }
+  ],
   "orders": [
     {
       "userId": "Z60aHPQgokc",
@@ -550,6 +661,78 @@
       "status": "Placed",
       "createdAt": "2026-10-15T04:33:05.783Z",
       "id": "yIDWfWtwEpc"
+    },
+    {
+      "userId": "zFa8VFTUYWo",
+      "items": [
+        {
+          "cartItemId": "2moatsdtHUw",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 89,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        },
+        {
+          "cartItemId": "1t02xymL1gM",
+          "productId": "3",
+          "name": "Spiral Notebooks",
+          "price": 50,
+          "quantity": 1,
+          "image": "/Products/Books/spiral3.jpg"
+        },
+        {
+          "cartItemId": "ffk65jQ3Po4",
+          "productId": "4",
+          "name": "Graph Notebooks",
+          "price": 60,
+          "quantity": 1,
+          "image": "/Products/Books/graph4.jpg"
+        },
+        {
+          "cartItemId": "4cqB8tpeJgY",
+          "productId": "6",
+          "name": "Sticky Notes",
+          "price": 40,
+          "quantity": 1,
+          "image": "/Products/Books/sticky6.jpg"
+        }
+      ],
+      "totalAmount": 239,
+      "shippingAddress": {
+        "fullName": "wwrtwretwertretwret",
+        "phone": "456565965656",
+        "address": "fgyj",
+        "city": "zsgduj",
+        "pincode": "325466"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-15T09:03:05.246Z",
+      "id": "cf-qARNy4hQ"
+    },
+    {
+      "userId": "zFa8VFTUYWo",
+      "items": [
+        {
+          "cartItemId": "OX4To8UD6vc",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        }
+      ],
+      "totalAmount": 80,
+      "shippingAddress": {
+        "fullName": "etujy",
+        "phone": "fjfhjhfj",
+        "address": "yjfhjcfj",
+        "city": "gjcfgj",
+        "pincode": "673634"
+      },
+      "status": "Placed",
+      "createdAt": "2026-10-15T09:04:19.094Z",
+      "id": "lsNIfKrg7w4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { ArrowRight, Heart, ShoppingCart, Trash2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { deleteWishlist, getWishlists } from '../../../Api/wishlistApi';
 import { toast } from 'sonner';
@@ -11,45 +11,105 @@ function Wishlist() {
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     const queryClient = useQueryClient()
+    const navigate = useNavigate();
+
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+    const userId = user?.id ? String(user.id) : null;
 
     const { data : wishlist=[], isLoading, isError } = useQuery({
-        queryKey: ["wishlists"],
-        queryFn: getWishlists,
+        queryKey: ["wishlists",userId],
+        queryFn: getWishlists(userId),
+        enabled: Boolean(userId),
     })
 
 //Remove from wishlist
     const removeMutation = useMutation({
         mutationFn: deleteWishlist,
 
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["wishlists"]})
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({
+                queryKey: ["wishlists", userId]
+            })
         toast.success("Removed from wishlist")
         },
-        onError: () => toast.error("Failed to Remove item")
+        onError: (error) => toast.error(error.message || "Failed to Remove item")
     })
     
 //Add product to cart
-     const cartMutation = useMutation({ 
+    const cartMutation = useMutation({ 
         mutationFn: addCartItem, 
     
-        onSuccess: () => { 
-            queryClient.invalidateQueries({ queryKey: ["carts"] });
+        onSuccess: async () => { 
+            await queryClient.invalidateQueries({
+                queryKey: ["carts"],
+             });
+            await queryClient.invalidateQueries({
+                 queryKey: ["carts", userId],
+            })
              toast.success("Added to cart!"); 
         }, 
-        onError: () => 
-            toast.error("Failed to add to cart"),
+
+        
+        onError: (error) => {
+            console.error("Add to cart failed:", error);
+            toast.error("Failed to add to cart");
+        },
      });
+    
+// Remove item
+    const handleRemove = (item) => {
+      if (!userId) {
+        navigate("/login");
+      return;
+      }
+
+        removeMutation.mutate({
+            id: item.id,
+            userId,
+        });
+    };
+  
        
     const handleAddToCart = (product) => {
-         cartMutation.mutate({ 
-            productId: product.productId, 
-            name: product.name, 
-            price: product.price, 
-            image: product.image, 
-            quantity: 1, 
-        }); 
+        if(!userId) {
+            toast.error("Please login to continue")
+            navigate("/login");
+            return
+        }
+
+    cartMutation.mutate({
+        productId: product.productId,
+        userId,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: 1,
+      }); 
     }; 
-    
+
+// Login required
+
+    if(!userId) {
+        return(
+            <div className='min-h-screen bg-gray-50 px-4 py-30 text-center'>
+                <Heart size={44} 
+                        className='mx-auto mb-4 text-[#3D348B]'/>
+
+                <h2 className='mb-3 text-2xl font-bold text-gray-800'>
+                  Please login to view your wishlist  
+                </h2>
+
+                <Link
+                    to="/login"
+                    className='inline-block rounded-xl bg-[#3D348B] px-6 py-3 font-semibold text-white' >
+                  Login
+                </Link>       
+            </div>
+        );
+    }
+
+
+
     if (isLoading) {
          return <div className="p-10 text-center">Loading wishlist...</div>; 
     } 
@@ -59,7 +119,6 @@ function Wishlist() {
              <div className="p-10 text-center text-red-500"> 
                  Failed to load wishlist. Check JSON Server. 
              </div> 
-
         ); 
     }
 
@@ -142,7 +201,7 @@ function Wishlist() {
 
                                   className='max-h-full max-w-full object-contain'/>
 
-                            <button onClick={() => removeMutation.mutate(product.id)}
+                            <button onClick={() => handleRemove(product)}
                                     disabled={removeMutation.isPending}
                                      aria-label= {`Remove ${product.name} from wishlist`}
                                      
@@ -167,7 +226,7 @@ function Wishlist() {
                             </p>
 
                             <div className='flex gap-2 mt-5'>
-                                <button onClick={() => removeMutation.mutate(product.id)}
+                                <button onClick={() => handleRemove(product)}
                                         disabled={removeMutation.isPending}
                                         className='flex items-center justify-center gap-1 border border-gray-200 
                                                     text-gray-600 px-3 py-2.5 rounded-lg hover:bg-red-100 transition'
@@ -196,6 +255,13 @@ function Wishlist() {
             </div>
         )}
       </div>
+
+{/* Product details modal */}
+        {selectedProduct && (
+            <ProductDetails 
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)} />
+        )}
     </div>
   )
 }

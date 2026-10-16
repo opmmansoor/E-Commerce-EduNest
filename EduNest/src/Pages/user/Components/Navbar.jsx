@@ -9,16 +9,32 @@ import { logout } from '../../../Slice/authSlice';
 
 function Navbar() {
     
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+    const userId = user?.id ? String(user.id) : null; 
 
     const {data: cart=[], isLoading: cartLoading } = useQuery({
-        queryKey: ["carts"],
-        queryFn: getCart,
+        queryKey: ["carts", userId],
+        queryFn: () => getCart(userId),
+        enabled: Boolean(userId),
     })
+
+    const cartCount = Array.isArray(cart)
+        ? cart.reduce((total, item) => total + Number(item.quantity || 0), 0)
+        : 0;
     
-    const { data:wishlist = [], isLoading:wishlistLoading,} = useQuery({
-        queryKey: ["wishlists"],
-        queryFn: getWishlists,
-    })
+    const {
+        data: wishlist = [],
+        isLoading: wishlistLoading,
+        isError: wishlistError,
+      } = useQuery({
+        queryKey: ["wishlists", userId],
+        queryFn: () => getWishlists(userId),
+        enabled: Boolean(userId),
+      });
+
+      const wishlistCount = Array.isArray(wishlist)
+        ? wishlist.length
+        : 0;
     
     const navigate = useNavigate();
 
@@ -30,7 +46,7 @@ function Navbar() {
     const dispatch = useDispatch();
 
     // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-    const user = useSelector((state) => state.auth.user);
+    // const user = useSelector((state) => state.auth.user);
     
 
     const handleLogout = () => {
@@ -43,7 +59,7 @@ function Navbar() {
 
   return (
     
-      <nav className='fixed top-0 left-0 right-0  z-50 bg-[#3D348B] text-white shadow-lg '>
+      <nav className='fixed top-0 left-0 right-0  z-50 bg-white/50 text-[#3D348B] backdrop-blur-xl shadow-md '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='h-16 flex items-center justify-between'>
             
@@ -86,7 +102,7 @@ function Navbar() {
 
                 <span className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B] text-xs 
                       font-bold w-5 h-5 rounded-full flex items-center justify-center'>
-                    {wishlistLoading ? "..." : wishlist.length}
+                    {wishlistLoading ? "..." : wishlistCount}
                 </span>
             </Link>
             
@@ -98,7 +114,7 @@ function Navbar() {
                 <span 
                      className='absolute -top-3 -right-5 bg-[#F7B801] text-[#3D348B]
                                  text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
-                    {cart.length}
+                    {cartCount}
                 </span>
             </Link>
 

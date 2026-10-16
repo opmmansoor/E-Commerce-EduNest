@@ -14,10 +14,7 @@ import {
 import { getOrders } from "../../../Api/orderApi";
 
 function Orders() {
-  const storedUser = JSON.parse(
-    localStorage.getItem("user") || "null"
-  );
-
+  const storedUser = JSON.parse(localStorage.getItem("user") || "null");
   const userId = storedUser?.id;
 
   const {
@@ -26,7 +23,7 @@ function Orders() {
     isError,
     refetch,
   } = useQuery({
-    queryKey: ["orders"],
+    queryKey: ["orders", userId],
     queryFn: getOrders,
   });
 
