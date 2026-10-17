@@ -19,6 +19,7 @@ import GuestRoute from "./Route/GuestRoute";
 
 import ProtectedAdminRoute from "./Route/ProtectedAdminRoute";
 import AdminDashboard from "./Pages/Admin/Pages/AdminDashboard";
+import AdminLayout from "./Pages/Admin/Components/AdminLayout";
 
 
 
@@ -32,9 +33,14 @@ function App() {
 
       
         <Route element={<ProtectedAdminRoute />}>
-          <Route path="/admin/dashboard" element={<AdminDashboard /> } />
+          <Route path="/admin" element={<AdminLayout /> }>
+             <Route path="dashboard" element={<AdminDashboard /> } />
+           {/* <Route path="products" element={<AdminProducts />}/>
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="orders" element={ <AdminOrders />}/> */}
+          </Route>
         </Route>
-        
+
         {/* user Layout */}
         <Route element={<UserLayout/>}>
         <Route element={<GuestRoute />}>
