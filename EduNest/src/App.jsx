@@ -17,7 +17,6 @@ import UserLayout from "./layouts/UserLayout";
 import ScrollToTop from "./layouts/ScrollToTop";
 import GuestRoute from "./Route/GuestRoute";
 
-import AdminLogin from "./Pages/Admin/Login/AdminLogin";
 import ProtectedAdminRoute from "./Route/ProtectedAdminRoute";
 import AdminDashboard from "./Pages/Admin/Pages/AdminDashboard";
 
@@ -31,10 +30,11 @@ function App() {
 
       <Routes>
 
-        <Route path="/admin/login" element={<AdminLogin />} />
+      
         <Route element={<ProtectedAdminRoute />}>
           <Route path="/admin/dashboard" element={<AdminDashboard /> } />
         </Route>
+        
         {/* user Layout */}
         <Route element={<UserLayout/>}>
         <Route element={<GuestRoute />}>

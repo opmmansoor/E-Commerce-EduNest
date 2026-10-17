@@ -22,10 +22,10 @@ function Login() {
         mutationFn: loginUser,
 
         onSuccess: (user) => {
-// Store user information
+// Save the logged-in user's 
             const loggedInUser = {
                 id:user.id,
-                role: user.role,
+                role: user.role || "user",
                 firstName:user.firstName,
                 secondName: user.secondName,
                 email: user.email,
@@ -36,8 +36,13 @@ function Login() {
             dispatch(setCredentials(loggedInUser));
 
             toast.success("Login Successful!")
-            
-            navigate("/home");
+
+// Redirect according to role
+            if (loggedInUser.role === "admin") {
+                navigate("/admin/dashboard", {replace: true});
+            }else{
+                navigate("/home", {replace:true});
+            }  
         },
         onError: (error) => {
             toast.error(error.message || "Login failed");    

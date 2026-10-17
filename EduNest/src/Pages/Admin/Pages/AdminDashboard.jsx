@@ -7,13 +7,13 @@ export default function AdminDashboard() {
     let admin = null;
 
     try {
-        admin = JSON.parse(sessionStorage.getItem("admin") || "null");
+        admin = JSON.parse(localStorage.getItem("admin") || "null");
     } catch {
         admin = null;
     }
 
     const handleLogout = () => {
-        sessionStorage.removeItem("admin");
+        localStorage.removeItem("admin");
         navigate("/admin/login", { replace: true})
     };
 
@@ -34,7 +34,7 @@ export default function AdminDashboard() {
 
       <main className="p-6 md:p-10">
         <h2 className="text-2xl font-bold text-gray-800">
-            Welcome {admin.name || "admin"}
+            Welcome {admin?.name || "admin"}
         </h2>
 
         <p className="mt-2 text-gray-600">
@@ -53,7 +53,7 @@ export default function AdminDashboard() {
 
                     <p>
                         {item} management will be implemented next
-                        
+
                     </p>
                 </div>
             )) }

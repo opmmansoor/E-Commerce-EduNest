@@ -3,15 +3,22 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 function GuestRoute() {
 
-    const user = JSON.parse(localStorage.getItem ("user") || null);
-    const isLoggedIn = Boolean(user?.id);
+    let user = null;
 
-// Logged-in users cannot access Login or Register
-    if(isLoggedIn) {
-        return <Navigate to="/home" replace />
+    try {
+        user = JSON.parse(localStorage.getItem ("user") || null);
+    } catch {
+        user = null;
+    }
+// Redirect already logged-in users according to role
+    if(user?.id) {
+        if(user.role === "admin") {
+            return <Navigate to="/admin/dashboard" replace />;
+        }
+
+        return <Navigate to="/home" replace />;
     }
 
-// Allow guests to access these pages
     return <Outlet />
 }
 

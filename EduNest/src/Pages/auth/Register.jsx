@@ -31,7 +31,7 @@ function Register() {
 
             toast.success("Registration Successful!")
 
-            navigate("/login")
+            navigate("/login",{replace: true})
         },
 //Registetion failed
         onError: (error) => {

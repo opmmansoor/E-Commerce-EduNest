@@ -3,19 +3,17 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export default function ProtectedAdminRoute() {
 
-    let admin = null;
+    let user = null;
 
     try {
-        const storedAdmin = sessionStorage.getItem("admin");
-        admin = storedAdmin ? JSON.parse(storedAdmin) : null;
+        user = JSON.parse(localStorage.getItem("user") || "null");
     } catch {
-        admin = null;
+        user = null;
     }
 
-    const isAdmin  = admin?.id && admin?.role === "admin";
-
-    if (!isAdmin) {
-    return <Navigate to="/admin/login" replace />;
+// Only admins can access admin pages    
+    if (!user?.id || user.role !== "admin") {
+    return <Navigate to="/login" replace />;
     }
 
   return  <Outlet />;

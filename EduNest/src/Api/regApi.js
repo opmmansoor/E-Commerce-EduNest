@@ -14,6 +14,7 @@ export const registerUser = async (userData) => {
         secondName: userData.secondName,
         email: userData.email,
         password: userData.password,
+        role: "user",
     };
 
     // Save user to JSON Server

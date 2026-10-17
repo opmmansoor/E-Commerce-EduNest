@@ -14,7 +14,7 @@ export default function AdminLogin() {
         mutationFn: loginAdmin,
 
         onSuccess: (admin) => {
-            sessionStorage.setItem("admin", JSON.stringify(admin));
+            localStorage.setItem("admin", JSON.stringify(admin));
 
             //Redirect after Successful login
             navigate("/admin/dashboard", { replace:true });

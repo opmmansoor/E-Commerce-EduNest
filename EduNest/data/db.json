@@ -1,48 +1,36 @@
 {
-  "admins":[],
   "users": [
     {
       "firstName": "MANSOOR",
       "secondName": "PALLIKKAL",
       "email": "opm@gmail.com",
-      "password": "123456",
+      "password": "op123456@1",
       "id": "qM0F5p-W11Q",
-      "role": "user"
+      "role": "admin"
     },
     {
       "firstName": "aja",
       "secondName": "ntha",
       "email": "aja@gmail.com",
       "password": "aja1234",
-      "id": "Z60aHPQgokc"
+      "id": "Z60aHPQgokc",
+      "role": "user"
     },
     {
       "firstName": "new",
       "secondName": "user",
       "email": "user@gmail.com",
       "password": "user121@",
-      "id": "DBqL9w6McKQ"
-    },
-    {
-      "firstName": "new",
-      "secondName": "user",
-      "email": "user1@gmail.com",
-      "password": "1user@",
-      "id": "YsH_vKuBBj4"
+      "id": "DBqL9w6McKQ",
+      "role": "user"
     },
     {
       "firstName": "user2",
       "secondName": "second",
       "email": "user2@gmail.com",
       "password": "user212@",
-      "id": "zFa8VFTUYWo"
-    },
-    {
-      "firstName": "new",
-      "secondName": "man",
-      "email": "newman@gmail.com",
-      "password": "newman@",
-      "id": "8uEnxq2q1e8"
+      "id": "zFa8VFTUYWo",
+      "role": "user"
     }
   ],
   "products": [
@@ -441,6 +429,33 @@
       "category": "Notebooks",
       "price": 110,
       "id": "BcO8HAqbCr4"
+    },
+    {
+      "userId": "qM0F5p-W11Q",
+      "productId": "27",
+      "name": "Premium School Bags",
+      "image": "/Products/Bags/bag-3.jpg",
+      "category": "School Accessories",
+      "price": 999,
+      "id": "iC5yHglPRlI"
+    },
+    {
+      "userId": "qM0F5p-W11Q",
+      "productId": "22",
+      "name": "Study Planner",
+      "image": "/Products/Daires/study.jpg",
+      "category": "Diaries",
+      "price": 190,
+      "id": "olqy7A_xUBc"
+    },
+    {
+      "userId": "qM0F5p-W11Q",
+      "productId": "18",
+      "name": "Calculator",
+      "image": "/Products/Box/calculater.jpg",
+      "category": "Instruments",
+      "price": 499,
+      "id": "EZTIReoEcDs"
     }
   ],
   "orders": [
@@ -750,6 +765,41 @@
       "status": "Placed",
       "createdAt": "2026-10-16T14:20:33.440Z",
       "id": "ly9INH15br0"
+    },
+    {
+      "userId": "qM0F5p-W11Q",
+      "items": [
+        {
+          "cartItemId": "2Oy1tHsh9Zs",
+          "productId": "13",
+          "name": "Geometry Box",
+          "price": 100,
+          "quantity": 1,
+          "image": "/Products/Box/box1.jpg"
+        },
+        {
+          "cartItemId": "p65gDX3IxZs",
+          "productId": "12",
+          "name": "Highlighters",
+          "price": 129,
+          "quantity": 1,
+          "image": "/Products/Essentials/highligth12.jpg"
+        }
+      ],
+      "totalAmount": 229,
+      "shippingAddress": {
+        "fullName": "mansoor",
+        "phone": "2546128635",
+        "address": "OP House",
+        "city": "mlp",
+        "pincode": "673634"
+      },
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "upiId": "opmmansoor@gmail.com",
+      "status": "Placed",
+      "createdAt": "2026-10-17T09:30:35.999Z",
+      "id": "Edy6m-ee-U0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
