@@ -1,11 +1,13 @@
 {
+  "admins":[],
   "users": [
     {
       "firstName": "MANSOOR",
       "secondName": "PALLIKKAL",
       "email": "opm@gmail.com",
       "password": "123456",
-      "id": "qM0F5p-W11Q"
+      "id": "qM0F5p-W11Q",
+      "role": "user"
     },
     {
       "firstName": "aja",
@@ -41,13 +43,6 @@
       "email": "newman@gmail.com",
       "password": "newman@",
       "id": "8uEnxq2q1e8"
-    },
-    {
-      "firstName": "vaish",
-      "secondName": "aag",
-      "email": "vaishaq@gmail.com",
-      "password": "vaishag@",
-      "id": "R11_lDtNFAA"
     }
   ],
   "products": [

@@ -25,6 +25,7 @@ function Login() {
 // Store user information
             const loggedInUser = {
                 id:user.id,
+                role: user.role,
                 firstName:user.firstName,
                 secondName: user.secondName,
                 email: user.email,
@@ -39,7 +40,7 @@ function Login() {
             navigate("/home");
         },
         onError: (error) => {
-            toast.error("Login error:", error.message);    
+            toast.error(error.message || "Login failed");    
         },
     })  
 
@@ -119,6 +120,7 @@ function Login() {
 
 {/* Login Button */}
             <button type='submit'
+                    disabled={loginMutation.isPending}
                     className="w-full bg-[#F35B04] text-white font-semibold py-3 rounded-lg 
                     hover:bg-[#d94f03] active:scale-[0.98] transition duration-200">
                 {loginMutation.isPending ? "Logging in...": "Login"}
