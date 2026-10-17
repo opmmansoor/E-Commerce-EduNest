@@ -12,10 +12,10 @@ export default function ProtectedAdminRoute() {
         admin = null;
     }
 
-    const isAdmin  = admin? id && admin?.role === "admin";
+    const isAdmin  = admin?.id && admin?.role === "admin";
 
-    if(!isAdmin) {
-        return <Navigate to="/admin/login" replace />;
+    if (!isAdmin) {
+    return <Navigate to="/admin/login" replace />;
     }
 
   return  <Outlet />;
