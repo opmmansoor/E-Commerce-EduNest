@@ -1,17 +1,8 @@
 
 import { useState } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
-import {
-  Sidebar,
-  Menu,
-  MenuItem,
-} from "react-pro-sidebar";
-import {
-  LayoutDashboard,
-  Package,
-  Users,
-  ShoppingBag,
-  Menu as MenuIcon,
+import {Sidebar, Menu, MenuItem} from "react-pro-sidebar";
+import {LayoutDashboard,Package,Users,ShoppingBag,Menu as MenuIcon,
   LogOut,
   GraduationCap,
   Bell,
