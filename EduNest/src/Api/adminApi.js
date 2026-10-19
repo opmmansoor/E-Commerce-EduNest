@@ -23,4 +23,21 @@ export const loginAdmin = async ({email, password}) => {
         name,
         role,
     };
-}; 
+};
+
+
+// GET USERS AND ORDERS
+
+const API_URL = "http://localhost:3000";
+
+export const getUsers = async () => {
+    const response = await axios.get(`${API_URL}/users`)
+    return response.data
+};
+
+
+// Fetch all orders
+export const getOrders = async () => {
+  const response = await axios.get(`${API_URL}/orders`);
+  return response.data;
+};
