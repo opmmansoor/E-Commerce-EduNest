@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import React, { useMemo, useState } from 'react'
-import { addProduct, deleteProduct, getProducts, updateProduct } from '../../../Api/productApi';
+import { useMemo, useState } from 'react'
 import { Package, Pencil, RefreshCcw, Search, Trash2, X } from 'lucide-react';
+import { addProduct, deleteProduct, getProducts, updateProduct } from '../../../Api/adminProductApi';
 
 export default function AdminProducts() {
     const quertClient = useQueryClient();

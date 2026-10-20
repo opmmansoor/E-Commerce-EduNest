@@ -119,7 +119,7 @@ export default function AdminUsers() {
                 <div>
                    <p className="text-sm text-gray-500">Total Users</p>
                    <h2 className="mt-2 text-3xl font-bold">
-                        {users.length}
+                        {users.filter((user) => user.role === "user").length}
                    </h2> 
                 </div>
 

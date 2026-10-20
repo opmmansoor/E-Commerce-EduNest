@@ -25,12 +25,29 @@
       "role": "user"
     },
     {
-      "firstName": "user2",
+      "firstName": "user 2",
       "secondName": "second",
       "email": "user2@gmail.com",
       "password": "user212@",
       "id": "zFa8VFTUYWo",
       "role": "user"
+    },
+    {
+      "firstName": "user 3",
+      "secondName": "second",
+      "email": "user3@gmail.com",
+      "password": "user313@",
+      "id": "3",
+      "role": "user"
+    },
+    {
+      "firstName": "user 4",
+      "secondName": "four",
+      "email": "user4@gmail.com",
+      "password": "user414@",
+      "id": "4",
+      "role": "user",
+      "isBlocked": true
     }
   ],
   "products": [
@@ -364,6 +381,24 @@
       "image": "/Products/Bags/lunch.jpg",
       "quantity": 5,
       "id": "-_LMaLJ3b8M"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 1,
+      "id": "jsPDiPK7IdQ"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 1,
+      "id": "wOMRd-AtUDg"
     }
   ],
   "wishlists": [
