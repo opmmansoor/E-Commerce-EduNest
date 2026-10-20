@@ -800,6 +800,32 @@
       "status": "Placed",
       "createdAt": "2026-10-17T09:30:35.999Z",
       "id": "Edy6m-ee-U0"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "dAW2mY8Pt_E",
+          "productId": "20",
+          "name": "Premium Daily Diary",
+          "price": 280,
+          "quantity": 2,
+          "image": "/Products/Daires/dairy2.jpg"
+        }
+      ],
+      "totalAmount": 560,
+      "shippingAddress": {
+        "fullName": "MUHAMMED MANSOOR",
+        "phone": "8136808842",
+        "address": "College road gn",
+        "city": "PALLIKKAL BASAR",
+        "pincode": "673634"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-20T05:42:39.563Z",
+      "id": "TcQR9STLCwU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

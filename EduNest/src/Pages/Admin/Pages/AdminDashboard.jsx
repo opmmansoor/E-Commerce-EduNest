@@ -2,7 +2,8 @@ import { IndianRupee, LogOut, Package, RefreshCcw, ShoppingBag, Users } from 'lu
 import { useNavigate } from 'react-router-dom'
 import { getProducts } from '../../../Api/productApi';
 import { useQuery } from '@tanstack/react-query';
-import { getOrders, getUsers } from '../../../Api/adminApi';
+import { getOrders} from '../../../Api/adminApi';
+import { getUsers } from '../../../Api/adminUserApi';
 
 export default function AdminDashboard() {
     const navigate = useNavigate();
