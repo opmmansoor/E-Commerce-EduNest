@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react'
-import { Package, Pencil, RefreshCcw, Search, Trash2, X } from 'lucide-react';
+import { Package, Pencil, Plus, RefreshCcw, Search, Trash2, X } from 'lucide-react';
 import { addProduct, deleteProduct, getProducts, updateProduct } from '../../../Api/adminProductApi';
 
 export default function AdminProducts() {
@@ -198,6 +198,7 @@ export default function AdminProducts() {
 
         <button onClick={openAddModal}
                 className="flex items-center justify-center gap-2 rounded-xl bg-[#3D348B] px-5 py-3 font-semibold text-white hover:bg-[#211B4D]">
+            <Plus size={20} />
             Add New product
         </button>
       </div>
@@ -205,7 +206,7 @@ export default function AdminProducts() {
 {/* Statistics */}
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {[
-            { label: "Total Products", value: products.length },
+            {  label: "Total Products", value: products.length },
             {
                 label: "In Stock",
                 value: products.filter((p) =>  Number(p.stock) > 5).length,

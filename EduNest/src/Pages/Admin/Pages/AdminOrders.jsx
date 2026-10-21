@@ -1,9 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useMemo, useState } from 'react'
 import { getOrderCustomers, getOrders } from '../../../Api/adminOrderApi';
-import { ChevronDown, ChevronLeft, ChevronRight, Clock, Eye, Icon, PackageCheck, Search, ShoppingBag, Truck, X } from 'lucide-react';
-
-function AdminOrders() {
+import { ChevronDown, ChevronLeft, ChevronRight, Clock, CreditCard, Eye, Icon, MapPin, PackageCheck, Search, ShoppingBag, Truck, X } from 'lucide-react';
 
     const PAGE_SIZE = 5;
 
@@ -24,14 +22,15 @@ function AdminOrders() {
 
 
     const statusStyle = {
-        Placed: "bg-amber",
-        Pending: "bg-amber",
-        Processing: "bg-blue-10",
-        Shipped: "bg-violet-10",
-        Delivered: "bg-green-10",
-        Cancelled: "bg-red-10",
+        Placed: "bg-amber-100 text-amber-800",
+        Pending: "bg-amber-100 text-amber-800",
+        Processing: "bg-blue-100 text-blue-800",
+        Shipped: "bg-violet-100 text-violet-800",
+        Delivered: "bg-green-100 text-green-800",
+        Cancelled: "bg-red-100 text-red-800",
     };
 
+function AdminOrders() {
 
     const [search, setSearch] = useState("")
     const [status, setStatus] = useState("all");
@@ -369,28 +368,30 @@ function AdminOrders() {
   )
 }
 
-function OrderDetails({ order, customer, onClose}){
-    const address = order.shippingAddress;
-    const addressText = 
+function OrderDetails({ order, customer, onClose }) {
+  const address = order.shippingAddress;
+  const addressText =
     typeof address === "string"
-        ? address
-        : address
-            ?[
-                address.address,
-                address.city,
-                address.state,
-                address.pincode,
-            ].filter(Boolean)
-             .join(", ")
-            : " No shipping address provided";
+      ? address
+      : address
+        ? [
+            address.address,
+            address.city,
+            address.state,
+            address.pincode,
+            ]
+            .filter(Boolean)
+            .join(", ")
+        : "No shipping address provided";
 
     const customerName =
-      customer? `${customer.firstName || ""} ${customer.secondName || ""}`.trim() ||
-                customer.name || 
-                customer.email
-             :typeof address === "object"
-               ? address?.name || "Unknown customer"
-               : "Unknown customer";
+    customer
+      ? `${customer.firstName || ""} ${customer.secondName || ""}`.trim() ||
+        customer.name ||
+        customer.email
+      : typeof address === "object"
+        ? address?.name || "Unknown customer"
+        : "Unknown customer";
     
     const items = Array.isArray(order.items) ? order.items : [];
     
@@ -399,12 +400,13 @@ function OrderDetails({ order, customer, onClose}){
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-3 sm:p-6"
              onClick={onClose}>
             <div
-                role='dialog'
-                aria-modal='true'
+                role="dialog"
+                aria-modal="true"
                 aria-labelledby="order-details-title"
                 className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl"
                 onClick={(e) => e.stopPropagation()}>
-                <div className="sticky top-0 flex items-center justify-between border-b bg-white p-5" >
+
+                <div className="sticky top-0 flex items-center justify-between border-b bg-white p-5">
                     <div>
                         <h2 id='order-details-title'
                             className="text-xl font-bold text-[#211B4D]">
@@ -412,7 +414,7 @@ function OrderDetails({ order, customer, onClose}){
                         </h2>
 
                         <p className="mt-1 text-sm text-gray-500">
-                            {/* {formatDate(order.timestamp || order.createdAt)} */}
+                            {formatDate(order.timestamp || order.createdAt)}
                         </p>
                     </div>
 
@@ -420,22 +422,117 @@ function OrderDetails({ order, customer, onClose}){
                         onClick={onClose}
                         className="rounded-lg p-2 hover:bg-gray-100"
                         aria-label="Close order details"
-                      >
+                        >
                         <X size={20} />
                     </button>
                 </div>
 
-                <div>
-                    <div>
-                        <div>
-                            
+                <div className="space-y-5 p-5">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="rounded-xl bg-gray-50 p-4">
+                            <h3 className="mb-2 font-semibold">Customer</h3>
+                            <p className="text-sm">{customerName}</p>
+                            <p className="mt-1 break-all text-sm text-gray-500">
+                                {customer?.email || "—"}
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                                {customer?.phone || address?.phone || "—"}
+                            </p>
                         </div>
+
+                        <div className="rounded-xl bg-gray-50 p-4">
+                            <h3 className="mb-2 flex items-center gap-2 font-semibold">
+                                <MapPin size={17} />
+                                Shipping Address
+                            </h3>
+                            <p className="text-sm leading-6">{addressText}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 className="mb-3 font-semibold">Ordered Products</h3>
+
+                        <div className="space-y-3">
+                          {items.map((item, index) => (
+                            <div
+                                key={item.id ?? `${item.title}-${index}`}
+                                className="flex items-center gap-3 rounded-xl border p-3"
+                                >
+                              {item.image ? (
+                                <img
+                                    src={item.image}
+                                    alt={item.title || "Product"}
+                                    className="h-14 w-14 rounded-lg bg-gray-50 object-contain"
+                                 />
+                             ) : (
+                                <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gray-100">
+                                    <ShoppingBag size={22} className="text-gray-400" />
+                                </div>
+                             )}
+
+                            <div className="min-w-0 flex-1">
+                                <p className="font-medium">
+                                    {item.title || item.name || "Product"}
+                                </p>
+                                <p className="mt-1 text-xs text-gray-500">
+                                    Qty: {item.quantity || 1}
+                                </p>
+                            </div>
+
+                            <p className="shrink-0 text-sm font-semibold">
+                                {formatPrice(
+                                  Number(item.price || 0) *
+                                  Number(item.quantity || 1)
+                                )}
+                            </p>
+                        </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="rounded-xl border p-4">
+                    <div className="flex items-center justify-between gap-3">
+                        <span className="text-gray-500">Order Status</span>
+                        <span
+                            className={`rounded-full px-3 py-1 text-xs font-medium ${
+                            statusStyle[order.status] ||
+                            "bg-gray-100 text-gray-700"
+                        }`}
+                        >
+                            {order.status || "Unknown"}
+                        </span>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between gap-3">
+                        <span className="flex items-center gap-2 text-sm text-gray-500">
+                            <CreditCard size={17} />
+                            Payment Method
+                        </span>
+                        <span className="text-right text-sm font-medium">
+                            {order.paymentMethod || "Not specified"}
+                        </span>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t pt-4">
+                        <span className="font-semibold">Total Amount</span>
+                        <span className="text-xl font-bold text-[#3D348B]">
+                            {formatPrice(order.totalAmount)}
+                        </span>
                     </div>
                 </div>
             </div>
-        </div>
-    )
 
+            <div className="border-t p-5 text-right">
+                <button
+                    onClick={onClose}
+                    className="rounded-lg bg-[#3D348B] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#211B4D]"
+                    >
+                    Close Details
+                </button>
+            </div>
+          </div>
+        </div> 
+    );
 }
 
 
