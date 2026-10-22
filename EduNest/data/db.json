@@ -115,9 +115,11 @@
       "category": "Sticky Notes",
       "description": "Colorful adhesive notes for writing reminders. Easy to stick on notebooks, textbooks, and desks.",
       "price": 45,
-      "stock": 11,
+      "stock": 15,
       "rating": 4.5,
-      "image": "/Products/Books/sticky6.jpg"
+      "image": "/Products/Books/sticky6.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "7",
@@ -137,7 +139,9 @@
       "price": 180,
       "stock": 6,
       "rating": 4.9,
-      "image": "/Products/Essentials/premium2.jpg"
+      "image": "/Products/Essentials/premium2.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "8",

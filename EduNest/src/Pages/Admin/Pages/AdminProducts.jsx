@@ -1,10 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react'
 import { Package, Pencil, Plus, RefreshCcw, Search, Trash2, X } from 'lucide-react';
-import { addProduct, deleteProduct, getProducts, updateProduct } from '../../../Api/adminProductApi';
+import { addProduct, getProducts, softDeleteProduct, updateProduct } from '../../../Api/adminProductApi';
+import Swal from 'sweetalert2';
 
 export default function AdminProducts() {
-    const quertClient = useQueryClient();
+    const queryClient = useQueryClient();
 
     const emptyForm = {
         name: "",
@@ -32,7 +33,9 @@ export default function AdminProducts() {
     });
 // Refresh cached data
     const refreshProducts = () => 
-        quertClient.invalidateQueries({queryKey: ["products"] });
+        queryClient.invalidateQueries({
+            queryKey: ["products"] 
+        });
 
     const addMutation = useMutation({
         mutationFn: addProduct,
@@ -51,9 +54,54 @@ export default function AdminProducts() {
     });
 
     const deleteMutation = useMutation({
-        mutationFn: deleteProduct,
-        onSuccess: refreshProducts,
+        mutationFn: softDeleteProduct,
+
+        onSuccess: async () => {
+            await refreshProducts();
+
+            Swal.fire({
+            icon: "success",
+            title: "Moved to Trash",
+            text: "You can restore this product later.",
+            timer: 1800,
+            showConfirmButton: false,
+            })
+        },
+
+         onError: () => {
+            Swal.fire({
+            icon: "error",
+            title: "Operation Failed",
+            text: "Could not move the product to Trash.",
+        });
+        },
     });
+
+    const handleDelete = async (product) => {
+        const productName = product.name || product.title || "this product";
+
+        const result = await Swal.fire({
+            title: "Move to Trash?",
+            text: `"${productName}" can be restored later.`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Move to Trash",
+            cancelButtonText: "Cancel",
+            confirmButtonColor: "#DC2626",
+            cancelButtonColor: "#6B7280",
+            reverseButtons: true,
+          });
+
+        // const confirmed = window.confirm(
+        //      `Move "${productName}" to Trash? You can restore it later.`
+        // );
+
+        if (result.isConfirmed) {
+           deleteMutation.mutate(product); 
+        }
+    };
+
+
 
     const closeModal = () => {
         setShowModal(false);
@@ -88,10 +136,10 @@ export default function AdminProducts() {
         setFormError("");
 
         if(
-            !form.name.trim() || 
-            !form.category.trim() || 
-            !form.price === "" ||
-            !form.stock === ""
+            !form.name.trim() ||
+            !form.category.trim() ||
+            form.price === "" ||
+            form.stock === ""
         ) {
             setFormError("Please fill in all required fields.");
             return;
@@ -112,7 +160,7 @@ export default function AdminProducts() {
 
         const productData = {
             name: form.name.trim(),
-            category: form.name.trim(),
+            category: form.category.trim(),
             price,
             stock,
             image: form.image.trim(),
@@ -129,14 +177,18 @@ export default function AdminProducts() {
         }
     };
 
+    const activeProducts = products.filter(
+        (product) => product.isTrashed !== true
+     );
+
     const categories = useMemo(
         () => [
             "All",
             ...new Set(
-                products.map((p) => p.category).filter(Boolean)
+                activeProducts.map((product) => product.category).filter(Boolean)
             ),
         ],
-        [products]
+        [activeProducts]
     );
 
     const filteredProducts = useMemo(() => {
@@ -368,7 +420,8 @@ export default function AdminProducts() {
                                                     <Pencil size={16} />
                                                 </button>
 
-                                                <button title='Delete Product'
+                                                <button type="button"
+                                                        title='Move Product to Trash'
                                                         disabled={deleteMutation.isPending}
                                                         onClick={() => handleDelete(product)}
                                                         className="rounded-lg bg-red-500 p-2 text-white hover:bg-red-600 disabled:opacity-50">

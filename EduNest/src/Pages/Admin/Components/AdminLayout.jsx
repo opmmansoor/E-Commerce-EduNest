@@ -60,7 +60,7 @@ export default function AdminLayout() {
     },
     {
       label: "Trashed List",
-      path: "/admin/trash",
+      path: "/admin/trashed",
       icon: <Trash size={19} />,
     },
   ];
