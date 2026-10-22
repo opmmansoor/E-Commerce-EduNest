@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { getOrderCustomers, getOrders } from '../../../Api/adminOrderApi';
-import { ChevronDown, ChevronLeft, ChevronRight, Clock, CreditCard, Eye, Icon, MapPin, PackageCheck, Search, ShoppingBag, Truck, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, CreditCard, Eye, MapPin, PackageCheck, Search, ShoppingBag, Truck, X } from 'lucide-react';
 
     const PAGE_SIZE = 5;
 

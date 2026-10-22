@@ -7,7 +7,10 @@ import {LayoutDashboard,Package,Users,ShoppingBag,Menu as MenuIcon,
   GraduationCap,
   Bell,
   ChevronLeft,
+  Trash,
 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../Slice/authSlice";
 
 export default function AdminLayout() {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,8 +27,13 @@ export default function AdminLayout() {
     admin = null;
   }
 
+  const dispatch = useDispatch();
+
   const handleLogout = () => {
     localStorage.removeItem("admin");
+    localStorage.removeItem("user");
+
+    dispatch(logout());
     navigate("/login", { replace: true });
   };
 
@@ -49,6 +57,11 @@ export default function AdminLayout() {
       label: "Orders",
       path: "/admin/orders",
       icon: <ShoppingBag size={19} />,
+    },
+    {
+      label: "Trashed List",
+      path: "/admin/trash",
+      icon: <Trash size={19} />,
     },
   ];
 

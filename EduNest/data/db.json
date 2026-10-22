@@ -48,16 +48,24 @@
       "id": "4",
       "role": "user",
       "isBlocked": true
+    },
+    {
+      "firstName": "user 5",
+      "secondName": "five",
+      "email": "user5@gmail.com",
+      "password": "user515@",
+      "role": "user",
+      "id": "swYCIejMNvk"
     }
   ],
   "products": [
     {
       "id": "1",
       "name": "Premium Notebooks",
-      "category": "Notebooks",
+      "category": "Premium Notebooks",
       "description": "High-quality notebooks featuring durable covers, smooth paper, and elegant designs. Perfect for school notes, daily writing notebooks.",
       "price": 80,
-      "stock": 30,
+      "stock": 32,
       "rating": 4.7,
       "image": "/Products/Books/premium2.jpg"
     },
@@ -399,6 +407,15 @@
       "image": "/Products/Books/Lined2.jpg",
       "quantity": 1,
       "id": "wOMRd-AtUDg"
+    },
+    {
+      "userId": "4",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "price": 80,
+      "image": "/Products/Books/premium2.jpg",
+      "quantity": 1,
+      "id": "IlAOnEbq9Nc"
     }
   ],
   "wishlists": [
@@ -491,6 +508,24 @@
       "category": "Instruments",
       "price": 499,
       "id": "EZTIReoEcDs"
+    },
+    {
+      "userId": "4",
+      "productId": "3",
+      "name": "Spiral Notebooks",
+      "image": "/Products/Books/spiral3.jpg",
+      "category": "Notebooks",
+      "price": 50,
+      "id": "4CCqAHXbzws"
+    },
+    {
+      "userId": "swYCIejMNvk",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "image": "/Products/Books/premium2.jpg",
+      "category": "Premium Notebooks",
+      "price": 80,
+      "id": "vu-DyIY_4Lg"
     }
   ],
   "orders": [
@@ -861,6 +896,49 @@
       "status": "Placed",
       "createdAt": "2026-10-20T05:42:39.563Z",
       "id": "TcQR9STLCwU"
+    },
+    {
+      "userId": "swYCIejMNvk",
+      "items": [
+        {
+          "cartItemId": "O0ALpkxN9xk",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        },
+        {
+          "cartItemId": "76c1qAW6GT8",
+          "productId": "23",
+          "name": "To Do Notes",
+          "price": 90,
+          "quantity": 1,
+          "image": "/Products/Daires/todo23.jpg"
+        },
+        {
+          "cartItemId": "5zI_OKYH7tk",
+          "productId": "22",
+          "name": "Study Planner",
+          "price": 190,
+          "quantity": 1,
+          "image": "/Products/Daires/study.jpg"
+        }
+      ],
+      "totalAmount": 360,
+      "shippingAddress": {
+        "fullName": "user 5",
+        "phone": "2456762568",
+        "address": "Bralam, vallivattom (po),",
+        "city": "calicut",
+        "pincode": "673634"
+      },
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "upiId": "user5@upi",
+      "status": "Placed",
+      "createdAt": "2026-10-22T05:06:39.201Z",
+      "id": "wCWoFipNCVE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -106,7 +106,7 @@ export default function AdminProducts() {
             price < 0 ||
             stock < 0
           ) {
-        setFormError("Enter a valid price and whole-number stock quantity.");
+        setFormError("Please enter valid product details.");
         return;
         }
 
@@ -534,10 +534,11 @@ export default function AdminProducts() {
                         <textarea 
                             rows={3}
                             value={form.description}
-                            onClick={(e) => 
+                            onChange={(e) => 
                                 setForm({...form, description: e.target.value})
                             }
-                            className="w-full rounded-xl border p-3 outline-none focus:border-[#3D348B]"/>
+                            className="w-full rounded-xl border border-gray-200 p-3
+                                        outline-none focus:border-[#3D348B] focus:ring-2 focus:ring-[#3D348B]/10"/>
                     </div>
 
                     {(formError || addMutation.isError || editMutation.isError) && (
