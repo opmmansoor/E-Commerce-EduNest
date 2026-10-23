@@ -1,7 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react'
 import { getOrderCustomers, getOrders } from '../../../Api/adminOrderApi';
 import { ChevronLeft, ChevronRight, Clock, CreditCard, Eye, MapPin, PackageCheck, Search, ShoppingBag, Truck, X } from 'lucide-react';
+import { updatedOrderStatus } from '../../../Api/orderApi';
+import Swal from "sweetalert2";
 
     const PAGE_SIZE = 5;
 
@@ -23,14 +25,38 @@ import { ChevronLeft, ChevronRight, Clock, CreditCard, Eye, MapPin, PackageCheck
 
     const statusStyle = {
         Placed: "bg-amber-100 text-amber-800",
-        Pending: "bg-amber-100 text-amber-800",
+        PENDING: "bg-amber-100 text-amber-800",
         Processing: "bg-blue-100 text-blue-800",
-        Shipped: "bg-violet-100 text-violet-800",
-        Delivered: "bg-green-100 text-green-800",
-        Cancelled: "bg-red-100 text-red-800",
+        SHIPPED: "bg-violet-100 text-violet-800",
+        DELIVERED: "bg-green-100 text-green-800",
+        CANCELLED: "bg-red-100 text-red-800",
     };
 
+    const ordersStatus = [
+        "PENDING",
+        "SHIPPED",
+        "DELIVERED",
+        "CANCELLED",
+    ];
+
+    const normalizeStatus = (status) => {
+        const value = String(status || "").toUpperCase();
+
+        if (["PLACED", "PROCESSING", "PENDING"].includes(value)) {
+            return "PENDING";
+        }
+        return ordersStatus.includes(value) ? value : "PENDING";
+    };
+
+    const formatStatus = (status) => {
+        const normalized = normalizeStatus(status);
+
+        return normalized.charAt(0) + normalized.slice(1).toLocaleLowerCase();
+    }
+
+
 function AdminOrders() {
+    const queryClient = useQueryClient();
 
     const [search, setSearch] = useState("")
     const [status, setStatus] = useState("all");
@@ -50,6 +76,41 @@ function AdminOrders() {
         queryKey: ["adminOrderCustomers"],
         queryFn: getOrderCustomers,
     });
+
+    const statusMutation = useMutation({
+        mutationFn: updatedOrderStatus,
+
+        onSuccess: async (updatedOrder) => {
+
+            if (
+                selectedOrder && 
+                String(selectedOrder.id) === String(updatedOrder.id)
+            ) {
+                selectedOrder(updatedOrder);
+            }
+
+
+            await queryClient.invalidateQueries({
+                queryKey: ["orders", "admin"]
+            });
+
+            Swal.fire({
+              icon: "success",
+              title: "Status Updated!",
+              text: "The order status has been changed successfully.",
+              timer: 1500,
+              showConfirmButton: false,  
+            })
+        },
+
+        onError: () => {
+            Swal.fire({
+                icon: "error",
+                title: "Update Failed",
+                text: "Unable to update the order status. Please try again.",
+            });
+        }
+    })
 
 // Match each order with its customer
     const userMap = useMemo(
@@ -76,15 +137,15 @@ function AdminOrders() {
 
 // Summary cards
     const placedCount = orders.filter((order) =>
-        ["Placed", "Pending", "Processing"].includes(order.status)
-    ).length;
+        normalizeStatus(order.status) === "PENDING"
+).length;
 
-    const ShippedCount = orders.filter(
-        (order) => order.status === "Shipped"
+    const shippedCount = orders.filter(
+        (order) => normalizeStatus(order.status) === "SHIPPED"
     ).length;
 
     const deliveredCount = orders.filter(
-        (order) => order.status === "Delivered"
+        (order) => normalizeStatus(order.status) === "DELIVERED"
     ).length;
 
 
@@ -108,8 +169,7 @@ function AdminOrders() {
             );
 
             const matchesStatus = status === "all" ||
-                                String(order.status || "").toLowerCase() ===
-                                status.toLowerCase();
+                                normalizeStatus(order.status) === status;
 
                 return matchesSearch && matchesStatus;    
         });
@@ -173,7 +233,7 @@ function AdminOrders() {
                 },
                 {
                     title: "Shipped",
-                    value: ShippedCount,
+                    value: shippedCount,
                     icon: Truck,
                     color: "text-blue-600",
                 },
@@ -239,11 +299,11 @@ function AdminOrders() {
                         >
                         <option value="all">All Statuses</option>
                         <option value="placed">Placed</option>
-                        <option value="pending">Pending</option>
+                        <option value="PENDING">Pending</option>
                         <option value="processing">Processing</option>
-                        <option value="shipped">Shipped</option>
-                        <option value="delivered">Delivered</option>
-                        <option value="cancelled">Cancelled</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="DELIVERED">Delivered</option>
+                        <option value="CANCELLED">Cancelled</option>
                     </select>
                 </div>
             </div>
@@ -257,6 +317,7 @@ function AdminOrders() {
                             <th className="px-5 py-4">Date</th>
                             <th className="px-5 py-4">Total</th>
                             <th className="px-5 py-4">Status</th>
+                            <th className="px-5 py-4">Change Status</th>
                             <th className="px-5 py-4">Action</th>
                         </tr>
                     </thead>
@@ -285,13 +346,52 @@ function AdminOrders() {
                             {formatPrice(order.totalAmount)}
                            </td>
 
-                           <td>
+                           <td className="px-5 py-4">
                             <span className={`rounded-full px-3 py-1 text-xs font-medium ${
                                     statusStyle[order.status] ||
                                     "bg-gray-100 text-gray-700"
                                   }`}>
                                     {order.status || "Unknown"}
                             </span>
+                           </td>
+
+                
+{/* Change Status Dropdown */}
+                           <td className="px-5 py-4">
+                            <select 
+                                value={normalizeStatus(order.status)}
+                                disabled={
+                                    statusMutation.isPending && 
+                                    String(statusMutation.variables?.id) === String(order.id)
+                                }
+                                onChange={(e) => {
+                                    const newStatus = e.target.value;
+
+                                    if (newStatus === normalizeStatus(order.status)) {
+                                        return;
+                                    }
+
+                                    statusMutation.mutate({
+                                        id: order.id,
+                                        status: newStatus,
+                                    });
+                                }}
+                                className="w-36 rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-700 outline-none transition focus:border-[#3D348B] focus:ring-2 focus:ring-[#3D348B]/20 disabled:cursor-not-allowed disabled:opacity-50"
+                                aria-label={`Change status for order ${order.id}`}
+                              >
+                                {ordersStatus.map((item) => (
+                                <option key={item} value={item}>
+                                    {item}
+                                </option>
+                            ))}
+                            </select>
+
+                            {statusMutation.isPending && 
+                            String(statusMutation.variables?.id) === String(order.id) && (
+                                <p className="mt-1 text-xs text-gray-500">
+                                    Updating...
+                                </p>
+                            )}
                            </td>
 
                            <td className="px-5 py-4">
@@ -308,7 +408,7 @@ function AdminOrders() {
 
                        {paginatedOrders.length === 0 && (
                         <tr>
-                            <td colSpan={6}
+                            <td colSpan={7}
                                 className="px-5 py-12 text-center text-gray-500" >
                                 No orders Found
                             </td>

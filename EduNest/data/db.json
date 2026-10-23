@@ -608,7 +608,7 @@
         "city": "kolkatha",
         "pincode": "673634"
       },
-      "status": "Placed",
+      "status": "SHIPPED",
       "createdAt": "2026-10-13T15:12:14.589Z",
       "id": "bht6juc3eCs"
     },
@@ -632,7 +632,7 @@
         "city": "city",
         "pincode": "123456"
       },
-      "status": "Placed",
+      "status": "PENDING",
       "createdAt": "2026-10-14T04:57:50.144Z",
       "id": "oLANBY4kBOw"
     },
@@ -664,7 +664,7 @@
         "city": "Trissur",
         "pincode": "673634"
       },
-      "status": "Placed",
+      "status": "DELIVERED",
       "createdAt": "2026-10-14T05:09:27.287Z",
       "id": "ihfK5brA_zU"
     },
@@ -720,7 +720,7 @@
         "city": "Pallikal",
         "pincode": "673634"
       },
-      "status": "Placed",
+      "status": "CANCELLED",
       "createdAt": "2026-10-14T05:40:23.284Z",
       "id": "nFDkO0LnV7w"
     },
@@ -760,7 +760,7 @@
         "city": "Pallikal",
         "pincode": "673634"
       },
-      "status": "Placed",
+      "status": "DELIVERED",
       "createdAt": "2026-10-15T04:33:05.783Z",
       "id": "yIDWfWtwEpc"
     },
@@ -832,7 +832,7 @@
         "city": "gjcfgj",
         "pincode": "673634"
       },
-      "status": "Placed",
+      "status": "DELIVERED",
       "createdAt": "2026-10-15T09:04:19.094Z",
       "id": "lsNIfKrg7w4"
     },
@@ -864,7 +864,7 @@
         "city": "Trissur",
         "pincode": "673634"
       },
-      "status": "Placed",
+      "status": "CANCELLED",
       "createdAt": "2026-10-16T13:52:43.491Z",
       "id": "CttHVITNrH4"
     },
@@ -926,7 +926,7 @@
       "paymentMethod": "UPI",
       "paymentStatus": "Pending",
       "upiId": "opmmansoor@gmail.com",
-      "status": "Placed",
+      "status": "SHIPPED",
       "createdAt": "2026-10-17T09:30:35.999Z",
       "id": "Edy6m-ee-U0"
     },
@@ -952,7 +952,7 @@
       },
       "paymentMethod": "COD",
       "paymentStatus": "Pending",
-      "status": "Placed",
+      "status": "DELIVERED",
       "createdAt": "2026-10-20T05:42:39.563Z",
       "id": "TcQR9STLCwU"
     },
@@ -995,7 +995,7 @@
       "paymentMethod": "UPI",
       "paymentStatus": "Pending",
       "upiId": "user5@upi",
-      "status": "Placed",
+      "status": "CANCELLED",
       "createdAt": "2026-10-22T05:06:39.201Z",
       "id": "wCWoFipNCVE"
     },
@@ -1021,7 +1021,7 @@
       },
       "paymentMethod": "COD",
       "paymentStatus": "Pending",
-      "status": "Placed",
+      "status": "SHIPPED",
       "createdAt": "2026-10-23T04:32:15.172Z",
       "id": "9R9Q3QCxDoo"
     }

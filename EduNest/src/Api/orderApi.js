@@ -20,3 +20,11 @@ export const createOrder = async (orderData) => {
         })
         return res.data;
     }    
+
+    export const updatedOrderStatus = async ({ id,status }) => {
+        const response = await axios.patch(`${API}/${id}`, {
+            status,
+        });
+
+        return response.data;
+    }
