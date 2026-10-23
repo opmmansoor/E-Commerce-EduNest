@@ -14,7 +14,8 @@
       "email": "aja@gmail.com",
       "password": "aja1234",
       "id": "Z60aHPQgokc",
-      "role": "user"
+      "role": "user",
+      "isBlocked": false
     },
     {
       "firstName": "new",
@@ -22,7 +23,8 @@
       "email": "user@gmail.com",
       "password": "user121@",
       "id": "DBqL9w6McKQ",
-      "role": "user"
+      "role": "user",
+      "isBlocked": false
     },
     {
       "firstName": "user 2",
@@ -30,7 +32,8 @@
       "email": "user2@gmail.com",
       "password": "user212@",
       "id": "zFa8VFTUYWo",
-      "role": "user"
+      "role": "user",
+      "isBlocked": false
     },
     {
       "firstName": "user 3",
@@ -38,7 +41,8 @@
       "email": "user3@gmail.com",
       "password": "user313@",
       "id": "3",
-      "role": "user"
+      "role": "user",
+      "isBlocked": false
     },
     {
       "firstName": "user 4",
@@ -55,7 +59,8 @@
       "email": "user5@gmail.com",
       "password": "user515@",
       "role": "user",
-      "id": "swYCIejMNvk"
+      "id": "swYCIejMNvk",
+      "isBlocked": false
     }
   ],
   "products": [
@@ -68,8 +73,8 @@
       "stock": 32,
       "rating": 4.7,
       "image": "/Products/Books/premium2.jpg",
-      "isTrashed": false,
-      "deletedAt": null
+      "isTrashed": true,
+      "deletedAt": "2026-10-23T05:09:33.514Z"
     },
     {
       "id": "2",
@@ -461,6 +466,15 @@
       "image": "/Products/Books/premium2.jpg",
       "quantity": 1,
       "id": "IlAOnEbq9Nc"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 1,
+      "id": "brzL8zT7IdI"
     }
   ],
   "wishlists": [

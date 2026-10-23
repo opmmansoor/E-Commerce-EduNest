@@ -30,8 +30,8 @@ export default function AdminDashboard() {
      0
     );
 
-    const productCount = products.length;
-    const usersCount = users.length;
+    const productCount = products.filter((item) => item.isTrashed === false).length;
+    const usersCount = users.filter((user) => user.isBlocked === false).length;
     const ordersCount = orders.length;
 
     const stats = [
@@ -56,14 +56,6 @@ export default function AdminDashboard() {
             icon: IndianRupee,
         },
     ];
-
-    // let admin = null;
-
-    // try {
-    //     admin = JSON.parse(localStorage.getItem("admin") || "null");
-    // } catch {
-    //     admin = null;
-    // }
 
     const handleLogout = () => {
         localStorage.removeItem("admin");

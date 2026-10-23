@@ -8,14 +8,19 @@ import {LayoutDashboard,Package,Users,ShoppingBag,Menu as MenuIcon,
   Bell,
   ChevronLeft,
   Trash,
+  ChevronDown,
 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../Slice/authSlice";
+import Swal from "sweetalert2";
 
 export default function AdminLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   let admin = null;
 
@@ -27,14 +32,40 @@ export default function AdminLayout() {
     admin = null;
   }
 
-  const dispatch = useDispatch();
+  
 
-  const handleLogout = () => {
-    localStorage.removeItem("admin");
-    localStorage.removeItem("user");
+  const handleLogout = async () => {
+    setShowProfile(false);
 
-    dispatch(logout());
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out of your EduNest admin account.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Logout",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#DC2626",
+      cancelButtonColor: "#6B7280",
+      reverseButtons: true,
+      focusCancel: true,
+    });
+
+    if (result.isConfirmed) {
+      localStorage.removeItem("admin");
+      localStorage.removeItem("user");
+
+      dispatch(logout());
+
+      await Swal.fire({
+        title: "Logged Out!",
+        text: "You have successfully logged out.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    
     navigate("/login", { replace: true });
+    }
   };
 
   const menuItems = [
@@ -145,6 +176,7 @@ export default function AdminLayout() {
             onClick={handleLogout}
             className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm text-white hover:bg-[#3D348B]"
           >
+            
             <LogOut size={19} />
             {!collapsed && "Logout"}
           </button>
@@ -182,14 +214,14 @@ export default function AdminLayout() {
               <Bell size={21} />
             </button>
 
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F7B801] font-bold text-[#211B4D]">
                 {(admin?.firstName || "A")
                   .charAt(0)
                   .toUpperCase()}
               </div>
 
-              <div className="hidden sm:block">
+              <div className="relative">
                 <p className="text-sm font-semibold text-gray-800">
                   {admin?.firstName || "Admin"}
                 </p>
@@ -197,7 +229,73 @@ export default function AdminLayout() {
                   Administrator
                 </p>
               </div>
+            </div> */}
+            <div className="relative">
+              <button type="button"
+                      onClick={() => setShowProfile((prev) => !prev)}
+                      aria-expanded={showProfile}
+                      aria-label="Open admin profile menu"
+                      className="flex items-center gap-2 rounded-xl p-2 transition hover:bg-gray-100 sm:gap-3">
+                
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F7B801] font-bold text-[#211B4D]">
+                  {(admin?.firstName || "A")
+                    .charAt(0)
+                    .toUpperCase()}
+                </div>
+
+                <div className="hidden text-left sm:block">
+                  <p className="text-sm font-semibold text-gray-800">
+                    {admin?.firstName || "Admin"}
+                  </p>
+
+                  <p className="text-xs text-gray-500">
+                    Administrator
+                  </p>
+                </div>
+
+                <ChevronDown size={16} 
+                          className={`hidden text-gray-500 transition-transform sm:block ${
+                                      showProfile ? "rotate-180" : ""
+                          }`}/>
+              </button>
             </div>
+
+            {/* Dropdown Menu */}
+            {showProfile && (
+              <div className="absolute right-0 top-full z-50 mt-3 w-64 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
+
+                <div className="border-b border-gray-100 bg-gray-50 p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F7B801] font-bold text-[#211B4D]">
+                      {(admin?.firstName || "A")
+                          .charAt(0)
+                          .toUpperCase()}
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-semibold text-gray-800">
+                        {admin?.firstName || "Admin"}
+                      </p>
+                      
+                      <p className="text-xs text-gray-500">
+                         Administrator
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              {/* Logut Button */}
+                <div className="p-2">
+                  <button
+                          type="button"
+                          onClick={handleLogout}
+                          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-600 transition hover:bg-red-50">
+                    <LogOut size={18} />
+                    LOGOUT
+                  </button>
+                </div>
+              </div>
+              )}
           </div>
         </header>
 
