@@ -67,7 +67,9 @@
       "price": 80,
       "stock": 32,
       "rating": 4.7,
-      "image": "/Products/Books/premium2.jpg"
+      "image": "/Products/Books/premium2.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "2",
@@ -77,7 +79,9 @@
       "price": 89,
       "stock": 40,
       "rating": 4.5,
-      "image": "/Products/Books/Lined2.jpg"
+      "image": "/Products/Books/Lined2.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "3",
@@ -87,7 +91,9 @@
       "price": 50,
       "stock": 18,
       "rating": 4.8,
-      "image": "/Products/Books/spiral3.jpg"
+      "image": "/Products/Books/spiral3.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "4",
@@ -97,7 +103,8 @@
       "price": 60,
       "stock": 12,
       "rating": 4.8,
-      "image": "/Products/Books/graph4.jpg"
+      "image": "/Products/Books/graph4.jpg",
+      "isTrashed": false
     },
     {
       "id": "5",
@@ -107,7 +114,9 @@
       "price": 110,
       "stock": 24,
       "rating": 4.9,
-      "image": "/Products/Books/drawing5.jpg"
+      "image": "/Products/Books/drawing5.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "6",
@@ -129,7 +138,9 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Essentials/pen7.jpg"
+      "image": "/Products/Essentials/pen7.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "123",
@@ -151,7 +162,9 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Essentials/pen8.jpg"
+      "image": "/Products/Essentials/pen8.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "9",
@@ -161,7 +174,9 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Essentials/pencil.9.jpg"
+      "image": "/Products/Essentials/pencil.9.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "10",
@@ -171,7 +186,9 @@
       "price": 299,
       "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Essentials/pocket10.jpg"
+      "image": "/Products/Essentials/pocket10.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "11",
@@ -181,7 +198,9 @@
       "price": 99,
       "stock": 10,
       "rating": 4.7,
-      "image": "/Products/Essentials/marker11.jpg"
+      "image": "/Products/Essentials/marker11.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "12",
@@ -191,7 +210,9 @@
       "price": 129,
       "stock": 5,
       "rating": 4.9,
-      "image": "/Products/Essentials/highligth12.jpg"
+      "image": "/Products/Essentials/highligth12.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "13",
@@ -201,7 +222,9 @@
       "price": 100,
       "stock": 12,
       "rating": 4.7,
-      "image": "/Products/Box/box1.jpg"
+      "image": "/Products/Box/box1.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "14",
@@ -211,7 +234,9 @@
       "price": 199,
       "stock": 6,
       "rating": 4.9,
-      "image": "/Products/Box/box2.jpg"
+      "image": "/Products/Box/box2.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "15",
@@ -221,7 +246,9 @@
       "price": 69,
       "stock": 8,
       "rating": 4.6,
-      "image": "/Products/Box/scale1.jpg"
+      "image": "/Products/Box/scale1.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "16",
@@ -231,7 +258,9 @@
       "price": 60,
       "stock": 3,
       "rating": 4.3,
-      "image": "/Products/Box/square.jpg"
+      "image": "/Products/Box/square.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "17",
@@ -241,7 +270,9 @@
       "price": 110,
       "stock": 6,
       "rating": 4.8,
-      "image": "/Products/Box/compass.jpg"
+      "image": "/Products/Box/compass.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "18",
@@ -251,7 +282,9 @@
       "price": 499,
       "stock": 12,
       "rating": 4.9,
-      "image": "/Products/Box/calculater.jpg"
+      "image": "/Products/Box/calculater.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "19",
@@ -261,7 +294,9 @@
       "price": 199,
       "stock": 20,
       "rating": 4.8,
-      "image": "/Products/Daires/dairy1.jpg"
+      "image": "/Products/Daires/dairy1.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "20",
@@ -271,7 +306,9 @@
       "price": 280,
       "stock": 5,
       "rating": 4.9,
-      "image": "/Products/Daires/dairy2.jpg"
+      "image": "/Products/Daires/dairy2.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "21",
@@ -281,7 +318,9 @@
       "price": 199,
       "stock": 30,
       "rating": 4.7,
-      "image": "/Products/Daires/daily3.jpg"
+      "image": "/Products/Daires/daily3.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "22",
@@ -291,7 +330,9 @@
       "price": 190,
       "stock": 10,
       "rating": 4.7,
-      "image": "/Products/Daires/study.jpg"
+      "image": "/Products/Daires/study.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "23",
@@ -301,7 +342,9 @@
       "price": 90,
       "stock": 20,
       "rating": 4.9,
-      "image": "/Products/Daires/todo23.jpg"
+      "image": "/Products/Daires/todo23.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "24",
@@ -311,7 +354,9 @@
       "price": 199,
       "stock": 4,
       "rating": 4.8,
-      "image": "/Products/Daires/planner.jpg"
+      "image": "/Products/Daires/planner.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "25",
@@ -321,7 +366,9 @@
       "price": 799,
       "stock": 5,
       "rating": 4.9,
-      "image": "/Products/Bags/bag-1.jpg"
+      "image": "/Products/Bags/bag-1.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "26",
@@ -331,7 +378,9 @@
       "price": 899,
       "stock": 12,
       "rating": 4.8,
-      "image": "/Products/Bags/bag-2.jpg"
+      "image": "/Products/Bags/bag-2.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "27",
@@ -341,7 +390,9 @@
       "price": 999,
       "stock": 2,
       "rating": 5,
-      "image": "/Products/Bags/bag-3.jpg"
+      "image": "/Products/Bags/bag-3.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "28",
@@ -351,7 +402,9 @@
       "price": 189,
       "stock": 10,
       "rating": 4.6,
-      "image": "/Products/Bags/pouch.jpg"
+      "image": "/Products/Bags/pouch.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "29",
@@ -361,7 +414,9 @@
       "price": 120,
       "stock": 8,
       "rating": 4.8,
-      "image": "/Products/Bags/bottle.jpg"
+      "image": "/Products/Bags/bottle.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "30",
@@ -371,7 +426,9 @@
       "price": 270,
       "stock": 3,
       "rating": 4.4,
-      "image": "/Products/Bags/lunch.jpg"
+      "image": "/Products/Bags/lunch.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "31",
@@ -381,7 +438,9 @@
       "price": 199,
       "stock": 0,
       "rating": 4.7,
-      "image": "/Products/Bags/kit.jpg"
+      "image": "/Products/Bags/kit.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     }
   ],
   "carts": [
@@ -393,24 +452,6 @@
       "image": "/Products/Bags/lunch.jpg",
       "quantity": 5,
       "id": "-_LMaLJ3b8M"
-    },
-    {
-      "userId": "Z60aHPQgokc",
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "price": 89,
-      "image": "/Products/Books/Lined2.jpg",
-      "quantity": 1,
-      "id": "jsPDiPK7IdQ"
-    },
-    {
-      "userId": "Z60aHPQgokc",
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "price": 89,
-      "image": "/Products/Books/Lined2.jpg",
-      "quantity": 1,
-      "id": "wOMRd-AtUDg"
     },
     {
       "userId": "4",
@@ -943,6 +984,32 @@
       "status": "Placed",
       "createdAt": "2026-10-22T05:06:39.201Z",
       "id": "wCWoFipNCVE"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "1IRXEJ6fFbg",
+          "productId": "5",
+          "name": "Drawing Notebooks",
+          "price": 110,
+          "quantity": 3,
+          "image": "/Products/Books/drawing5.jpg"
+        }
+      ],
+      "totalAmount": 330,
+      "shippingAddress": {
+        "fullName": "ajantha",
+        "phone": "9478542322",
+        "address": "chenakkal (H)",
+        "city": "university",
+        "pincode": "645125"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-23T04:32:15.172Z",
+      "id": "9R9Q3QCxDoo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

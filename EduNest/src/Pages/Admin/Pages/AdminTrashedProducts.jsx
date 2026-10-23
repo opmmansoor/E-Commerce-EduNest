@@ -23,12 +23,11 @@ export default function AdminTrashedProducts() {
 
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-//   const [selectedProduct, setSelectedProduct] = useState(null);
-//   const [confirmAction, setConfirmAction] = useState(null);
+
 
   const PAGE_SIZE = 8;
 
-  // Fetch products
+// Fetch products
   const {
     data: products = [],
     isLoading,
@@ -180,21 +179,6 @@ export default function AdminTrashedProducts() {
         permanentDeleteMutation.mutate(product.id);
        }
     }
-
- 
-
-//   const openConfirmation = (product, action) => {
-//     selectedProduct(product);
-//     setConfirmAction(action);
-//   };
-
-//   const closeConfirmation = () => {
-//     if (isPending) return;
-
-//     setSelectedProduct(null);
-//     setConfirmAction(null);
-//     permanentDeleteMutation.reset();
-//   };
 
   const mutationError = restoreMutation.error || permanentDeleteMutation.error;
 
@@ -441,7 +425,7 @@ export default function AdminTrashedProducts() {
                             className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 
                                                             px-3 py-2 font-medium text-emerald-700 transition hover:bg-emerald-100 disabled:opacity-50"
                           >
-                            <RotateCcw size={15} />
+                            <RotateCcw size={16} />
                             <span>Restore</span>
                           </button>
 
@@ -531,89 +515,6 @@ export default function AdminTrashedProducts() {
           </>
         )}
       </div>
-
-      {/* Confirmation modal */}
-      {/* {confirmAction  (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
-          onMouseDown={(e) => {
-            if (e.target === e.currentTarget) {
-              closeConfirmation();
-            }
-          }}
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="trash-confirm-title"
-            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"
-          >
-            <div
-              className={`mx-auto flex h-14 w-14 items-center justify-center rounded-2xl ${
-                confirmAction === "restore"
-                  ? "bg-emerald-50 text-emerald-600"
-                  : "bg-red-50 text-red-600"
-              }`}
-            >
-              {confirmAction === "restore" ? (
-                <ArchiveRestore size={27} />
-              ) : (
-                <AlertTriangle size={27} />
-              )}
-            </div>
-
-            <h2
-              id="trash-confirm-title"
-              className="mt-4 text-center text-xl font-bold text-[#211B4D]"
-            >
-              {confirmAction === "restore"
-                ? "Restore this product?"
-                : "Permanently delete?"}
-            </h2>
-
-            <p className="mt-2 text-center text-sm leading-6 text-gray-500">
-              {confirmAction === "restore"
-                ? `${getProductName(selectedProduct)} will be moved back to your active product list.`
-                : `This will permanently remove ${getProductName(selectedProduct)}. This action cannot be undone.`}
-            </p>
-
-            {mutationError && (
-              <p className="mt-3 text-center text-sm text-red-600">
-                {mutationError.message || "Operation failed."}
-              </p>
-            )}
-
-            <div className="mt-6 flex gap-3">
-              <button
-                type="button"
-                onClick={closeConfirmation}
-                disabled={isPending}
-                className="flex-1 rounded-xl border border-gray-200 px-4 py-3 text-sm 
-                                            font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50"
-              >
-                Cancel
-              </button>
-
-              <button
-                type="button"
-                onClick={handleConfirm}
-                disabled={isPending}
-                className={`flex-1 rounded-xl px-4 py-3 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                  confirmAction === "restore"
-                    ? "bg-emerald-600 hover:bg-emerald-700"
-                    : "bg-red-600 hover:bg-red-700"
-                }`}
-              >
-                {isPending
-                  ? "Please wait..."
-                  : confirmAction === "restore"
-                    ? "Yes, Restore"
-                    : "Delete Forever"}
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
     </section>
   );
 }

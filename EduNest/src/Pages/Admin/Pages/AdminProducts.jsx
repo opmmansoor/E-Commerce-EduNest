@@ -191,8 +191,11 @@ export default function AdminProducts() {
         [activeProducts]
     );
 
+    //taking isTrashed : false products
+    const notTrashedProducts = products.filter((item) => item.isTrashed === false);
+
     const filteredProducts = useMemo(() => {
-        return products.filter((product) => {
+        return notTrashedProducts.filter((product) => {
             const name = product.name || product.title || "";
             const matchesSearch = name
             .toLowerCase()
@@ -258,7 +261,7 @@ export default function AdminProducts() {
 {/* Statistics */}
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {[
-            {  label: "Total Products", value: products.length },
+            {  label: "Total Products", value: products.filter((item) => item.isTrashed === false).length },
             {
                 label: "In Stock",
                 value: products.filter((p) =>  Number(p.stock) > 5).length,
