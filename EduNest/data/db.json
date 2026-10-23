@@ -51,7 +51,7 @@
       "password": "user414@",
       "id": "4",
       "role": "user",
-      "isBlocked": true
+      "isBlocked": false
     },
     {
       "firstName": "user 5",
@@ -61,6 +61,33 @@
       "role": "user",
       "id": "swYCIejMNvk",
       "isBlocked": false
+    },
+    {
+      "firstName": "karthik ",
+      "secondName": "ag",
+      "email": "karthik@gmail.com",
+      "password": "123456",
+      "role": "user",
+      "id": "xN_su-lEU_k",
+      "isBlocked": false
+    },
+    {
+      "firstName": "karthik",
+      "secondName": "AG",
+      "email": "karthik123@gmail.com",
+      "password": "karthik@123",
+      "role": "user",
+      "id": "aYNYAJ9KQb4",
+      "isBlocked": false
+    },
+    {
+      "firstName": "cat",
+      "secondName": "t",
+      "email": "cat@gmailc.mo",
+      "password": "cat123",
+      "role": "user",
+      "isBlocked": true,
+      "id": "2E07WSTa314"
     }
   ],
   "products": [
@@ -73,8 +100,8 @@
       "stock": 32,
       "rating": 4.7,
       "image": "/Products/Books/premium2.jpg",
-      "isTrashed": true,
-      "deletedAt": "2026-10-23T05:09:33.514Z"
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "2",
@@ -446,35 +473,29 @@
       "image": "/Products/Bags/kit.jpg",
       "isTrashed": false,
       "deletedAt": null
+    },
+    {
+      "id": "33",
+      "name": "Kits",
+      "category": "School Accessories",
+      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
+      "price": 199,
+      "stock": 0,
+      "rating": 4.7,
+      "image": "/Products/Bags/kit.jpg",
+      "isTrashed": false,
+      "deletedAt": null
     }
   ],
   "carts": [
     {
-      "userId": "YsH_vKuBBj4",
-      "productId": "30",
-      "name": "Lunch Boxes",
-      "price": 270,
-      "image": "/Products/Bags/lunch.jpg",
-      "quantity": 5,
-      "id": "-_LMaLJ3b8M"
-    },
-    {
-      "userId": "4",
+      "userId": "aYNYAJ9KQb4",
       "productId": "1",
       "name": "Premium Notebooks",
       "price": 80,
       "image": "/Products/Books/premium2.jpg",
       "quantity": 1,
-      "id": "IlAOnEbq9Nc"
-    },
-    {
-      "userId": "Z60aHPQgokc",
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "price": 89,
-      "image": "/Products/Books/Lined2.jpg",
-      "quantity": 1,
-      "id": "brzL8zT7IdI"
+      "id": "79NplyvWY8M"
     }
   ],
   "wishlists": [
@@ -608,7 +629,7 @@
         "city": "kolkatha",
         "pincode": "673634"
       },
-      "status": "SHIPPED",
+      "status": "DELIVERED",
       "createdAt": "2026-10-13T15:12:14.589Z",
       "id": "bht6juc3eCs"
     },
@@ -720,7 +741,7 @@
         "city": "Pallikal",
         "pincode": "673634"
       },
-      "status": "CANCELLED",
+      "status": "SHIPPED",
       "createdAt": "2026-10-14T05:40:23.284Z",
       "id": "nFDkO0LnV7w"
     },
@@ -1024,6 +1045,74 @@
       "status": "SHIPPED",
       "createdAt": "2026-10-23T04:32:15.172Z",
       "id": "9R9Q3QCxDoo"
+    },
+    {
+      "userId": "aYNYAJ9KQb4",
+      "items": [
+        {
+          "cartItemId": "Q2z1Ra3Cwfc",
+          "productId": "7",
+          "name": "Gel Pens",
+          "price": 299,
+          "quantity": 5,
+          "image": "/Products/Essentials/pen7.jpg"
+        }
+      ],
+      "totalAmount": 1495,
+      "shippingAddress": {
+        "fullName": "Nichole Roth",
+        "phone": "4575896565",
+        "address": "Doloremque voluptas ",
+        "city": "Aut aut ex sed verit",
+        "pincode": "254658"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "SHIPPED",
+      "createdAt": "2026-10-23T13:45:36.426Z",
+      "id": "y7XYy9GGA-g"
+    },
+    {
+      "userId": "2E07WSTa314",
+      "items": [
+        {
+          "cartItemId": "TSYyyJSrZaA",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        },
+        {
+          "cartItemId": "xicIcmXGI30",
+          "productId": "9",
+          "name": "Premium Pencils",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pencil.9.jpg"
+        },
+        {
+          "cartItemId": "Cw2oqqUsiYs",
+          "productId": "11",
+          "name": "Markers",
+          "price": 99,
+          "quantity": 1,
+          "image": "/Products/Essentials/marker11.jpg"
+        }
+      ],
+      "totalAmount": 478,
+      "shippingAddress": {
+        "fullName": "vaishak",
+        "phone": "9876543210",
+        "address": "house",
+        "city": "kannu",
+        "pincode": "636434"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-23T18:47:41.068Z",
+      "id": "ZcLhmYweQ8I"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
