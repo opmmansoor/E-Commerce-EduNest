@@ -97,6 +97,15 @@
       "role": "user",
       "isBlocked": true,
       "id": "1gU68fQSEw0"
+    },
+    {
+      "firstName": "ash",
+      "secondName": "ik",
+      "email": "ashi@gmail.com",
+      "password": "ashi123@",
+      "role": "user",
+      "isBlocked": false,
+      "id": "0z5PgydzARQ"
     }
   ],
   "products": [
@@ -650,7 +659,7 @@
         "city": "city",
         "pincode": "123456"
       },
-      "status": "PENDING",
+      "status": "DELIVERED",
       "createdAt": "2026-10-14T04:57:50.144Z",
       "id": "oLANBY4kBOw"
     },
@@ -1195,6 +1204,49 @@
       "status": "DELIVERED",
       "createdAt": "2026-10-24T05:38:27.961Z",
       "id": "6u5_d8IudBw"
+    },
+    {
+      "userId": "0z5PgydzARQ",
+      "items": [
+        {
+          "cartItemId": "Ix-zN3f0H58",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        },
+        {
+          "cartItemId": "R4ohr-lkgDs",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        },
+        {
+          "cartItemId": "H4Ej9eTi6uA",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 89,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        }
+      ],
+      "totalAmount": 249,
+      "shippingAddress": {
+        "fullName": "ashik",
+        "phone": "8457646549",
+        "address": "ash\nHouse\n",
+        "city": "mlp",
+        "pincode": "487656"
+      },
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "upiId": "ash@api",
+      "status": "Placed",
+      "createdAt": "2026-10-24T12:43:09.707Z",
+      "id": "JcDATbbLpGw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -35,14 +35,19 @@ function Login() {
 
             dispatch(setCredentials(loggedInUser));
 
-            toast.success("Login Successful!")
 
 // Redirect according to role
-            if (loggedInUser.role === "admin") {
+            if (user.isBlocked === true) {
+                toast.error("You are Blocked")
+            } else {
+                 toast.success("Login Successful!")
+                if (loggedInUser.role === "admin") {
                 navigate("/admin/dashboard", {replace: true});
             }else{
                 navigate("/home", {replace:true});
             }  
+            }
+            
         },
         onError: (error) => {
             toast.error(error.message || "Login failed");    
