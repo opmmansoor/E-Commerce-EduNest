@@ -95,7 +95,7 @@
       "email": "op@gmail.com",
       "password": "op1@mmm",
       "role": "user",
-      "isBlocked": false,
+      "isBlocked": true,
       "id": "1gU68fQSEw0"
     }
   ],
@@ -1192,7 +1192,7 @@
       "paymentMethod": "UPI",
       "paymentStatus": "Pending",
       "upiId": "op@upi",
-      "status": "Placed",
+      "status": "DELIVERED",
       "createdAt": "2026-10-24T05:38:27.961Z",
       "id": "6u5_d8IudBw"
     }
