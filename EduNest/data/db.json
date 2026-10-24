@@ -502,6 +502,33 @@
       "image": "/Products/Books/premium2.jpg",
       "quantity": 1,
       "id": "79NplyvWY8M"
+    },
+    {
+      "userId": "0z5PgydzARQ",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 1,
+      "id": "rsRHI2yt2Bc"
+    },
+    {
+      "userId": "0z5PgydzARQ",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 1,
+      "id": "1-UGHkk5Lq8"
+    },
+    {
+      "userId": "0z5PgydzARQ",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "price": 89,
+      "image": "/Products/Books/Lined2.jpg",
+      "quantity": 1,
+      "id": "A_RnGMK9LEY"
     }
   ],
   "wishlists": [
@@ -1247,6 +1274,32 @@
       "status": "Placed",
       "createdAt": "2026-10-24T12:43:09.707Z",
       "id": "JcDATbbLpGw"
+    },
+    {
+      "userId": "qM0F5p-W11Q",
+      "items": [
+        {
+          "cartItemId": "PpkWDL0inBY",
+          "productId": "3",
+          "name": "Spiral Notebooks",
+          "price": 50,
+          "quantity": 1,
+          "image": "/Products/Books/spiral3.jpg"
+        }
+      ],
+      "totalAmount": 50,
+      "shippingAddress": {
+        "fullName": "MANSOOR PALLIKKAL",
+        "phone": "8546463131",
+        "address": "4WX6+MMH",
+        "city": "Pallikal",
+        "pincode": "673634"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-24T13:42:24.434Z",
+      "id": "J6gTJrSfuu0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

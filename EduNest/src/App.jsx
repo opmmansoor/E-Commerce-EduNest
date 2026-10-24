@@ -26,6 +26,8 @@ import AdminUsers from "./Pages/Admin/Pages/AdminUsers";
 import AdminOrders from "./Pages/Admin/Pages/AdminOrders";
 import AdminTrashedProducts from "./Pages/Admin/Pages/AdminTrashedProducts";
 
+import ProtectedUserRoute from "./Route/ProtectedUserRoute";
+
 
 
 function App() {
@@ -54,6 +56,7 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Route>
         
+        <Route element={<ProtectedUserRoute /> }>
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
@@ -64,6 +67,7 @@ function App() {
           <Route path="/order-success/:orderId" element={<OrderSuccess />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/checkout" element={<Checkout />} />
+        </Route>
 
           {/* Unknown URL */}
           <Route path="*" element={<Navigate to="/register" />} />
