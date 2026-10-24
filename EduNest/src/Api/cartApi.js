@@ -27,22 +27,22 @@ export const addCartItem = async ({
   }
    
 
-  const normalizedUserId = userId;
-  const normalizedProductId = productId;
+  const normalizedUserId = String(userId);
+  const normalizedProductId = String(productId);
 
   // Get existing cart items
   const response = await axios.get(API, {
-    params: {
-      userId: normalizedUserId,
-      productId: normalizedProductId,
-    },
+    params: { userId: normalizedUserId },
   });
 
-  const existingItem = response.data[0];
+  const existingItem = response.data.find(
+    (item) =>
+      String(item.userId) === normalizedUserId &&
+      String(item.productId) === normalizedProductId
+  );
   // Check whether this product already exists
    
   if (existingItem) {
-    console.log('exist');
 
     const updated = await axios.patch(`${API}/${existingItem.id}`, {
       quantity: Number(existingItem.quantity || 0) + Number(quantity),
@@ -50,19 +50,31 @@ export const addCartItem = async ({
     return updated.data;
   }
 
-  // Create a new row only when the product isn't in the cart
-  const newItem = {
+   // Create a new row only when the product is not in the cart
+  const created = await axios.post(API, {
     userId: normalizedUserId,
     productId: normalizedProductId,
     name,
     price: Number(price),
     image: image || "",
     quantity: Number(quantity),
-  };
+  });
 
-  const created = await axios.post(API, newItem);
   return created.data;
 };
+  // Create a new row only when the product isn't in the cart
+//   const newItem = {
+//     userId: normalizedUserId,
+//     productId: normalizedProductId,
+//     name,
+//     price: Number(price),
+//     image: image || "",
+//     quantity: Number(quantity),
+//   };
+
+//   const created = await axios.post(API, newItem);
+//   return created.data;
+// };
 
 // Update quantity
 export const updateCartItem = async ({ id, userId, quantity }) => {

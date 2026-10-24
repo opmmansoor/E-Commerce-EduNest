@@ -71,6 +71,11 @@ function Cart() {
       return;
     }
 
+    if (quantity < 1) {
+    toast.error("Quantity cannot be less than 1.");
+    return;
+  }
+
     quantityMutation.mutate({
       id: item.id,
       userId,
@@ -92,6 +97,8 @@ function Cart() {
     });
   };
 
+// Count the number of different products in the cart
+  const totalItems = cart.length;
   // Calculate total quantity
   const totalQuantity = cart.reduce(
     (total, item) => total + Number(item.quantity || 0),
@@ -206,7 +213,7 @@ function Cart() {
                 <p className="text-sm text-gray-500">Items in your cart</p>
 
                 <h2 className="text-2xl font-bold text-[#3D348B]">
-                  {totalQuantity} Items
+                  {totalItems} {totalItems === 1 ? "Item" : "Items"}
                 </h2>
               </div>
             </div>
@@ -259,28 +266,29 @@ function Cart() {
                               onClick={() =>
                                 handleQuantityChange(
                                   item,
-                                  Number(item.quantity) - 1,
+                                  Number(item.quantity || 1) - 1,
                                 )
                               }
                               disabled={
+                                Number(item.quantity) <= 1 ||
                                 quantityMutation.isPending ||
                                 removeMutation.isPending
                               }
                               aria-label="Decrease quantity"
-                              className="p-2 hover:bg-purple-50 disabled:opacity-50"
+                              className="p-2 hover:bg-purple-50 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                               <Minus size={16} />
                             </button>
 
                             <span className="min-w-10 text-center font-semibold text-gray-800">
-                              {item.quantity}
+                              {Number(item.quantity || 1)}
                             </span>
 
                             <button
                               onClick={() =>
                                 handleQuantityChange(
                                   item,
-                                  Number(item.quantity) + 1,
+                                  Number(item.quantity || 1) + 1,
                                 )
                               }
                               disabled={
@@ -288,7 +296,7 @@ function Cart() {
                                 removeMutation.isPending
                               }
                               aria-label="Increase quantity"
-                              className="p-2 hover:bg-purple-50 disabled:opacity-50"
+                              className="p-2 hover:bg-purple-50 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                               <Plus size={16} />
                             </button>

@@ -104,13 +104,10 @@ function ProductCard({ product }) {
   const addToCartMutation = useMutation({
     mutationFn: addCartItem,
 
-    onSuccess: () => {
-      queryClient.invalidateQueries({
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
         queryKey: ["carts", userId],
       });
-      // queryClient.invalidateQueries({
-      //   queryKey: ["carts"],
-      // });
 
       toast.success("Product added to cart!");
     },

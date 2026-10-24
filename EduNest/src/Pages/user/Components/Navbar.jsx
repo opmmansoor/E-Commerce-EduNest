@@ -1,26 +1,46 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Heart, LogOut, Package, ShoppingCart, User } from 'lucide-react';
 import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getCart } from '../../../Api/cartApi';
+import { addCartItem, getCart } from '../../../Api/cartApi';
 import { getWishlists } from '../../../Api/wishlistApi';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logout } from '../../../Slice/authSlice';
 
 function Navbar() {
-    
+    const queryClient = useQueryClient();
+
     const user = JSON.parse(localStorage.getItem("user") || "null");
     const userId = user?.id ? String(user.id) : null; 
 
-    const {data: cart=[], isLoading: cartLoading } = useQuery({
+    const {data: cart=[] } = useQuery({
         queryKey: ["carts", userId],
         queryFn: () => getCart(userId),
         enabled: Boolean(userId),
     })
 
-    const cartCount = Array.isArray(cart)
-        ? cart.reduce((total, item) => total + Number(item.quantity || 0), 0)
-        : 0;
+    const cartCount = cart.length;
+
+    // const cartCount = cart.reduce(
+    //     (total, item) => total + Number(item.quantity || 0),
+    //      0);
+
+    
+    const addToCartMutation = useMutation({
+        mutationFn: addCartItem,
+        
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({
+                queryKey: ["carts", userId],
+            });
+            toast.success("Product added to cart.");
+        },
+
+        onError: (error) => {
+            toast.error(error.message || "Could not add product.");
+        },
+     });
+
     
     const {
         data: wishlist = [],
@@ -40,14 +60,7 @@ function Navbar() {
 
     const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-// Get user data from localStorage
-    // const user = JSON.parse(localStorage.getItem("user"));
-
     const dispatch = useDispatch();
-
-    // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-    // const user = useSelector((state) => state.auth.user);
-    
 
     const handleLogout = () => {
         dispatch(logout());
@@ -70,8 +83,6 @@ function Navbar() {
                      className='w-12 h-12 rounded-full bg-white object-contain p-1'/>
                 <img src="/image/EduNest.png" alt="EduNest Name"
                      className='w-32 sm:w-40 h-auto bg-white p-1' />
-                {/* <span className='text-white'>Edu</span>
-                <span className='text-[#F7B801]'>Nest</span> */}
               
             </Link>
             

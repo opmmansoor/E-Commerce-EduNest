@@ -510,25 +510,34 @@
       "price": 89,
       "image": "/Products/Books/Lined2.jpg",
       "quantity": 1,
-      "id": "rsRHI2yt2Bc"
+      "id": "gM4tmkVh-tk"
     },
     {
       "userId": "0z5PgydzARQ",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "price": 80,
+      "image": "/Products/Books/premium2.jpg",
+      "quantity": 2,
+      "id": "ZMXEbvMViQY"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "price": 80,
+      "image": "/Products/Books/premium2.jpg",
+      "quantity": 2,
+      "id": "O_JFgx3xddc"
+    },
+    {
+      "userId": "Z60aHPQgokc",
       "productId": "2",
       "name": "Lined Notebooks",
       "price": 89,
       "image": "/Products/Books/Lined2.jpg",
-      "quantity": 1,
-      "id": "1-UGHkk5Lq8"
-    },
-    {
-      "userId": "0z5PgydzARQ",
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "price": 89,
-      "image": "/Products/Books/Lined2.jpg",
-      "quantity": 1,
-      "id": "A_RnGMK9LEY"
+      "quantity": 2,
+      "id": "HVzZp5i9w-4"
     }
   ],
   "wishlists": [
@@ -1300,6 +1309,48 @@
       "status": "Placed",
       "createdAt": "2026-10-24T13:42:24.434Z",
       "id": "J6gTJrSfuu0"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "pumjZfhauYM",
+          "productId": "13",
+          "name": "Geometry Box",
+          "price": 100,
+          "quantity": 2,
+          "image": "/Products/Box/box1.jpg"
+        },
+        {
+          "cartItemId": "qtk7Cu-gHyQ",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        },
+        {
+          "cartItemId": "NINZpLsbbpQ",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 89,
+          "quantity": 2,
+          "image": "/Products/Books/Lined2.jpg"
+        }
+      ],
+      "totalAmount": 458,
+      "shippingAddress": {
+        "fullName": "MANSOOR PALLIKKAL",
+        "phone": "5656565659",
+        "address": "4WX6+MMH",
+        "city": "Pallikal",
+        "pincode": "673634"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-24T16:04:01.272Z",
+      "id": "VgkFHPIvDuw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
