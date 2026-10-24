@@ -24,9 +24,9 @@ import Swal from "sweetalert2";
 
 
     const statusStyle = {
-        Placed: "bg-amber-100 text-amber-800",
+        PLACED: "bg-amber-100 text-amber-800",
         PENDING: "bg-amber-100 text-amber-800",
-        Processing: "bg-blue-100 text-blue-800",
+        PROCESSING: "bg-blue-100 text-blue-800",
         SHIPPED: "bg-violet-100 text-violet-800",
         DELIVERED: "bg-green-100 text-green-800",
         CANCELLED: "bg-red-100 text-red-800",
@@ -271,7 +271,7 @@ function AdminOrders() {
         </div>
 
   {/* Orders table */}
-        <div className="overflow-hidden rounded-xl border bg-white shadow-sm">
+        <div className="w-full min-w-0 overflow-auto rounded-xl border bg-white shadow-sm">
             <div className="flex flex-col gap-4 border-b p-4 sm:flex-row sm:items-center sm:justify-between">
                 <h2 className="text-lg font-semibold text-gray-800">
                     All Orders
@@ -295,13 +295,11 @@ function AdminOrders() {
                             setStatus(e.target.value);
                             setPage(1)
                         }}
-                        className="rounded-lg border px-3 py-2 text-sm"
+                         className="rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-[#3D348B] focus:ring-2 focus:ring-[#3D348B]/20"
                         >
                         <option value="all">All Statuses</option>
-                        <option value="placed">Placed</option>
-                        <option value="PENDING">Pending</option>
-                        <option value="processing">Processing</option>
-                        <option value="Shipped">Shipped</option>
+                        <option value="PENDING">Pending / Placed</option> 
+                        <option value="SHIPPED">Shipped</option>
                         <option value="DELIVERED">Delivered</option>
                         <option value="CANCELLED">Cancelled</option>
                     </select>
@@ -348,10 +346,10 @@ function AdminOrders() {
 
                            <td className="px-5 py-4">
                             <span className={`rounded-full px-3 py-1 text-xs font-medium ${
-                                    statusStyle[order.status] ||
+                                    statusStyle[String(order.status || "").toUpperCase()] ||
                                     "bg-gray-100 text-gray-700"
                                   }`}>
-                                    {order.status || "Unknown"}
+                                    {formatStatus(order.status)}
                             </span>
                            </td>
 

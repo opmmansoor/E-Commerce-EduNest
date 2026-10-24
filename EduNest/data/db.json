@@ -1107,7 +1107,7 @@
       },
       "paymentMethod": "COD",
       "paymentStatus": "Pending",
-      "status": "Placed",
+      "status": "CANCELLED",
       "createdAt": "2026-10-23T18:47:41.068Z",
       "id": "ZcLhmYweQ8I"
     },
