@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React, { useMemo, useState } from 'react'
 import { getUsers, updateUserStatus } from '../../../Api/adminUserApi';
-import { toast } from 'sonner';
 import { ChevronLeft, ChevronRight, Search, ShieldBan, ShieldCheck, UsersIcon } from 'lucide-react';
+import Swal from "sweetalert2"
 
 export default function AdminUsers() {
 
@@ -31,15 +31,27 @@ export default function AdminUsers() {
                 queryKey: ["users"],
             });
 
-            toast.success(
-                updatedUser.isBlocked
-                 ? "User blocked successfully"
-                 : "User unblocked successfully"
-            );
+            Swal.fire({
+            icon: "success",
+            title: updatedUser.isBlocked
+                ? "User Blocked!"
+                : "User Unblocked!",
+            text: updatedUser.isBlocked
+                ? "The user has been blocked successfully."
+                : "The user has been unblocked successfully.",
+            confirmButtonColor: "#3D348B",
+            timer: 2000,
+            showConfirmButton: false,
+          });
         },
 
         onError: () => {
-            toast.error("Failed to update user status");
+            Swal.fire({
+            icon: "error",
+            title: "Update Failed!",
+            text: "Failed to update user status. Please try again.",
+            confirmButtonColor: "#3D348B",
+          });
         },
     });
 
@@ -74,15 +86,24 @@ export default function AdminUsers() {
         currentPage * PAGE_SIZE
     );
 
-    const handleStatusChange  = (user) => {
+    const handleStatusChange  = async (user) => {
         const action = user.isBlocked ? "unblock" : "block";
 
-        if (
-            !window.confirm(`Are you sure you want to ${action} this user?`)
-        ) {
-            return;
+        const result = await Swal.fire({
+            title: `Are you sure?`,
+            text: `Do you want to ${action} this user?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: `Yes, ${action} user`,
+            cancelButtonText: "Cancel",
+            confirmButtonColor: user.isBlocked ? "#16A34A" : "#DC2626",
+            cancelButtonColor: "#6B7280",
+            reverseButtons: true,
+        });
+
+        if (result.isConfirmed) {
+            statusMutation.mutate(user);
         }
-        statusMutation.mutate(user);
     };
 
     if (isLoading) {

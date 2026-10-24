@@ -86,8 +86,17 @@
       "email": "cat@gmailc.mo",
       "password": "cat123",
       "role": "user",
-      "isBlocked": true,
+      "isBlocked": false,
       "id": "2E07WSTa314"
+    },
+    {
+      "firstName": "op",
+      "secondName": "1",
+      "email": "op@gmail.com",
+      "password": "op1@mmm",
+      "role": "user",
+      "isBlocked": false,
+      "id": "1gU68fQSEw0"
     }
   ],
   "products": [
@@ -473,18 +482,6 @@
       "image": "/Products/Bags/kit.jpg",
       "isTrashed": false,
       "deletedAt": null
-    },
-    {
-      "id": "33",
-      "name": "Kits",
-      "category": "School Accessories",
-      "description": "A simple notebook for creating daily task lists and tracking completed activities.",
-      "price": 199,
-      "stock": 0,
-      "rating": 4.7,
-      "image": "/Products/Bags/kit.jpg",
-      "isTrashed": false,
-      "deletedAt": null
     }
   ],
   "carts": [
@@ -629,7 +626,7 @@
         "city": "kolkatha",
         "pincode": "673634"
       },
-      "status": "DELIVERED",
+      "status": "SHIPPED",
       "createdAt": "2026-10-13T15:12:14.589Z",
       "id": "bht6juc3eCs"
     },
@@ -1113,6 +1110,91 @@
       "status": "Placed",
       "createdAt": "2026-10-23T18:47:41.068Z",
       "id": "ZcLhmYweQ8I"
+    },
+    {
+      "userId": "2E07WSTa314",
+      "items": [
+        {
+          "cartItemId": "qAzxF1tixnY",
+          "productId": "12",
+          "name": "Highlighters",
+          "price": 129,
+          "quantity": 1,
+          "image": "/Products/Essentials/highligth12.jpg"
+        },
+        {
+          "cartItemId": "otduiF6xzLA",
+          "productId": "15",
+          "name": "Premium Scale",
+          "price": 69,
+          "quantity": 1,
+          "image": "/Products/Box/scale1.jpg"
+        },
+        {
+          "cartItemId": "2af8CCsV0EY",
+          "productId": "16",
+          "name": "Set Square",
+          "price": 60,
+          "quantity": 1,
+          "image": "/Products/Box/square.jpg"
+        }
+      ],
+      "totalAmount": 258,
+      "shippingAddress": {
+        "fullName": "vaishak",
+        "phone": "9876543210",
+        "address": "house",
+        "city": "kannu",
+        "pincode": "655425"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-24T05:35:15.650Z",
+      "id": "p5Nz0ZY8eso"
+    },
+    {
+      "userId": "1gU68fQSEw0",
+      "items": [
+        {
+          "cartItemId": "60pEOehKhCY",
+          "productId": "5",
+          "name": "Drawing Notebooks",
+          "price": 110,
+          "quantity": 1,
+          "image": "/Products/Books/drawing5.jpg"
+        },
+        {
+          "cartItemId": "vOraBJFQApQ",
+          "productId": "8",
+          "name": "BallPoint Pens",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pen8.jpg"
+        },
+        {
+          "cartItemId": "NX99idjmrZI",
+          "productId": "11",
+          "name": "Markers",
+          "price": 99,
+          "quantity": 1,
+          "image": "/Products/Essentials/marker11.jpg"
+        }
+      ],
+      "totalAmount": 508,
+      "shippingAddress": {
+        "fullName": "op1",
+        "phone": "9874656123",
+        "address": "newop",
+        "city": "land",
+        "pincode": "547985"
+      },
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "upiId": "op@upi",
+      "status": "Placed",
+      "createdAt": "2026-10-24T05:38:27.961Z",
+      "id": "6u5_d8IudBw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
