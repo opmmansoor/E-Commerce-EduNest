@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import {
   Package,
@@ -11,7 +11,8 @@ import {
   Truck,
   XCircle,
 } from "lucide-react";
-import { getOrders } from "../../../Api/orderApi";
+import { cancelOrder, getOrders } from "../../../Api/orderApi";
+import { toast } from "sonner";
 
 function Orders() {
   const storedUser = JSON.parse(localStorage.getItem("user") || "null");
@@ -76,6 +77,31 @@ function Orders() {
         return <Clock size={16} />;
     }
   };
+  const queryClient = useQueryClient()
+
+  const cancelMutation = useMutation({
+    mutationFn: cancelOrder,
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["orders"],
+      })
+
+      toast.success("Order Cancelled");
+    },
+
+    onError: () => {
+      toast.error("Unable to cancel your order")
+    },
+  });
+
+  
+  const handleCancelOrder =  (order) => {
+     toast.success("Order Cancelled")
+
+     cancelMutation.mutate(order.id);
+  }
+
 
   if (isLoading) {
     return (
@@ -240,6 +266,7 @@ function Orders() {
                     </div>
                   </div>
 
+                  <div className="flex items-center gap-3 flex-wrap">
                   <span
                     className={`inline-flex items-center gap-2 w-fit px-3 py-2 rounded-full text-sm font-semibold ${getStatusStyle(
                       order.status
@@ -248,6 +275,22 @@ function Orders() {
                     {getStatusIcon(order.status)}
                     {order.status || "Placed"}
                   </span>
+
+                  {["placed", "pending"].includes(
+                    (order.status || "Placed").toLowerCase()
+                  ) && (
+                    <button type="button"
+                            onClick={() => handleCancelOrder(order)}
+                            disabled={cancelMutation.isPending}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-200 bg-red-50 text-red-600 text-sm font-semibold hover:bg-red-100 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                      
+                      <XCircle size={16} />
+                      {cancelMutation.isPending
+                        ? "Cancelling..."
+                        : "Cancel Order"}
+                    </button>
+                  )}
+                  </div>
                 </div>
 
                 {/* Ordered Products */}

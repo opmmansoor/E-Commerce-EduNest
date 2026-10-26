@@ -28,3 +28,10 @@ export const createOrder = async (orderData) => {
 
         return response.data;
     }
+
+    export const cancelOrder =  async (orderId) => {
+        const response = await axios.patch(`${API}/${orderId}`, {
+            status: "Cancelled",
+        })
+        return response.data;
+    }

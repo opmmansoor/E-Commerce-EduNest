@@ -106,6 +106,42 @@
       "role": "user",
       "isBlocked": false,
       "id": "0z5PgydzARQ"
+    },
+    {
+      "firstName": "fahmida",
+      "secondName": "ramshi",
+      "email": "fahmida@gmail.com",
+      "password": "fahmi@1",
+      "role": "user",
+      "isBlocked": false,
+      "id": "dYjw3bPdxmM"
+    },
+    {
+      "firstName": "user",
+      "secondName": "hege",
+      "email": "user12@gmail.com",
+      "password": "user12@",
+      "role": "user",
+      "isBlocked": true,
+      "id": "FbWBL3h9O9w"
+    },
+    {
+      "firstName": "new",
+      "secondName": "account",
+      "email": "ac@mail.com",
+      "password": "ac@132",
+      "role": "user",
+      "isBlocked": false,
+      "id": "Fa1Bb9A7FZU"
+    },
+    {
+      "firstName": "new",
+      "secondName": "account",
+      "email": "ac1@gmail.com",
+      "password": "ac1@ac1",
+      "role": "user",
+      "isBlocked": true,
+      "id": "dxQOWoQZcn8"
     }
   ],
   "products": [
@@ -114,7 +150,7 @@
       "name": "Premium Notebooks",
       "category": "Premium Notebooks",
       "description": "High-quality notebooks featuring durable covers, smooth paper, and elegant designs. Perfect for school notes, daily writing notebooks.",
-      "price": 80,
+      "price": 89,
       "stock": 32,
       "rating": 4.7,
       "image": "/Products/Books/premium2.jpg",
@@ -126,7 +162,7 @@
       "name": "Lined Notebooks",
       "category": "Notebooks",
       "description": "Designed with neatly spaced horizontal lines to help students maintain clean handwriting. Ideal for classroom notes, homework, and exam preparation.",
-      "price": 89,
+      "price": 80,
       "stock": 40,
       "rating": 4.5,
       "image": "/Products/Books/Lined2.jpg",
@@ -201,8 +237,8 @@
       "stock": 6,
       "rating": 4.9,
       "image": "/Products/Essentials/premium2.jpg",
-      "isTrashed": false,
-      "deletedAt": null
+      "isTrashed": true,
+      "deletedAt": "2026-10-26T09:19:07.840Z"
     },
     {
       "id": "8",
@@ -413,7 +449,7 @@
       "name": "School Bags",
       "category": "School Accessories",
       "description": "Durable, lightweight, and comfortable. Spacious and comfortable bags designed to carry daily school essentials",
-      "price": 799,
+      "price": 859,
       "stock": 5,
       "rating": 4.9,
       "image": "/Products/Bags/bag-1.jpg",
@@ -449,8 +485,8 @@
       "name": "Pencil Cases",
       "category": "School Accessories",
       "description": "Compact cases for keeping pens, pencils, erasers, sharpeners, and other stationery organized.",
-      "price": 189,
-      "stock": 10,
+      "price": 199,
+      "stock": 15,
       "rating": 4.6,
       "image": "/Products/Bags/pouch.jpg",
       "isTrashed": false,
@@ -491,6 +527,28 @@
       "image": "/Products/Bags/kit.jpg",
       "isTrashed": false,
       "deletedAt": null
+    },
+    {
+      "name": "Colors",
+      "category": "Writing Essentials",
+      "price": 85,
+      "stock": 4,
+      "image": "/Products/Essentials/marker11.jpg",
+      "description": "",
+      "isTrashed": true,
+      "deletedAt": "2026-10-26T05:19:32.697Z",
+      "id": "E1ElVzGnzhM"
+    },
+    {
+      "name": "Premium Notes",
+      "category": "Notebooks",
+      "price": 69,
+      "stock": 5,
+      "image": "/Products/Books/graph4.jpg",
+      "description": "The Premium Note Books for Students",
+      "isTrashed": false,
+      "deletedAt": null,
+      "id": "Bvx4ATUPnhU"
     }
   ],
   "carts": [
@@ -522,22 +580,13 @@
       "id": "ZMXEbvMViQY"
     },
     {
-      "userId": "Z60aHPQgokc",
-      "productId": "1",
-      "name": "Premium Notebooks",
-      "price": 80,
-      "image": "/Products/Books/premium2.jpg",
-      "quantity": 2,
-      "id": "O_JFgx3xddc"
-    },
-    {
-      "userId": "Z60aHPQgokc",
+      "userId": "dxQOWoQZcn8",
       "productId": "2",
       "name": "Lined Notebooks",
-      "price": 89,
+      "price": 80,
       "image": "/Products/Books/Lined2.jpg",
       "quantity": 2,
-      "id": "HVzZp5i9w-4"
+      "id": "Qgvy8HrnniI"
     }
   ],
   "wishlists": [
@@ -648,6 +697,51 @@
       "category": "Premium Notebooks",
       "price": 80,
       "id": "vu-DyIY_4Lg"
+    },
+    {
+      "userId": "dYjw3bPdxmM",
+      "productId": "30",
+      "name": "Lunch Boxes",
+      "image": "/Products/Bags/lunch.jpg",
+      "category": "School Accessories",
+      "price": 270,
+      "id": "ZDa6GEpaUw8"
+    },
+    {
+      "userId": "dYjw3bPdxmM",
+      "productId": "10",
+      "name": "Pocket Pens",
+      "image": "/Products/Essentials/pocket10.jpg",
+      "category": "Writing Essentials",
+      "price": 299,
+      "id": "PItCYM0Mykc"
+    },
+    {
+      "userId": "dYjw3bPdxmM",
+      "productId": "27",
+      "name": "Premium School Bags",
+      "image": "/Products/Bags/bag-3.jpg",
+      "category": "School Accessories",
+      "price": 999,
+      "id": "S76DI-4tn5U"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "productId": "1",
+      "name": "Premium Notebooks",
+      "image": "/Products/Books/premium2.jpg",
+      "category": "Premium Notebooks",
+      "price": 89,
+      "id": "TvJKKklw5cU"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "productId": "2",
+      "name": "Lined Notebooks",
+      "image": "/Products/Books/Lined2.jpg",
+      "category": "Notebooks",
+      "price": 80,
+      "id": "2azhcRcALaA"
     }
   ],
   "orders": [
@@ -954,7 +1048,7 @@
       "paymentMethod": "UPI",
       "paymentStatus": "Pending",
       "upiId": "opmmansoor@gmail.com",
-      "status": "Placed",
+      "status": "Cancelled",
       "createdAt": "2026-10-16T14:20:33.440Z",
       "id": "ly9INH15br0"
     },
@@ -1306,7 +1400,7 @@
       },
       "paymentMethod": "COD",
       "paymentStatus": "Pending",
-      "status": "Placed",
+      "status": "SHIPPED",
       "createdAt": "2026-10-24T13:42:24.434Z",
       "id": "J6gTJrSfuu0"
     },
@@ -1348,9 +1442,283 @@
       },
       "paymentMethod": "COD",
       "paymentStatus": "Pending",
-      "status": "Placed",
+      "status": "CANCELLED",
       "createdAt": "2026-10-24T16:04:01.272Z",
       "id": "VgkFHPIvDuw"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "vZMRDnpP4Ts",
+          "productId": "13",
+          "name": "Geometry Box",
+          "price": 100,
+          "quantity": 3,
+          "image": "/Products/Box/box1.jpg"
+        }
+      ],
+      "totalAmount": 300,
+      "shippingAddress": {
+        "fullName": "ajantha",
+        "phone": "2356535468",
+        "address": ",dfojh\n",
+        "city": "hasjk",
+        "pincode": "254654"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "SHIPPED",
+      "createdAt": "2026-10-24T16:27:43.591Z",
+      "id": "xKuBbSfBvmI"
+    },
+    {
+      "userId": "dYjw3bPdxmM",
+      "items": [
+        {
+          "cartItemId": "TllD3rch0J8",
+          "productId": "6",
+          "name": "Sticky Notes",
+          "price": 45,
+          "quantity": 1,
+          "image": "/Products/Books/sticky6.jpg"
+        },
+        {
+          "cartItemId": "KQmiyG1Ea-0",
+          "productId": "29",
+          "name": "Water Bottles",
+          "price": 120,
+          "quantity": 1,
+          "image": "/Products/Bags/bottle.jpg"
+        },
+        {
+          "cartItemId": "5Ypl6GYDuYI",
+          "productId": "28",
+          "name": "Pencil Cases",
+          "price": 189,
+          "quantity": 1,
+          "image": "/Products/Bags/pouch.jpg"
+        }
+      ],
+      "totalAmount": 354,
+      "shippingAddress": {
+        "fullName": "Fahmida",
+        "phone": "7664335678",
+        "address": "panayappuram",
+        "city": "chelembra",
+        "pincode": "243456"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "DELIVERED",
+      "createdAt": "2026-10-25T15:06:39.209Z",
+      "id": "L6sQ6jpSlnI"
+    },
+    {
+      "userId": "dYjw3bPdxmM",
+      "items": [
+        {
+          "cartItemId": "kudzmwtZETg",
+          "productId": "30",
+          "name": "Lunch Boxes",
+          "price": 270,
+          "quantity": 1,
+          "image": "/Products/Bags/lunch.jpg"
+        },
+        {
+          "cartItemId": "hA_fX5F1hxo",
+          "productId": "10",
+          "name": "Pocket Pens",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pocket10.jpg"
+        },
+        {
+          "cartItemId": "FvFi-dDki6s",
+          "productId": "27",
+          "name": "Premium School Bags",
+          "price": 999,
+          "quantity": 1,
+          "image": "/Products/Bags/bag-3.jpg"
+        }
+      ],
+      "totalAmount": 1568,
+      "shippingAddress": {
+        "fullName": "fahmi",
+        "phone": "7565435567",
+        "address": "gdheter",
+        "city": "Pallikal",
+        "pincode": "673634"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "SHIPPED",
+      "createdAt": "2026-10-25T15:36:30.639Z",
+      "id": "i9nhse5zRdc"
+    },
+    {
+      "userId": "swYCIejMNvk",
+      "items": [
+        {
+          "cartItemId": "aSL76TUOrh4",
+          "productId": "11",
+          "name": "Markers",
+          "price": 99,
+          "quantity": 1,
+          "image": "/Products/Essentials/marker11.jpg"
+        }
+      ],
+      "totalAmount": 99,
+      "shippingAddress": {
+        "fullName": "user",
+        "phone": "6798765434",
+        "address": "userd",
+        "city": "u city",
+        "pincode": "345678"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-25T15:44:58.859Z",
+      "id": "W4nCn3mWQuA"
+    },
+    {
+      "userId": "FbWBL3h9O9w",
+      "items": [
+        {
+          "cartItemId": "CjMATHTxIdY",
+          "productId": "12",
+          "name": "Highlighters",
+          "price": 129,
+          "quantity": 2,
+          "image": "/Products/Essentials/highligth12.jpg"
+        },
+        {
+          "cartItemId": "-zYkJAfIPRY",
+          "productId": "14",
+          "name": "Geometry Box",
+          "price": 199,
+          "quantity": 1,
+          "image": "/Products/Box/box2.jpg"
+        }
+      ],
+      "totalAmount": 457,
+      "shippingAddress": {
+        "fullName": "MANSOOR PALLIKKAL",
+        "phone": "9673457843",
+        "address": "4WX6+MMH",
+        "city": "Pallikal",
+        "pincode": "673634"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "DELIVERED",
+      "createdAt": "2026-10-25T16:20:14.766Z",
+      "id": "-pITVbBWRnM"
+    },
+    {
+      "userId": "Z60aHPQgokc",
+      "items": [
+        {
+          "cartItemId": "hzEBSac_qgE",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        }
+      ],
+      "totalAmount": 80,
+      "shippingAddress": {
+        "fullName": "shahid",
+        "phone": "6238291593",
+        "address": "kakavmyr house",
+        "city": "Trissur",
+        "pincode": "673634"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-26T06:18:37.342Z",
+      "id": "w8RfQRFuuhw"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "items": [
+        {
+          "cartItemId": "AJuty1BLtc4",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        }
+      ],
+      "totalAmount": 80,
+      "shippingAddress": {
+        "fullName": "mansoor",
+        "phone": "8086958434",
+        "address": "hsodir hhouse",
+        "city": "calicut",
+        "pincode": "647516"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-26T09:12:43.381Z",
+      "id": "-AXO3YpPqbk"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "items": [
+        {
+          "cartItemId": "jDxWtvREsno",
+          "productId": "3",
+          "name": "Spiral Notebooks",
+          "price": 50,
+          "quantity": 1,
+          "image": "/Products/Books/spiral3.jpg"
+        }
+      ],
+      "totalAmount": 50,
+      "shippingAddress": {
+        "fullName": "mansoor",
+        "phone": "9085947545",
+        "address": "house",
+        "city": "city",
+        "pincode": "656433"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-26T09:22:47.866Z",
+      "id": "ei3qBwzC9-8"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "items": [
+        {
+          "cartItemId": "Jt03D56DVew",
+          "productId": "1",
+          "name": "Premium Notebooks",
+          "price": 89,
+          "quantity": 1,
+          "image": "/Products/Books/premium2.jpg"
+        }
+      ],
+      "totalAmount": 89,
+      "shippingAddress": {
+        "fullName": "mans",
+        "phone": "9578974595",
+        "address": "house",
+        "city": "city",
+        "pincode": "655855"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "Placed",
+      "createdAt": "2026-10-26T09:24:03.587Z",
+      "id": "qtANmFXIjDs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
