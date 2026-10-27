@@ -258,10 +258,10 @@ export default function AdminUsers() {
                                         <button
                                                 onClick={() => handleStatusChange(user)}
                                                 disabled={statusMutation.isPending}
-                                                className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-50 
+                                                className={`inline-flex items-center gap-2 rounded-lg px-2 py-2 text-xs font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-50 
                                                             ${ user.isBlocked
                                                                 ? "bg-green-600 hover:bg-green-700"
-                                                                : "bg-red-500 hover:bg-red-600"
+                                                                : "bg-red-500 px-5 hover:bg-red-600"
 
                                                             }`}>
 

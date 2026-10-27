@@ -15,7 +15,7 @@
       "password": "aja1234",
       "id": "Z60aHPQgokc",
       "role": "user",
-      "isBlocked": false
+      "isBlocked": true
     },
     {
       "firstName": "new",
@@ -24,7 +24,7 @@
       "password": "user121@",
       "id": "DBqL9w6McKQ",
       "role": "user",
-      "isBlocked": false
+      "isBlocked": true
     },
     {
       "firstName": "user 2",
@@ -33,7 +33,7 @@
       "password": "user212@",
       "id": "zFa8VFTUYWo",
       "role": "user",
-      "isBlocked": false
+      "isBlocked": true
     },
     {
       "firstName": "user 3",
@@ -95,7 +95,7 @@
       "email": "op@gmail.com",
       "password": "op1@mmm",
       "role": "user",
-      "isBlocked": true,
+      "isBlocked": false,
       "id": "1gU68fQSEw0"
     },
     {
@@ -122,7 +122,7 @@
       "email": "user12@gmail.com",
       "password": "user12@",
       "role": "user",
-      "isBlocked": true,
+      "isBlocked": false,
       "id": "FbWBL3h9O9w"
     },
     {
@@ -140,8 +140,17 @@
       "email": "ac1@gmail.com",
       "password": "ac1@ac1",
       "role": "user",
-      "isBlocked": true,
+      "isBlocked": false,
       "id": "dxQOWoQZcn8"
+    },
+    {
+      "firstName": "test",
+      "secondName": "user",
+      "email": "testuser@gmail.com",
+      "password": "testuser123",
+      "role": "user",
+      "isBlocked": false,
+      "id": "MRVdmdVgRpE"
     }
   ],
   "products": [
@@ -237,8 +246,8 @@
       "stock": 6,
       "rating": 4.9,
       "image": "/Products/Essentials/premium2.jpg",
-      "isTrashed": true,
-      "deletedAt": "2026-10-26T09:19:07.840Z"
+      "isTrashed": false,
+      "deletedAt": null
     },
     {
       "id": "8",
@@ -401,7 +410,7 @@
       "name": "Premium Daily Diary",
       "category": "Diaries",
       "description": "A Premium Quality Pages diary for recording daily activities, notes, ideas, and important events",
-      "price": 199,
+      "price": 210,
       "stock": 30,
       "rating": 4.7,
       "image": "/Products/Daires/daily3.jpg",
@@ -535,8 +544,8 @@
       "stock": 4,
       "image": "/Products/Essentials/marker11.jpg",
       "description": "",
-      "isTrashed": true,
-      "deletedAt": "2026-10-26T05:19:32.697Z",
+      "isTrashed": false,
+      "deletedAt": null,
       "id": "E1ElVzGnzhM"
     },
     {
@@ -549,6 +558,17 @@
       "isTrashed": false,
       "deletedAt": null,
       "id": "Bvx4ATUPnhU"
+    },
+    {
+      "name": "notebook",
+      "category": "notebook",
+      "price": 100,
+      "stock": 23,
+      "image": "/image/tes.jpg",
+      "description": "notebook For students",
+      "isTrashed": false,
+      "deletedAt": null,
+      "id": "T0FQY4QW37s"
     }
   ],
   "carts": [
@@ -578,15 +598,6 @@
       "image": "/Products/Books/premium2.jpg",
       "quantity": 2,
       "id": "ZMXEbvMViQY"
-    },
-    {
-      "userId": "dxQOWoQZcn8",
-      "productId": "2",
-      "name": "Lined Notebooks",
-      "price": 80,
-      "image": "/Products/Books/Lined2.jpg",
-      "quantity": 2,
-      "id": "Qgvy8HrnniI"
     }
   ],
   "wishlists": [
@@ -742,6 +753,24 @@
       "category": "Notebooks",
       "price": 80,
       "id": "2azhcRcALaA"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "productId": "7",
+      "name": "Gel Pens",
+      "image": "/Products/Essentials/pen7.jpg",
+      "category": "Writing Essentials",
+      "price": 299,
+      "id": "kwpP8aVCsxI"
+    },
+    {
+      "userId": "MRVdmdVgRpE",
+      "productId": "16",
+      "name": "Set Square",
+      "image": "/Products/Box/square.jpg",
+      "category": "Instruments",
+      "price": 60,
+      "id": "mrM7uCeKKwg"
     }
   ],
   "orders": [
@@ -765,7 +794,7 @@
         "city": "kolkatha",
         "pincode": "673634"
       },
-      "status": "SHIPPED",
+      "status": "CANCELLED",
       "createdAt": "2026-10-13T15:12:14.589Z",
       "id": "bht6juc3eCs"
     },
@@ -789,7 +818,7 @@
         "city": "city",
         "pincode": "123456"
       },
-      "status": "DELIVERED",
+      "status": "SHIPPED",
       "createdAt": "2026-10-14T04:57:50.144Z",
       "id": "oLANBY4kBOw"
     },
@@ -1716,9 +1745,94 @@
       },
       "paymentMethod": "COD",
       "paymentStatus": "Pending",
-      "status": "Placed",
+      "status": "DELIVERED",
       "createdAt": "2026-10-26T09:24:03.587Z",
       "id": "qtANmFXIjDs"
+    },
+    {
+      "userId": "dxQOWoQZcn8",
+      "items": [
+        {
+          "cartItemId": "Qgvy8HrnniI",
+          "productId": "2",
+          "name": "Lined Notebooks",
+          "price": 80,
+          "quantity": 1,
+          "image": "/Products/Books/Lined2.jpg"
+        },
+        {
+          "cartItemId": "-YVl2pjmb9A",
+          "productId": "10",
+          "name": "Pocket Pens",
+          "price": 299,
+          "quantity": 1,
+          "image": "/Products/Essentials/pocket10.jpg"
+        },
+        {
+          "cartItemId": "ae7M0fZGwsU",
+          "productId": "25",
+          "name": "School Bags",
+          "price": 859,
+          "quantity": 1,
+          "image": "/Products/Bags/bag-1.jpg"
+        }
+      ],
+      "totalAmount": 1238,
+      "shippingAddress": {
+        "fullName": "mansoor",
+        "phone": "6565656535",
+        "address": "jhugdedtf",
+        "city": "gfgtdtgfh",
+        "pincode": "656465"
+      },
+      "paymentMethod": "COD",
+      "paymentStatus": "Pending",
+      "status": "SHIPPED",
+      "createdAt": "2026-10-26T12:48:27.612Z",
+      "id": "PjPUacfUES0"
+    },
+    {
+      "userId": "MRVdmdVgRpE",
+      "items": [
+        {
+          "cartItemId": "JLBmBhMxijU",
+          "productId": "17",
+          "name": "Premium Compass",
+          "price": 110,
+          "quantity": 3,
+          "image": "/Products/Box/compass.jpg"
+        },
+        {
+          "cartItemId": "bPW2X8gpL9M",
+          "productId": "19",
+          "name": "Daily Diary",
+          "price": 199,
+          "quantity": 1,
+          "image": "/Products/Daires/dairy1.jpg"
+        },
+        {
+          "cartItemId": "dL3QM2czSK8",
+          "productId": "23",
+          "name": "To Do Notes",
+          "price": 90,
+          "quantity": 2,
+          "image": "/Products/Daires/todo23.jpg"
+        }
+      ],
+      "totalAmount": 709,
+      "shippingAddress": {
+        "fullName": "user",
+        "phone": "9756368798",
+        "address": "test",
+        "city": "city",
+        "pincode": "876544"
+      },
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "upiId": "test@upi",
+      "status": "Placed",
+      "createdAt": "2026-10-26T13:37:09.129Z",
+      "id": "6ZT-yWW5tlA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
